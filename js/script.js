@@ -1,122 +1,153 @@
 
-const menuToggle = document.querySelector("#menuToggle");
-const navMenu = document.querySelector("#navMenu");
+"use strict";
 
-// Menú de navegación
-menuToggle.addEventListener("click", () => {
-  const isOpen = navMenu.classList.toggle("open");
+document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+    const dropdownToggle = document.querySelector(".nav-dropdown-toggle");
+    const dropdown = document.querySelector(".nav-dropdown");
+    const yearElement = document.getElementById("year");
 
-  menuToggle.setAttribute("aria-expanded", String(isOpen));
-  menuToggle.setAttribute(
-    "aria-label",
-    isOpen ? "Cerrar menú" : "Abrir menú"
-  );
-});
+    const mobileQuery = window.matchMedia("(max-width: 900px)");
 
-navMenu.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    navMenu.classList.remove("open");
-    menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.setAttribute("aria-label", "Abrir menú");
-  });
-});
-
-// Volver al inicio
-document.querySelectorAll('a[href="#inicio"]').forEach((link) => {
-  link.addEventListener("click", (event) => {
-    event.preventDefault();
-
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth"
-    });
-  });
-});
-
-// Año actual en el footer
-document.querySelector("#year").textContent =
-  new Date().getFullYear();
-
-// Animación de aparición de secciones
-const revealElements = document.querySelectorAll(".reveal");
-
-if ("IntersectionObserver" in window) {
-  const observer = new IntersectionObserver(
-    (entries, currentObserver) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          currentObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.12 }
-  );
-
-  revealElements.forEach((element) => {
-    observer.observe(element);
-  });
-} else {
-  revealElements.forEach((element) => {
-    element.classList.add("visible");
-  });
-}
-
-// Formulario de solicitudes con Web3Forms
-const quoteForm = document.getElementById("quoteForm");
-const formStatus = document.getElementById("formStatus");
-
-if (quoteForm && formStatus) {
-  quoteForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
-
-    const submitButton = quoteForm.querySelector(
-      'button[type="submit"]'
-    );
-
-    const originalText = submitButton.textContent;
-
-    submitButton.disabled = true;
-    submitButton.textContent = "Enviando solicitud...";
-    formStatus.textContent = "";
-
-    try {
-      const response = await fetch(
-        "https://api.web3forms.com/submit",
-        {
-          method: "POST",
-          headers: {
-            Accept: "application/json"
-          },
-          body: new FormData(quoteForm)
-        }
-      );
-
-      const result = await response.json();
-
-      if (!response.ok || !result.success) {
-        throw new Error(
-          result.message || "No se pudo enviar la solicitud."
-        );
-      }
-
-      const nombre =
-        quoteForm.elements.namedItem("nombre").value;
-
-      const evento =
-        quoteForm.elements.namedItem("evento").value;
-
-      formStatus.textContent =
-        `Gracias, ${nombre}. Tu solicitud sobre "${evento}" está lista. Pronto nos pondremos en contacto contigo.`;
-
-      quoteForm.reset();
-    } catch (error) {
-      console.error("Error al enviar el formulario:", error);
-      formStatus.textContent = error.message;
-    } finally {
-      submitButton.disabled = false;
-      submitButton.textContent = originalText;
+    // Actualizar el año del pie de página.
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
     }
-  });
-}
+
+    // Abrir y cerrar el menú principal.
+    function setMenu(open) {
+        if (!menuToggle || !navMenu) {
+            return;
+        }
+
+        navMenu.classList.toggle("open", open);
+        menuToggle.setAttribute("aria-expanded", String(open));
+        menuToggle.setAttribute(
+            "aria-label",
+            open ? "Cerrar menú de navegación" : "Abrir menú de navegación"
+        );
+        document.body.classList.toggle("menu-open", open);
+
+        if (!open) {
+            setDropdown(false);
+        }
+    }
+
+    // Abrir y cerrar el desplegable de servicios.
+    function setDropdown(open) {
+        if (!dropdown || !dropdownToggle) {
+            return;
+        }
+
+        dropdown.classList.toggle("open", open);
+        dropdownToggle.setAttribute("aria-expanded", String(open));
+    }
+
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener("click", () => {
+            const isOpen = navMenu.classList.contains("open");
+            setMenu(!isOpen);
+        });
+
+        // Cerrar el menú al seleccionar un enlace.
+        navMenu.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+                if (mobileQuery.matches) {
+                    setMenu(false);
+                }
+            });
+        });
+    }
+
+    if (dropdownToggle && dropdown) {
+        dropdownToggle.addEventListener("click", () => {
+            const isOpen = dropdown.classList.contains("open");
+            setDropdown(!isOpen);
+        });
+    }
+
+    // Cerrar los menús al hacer clic fuera de ellos.
+    document.addEventListener("click", (event) => {
+        const target = event.target;
+
+        if (!(target instanceof Element)) {
+            return;
+        }
+
+        if (
+            dropdown &&
+            !dropdown.contains(target)
+        ) {
+            setDropdown(false);
+        }
+
+        if (
+            mobileQuery.matches &&
+            navMenu &&
+            menuToggle &&
+            !navMenu.contains(target) &&
+            !menuToggle.contains(target)
+        ) {
+            setMenu(false);
+        }
+    });
+
+    // Cerrar los menús con la tecla Escape.
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+            setMenu(false);
+            setDropdown(false);
+        }
+    });
+
+    // Restablecer el menú al cambiar entre móvil y escritorio.
+    function handleViewportChange() {
+        setMenu(false);
+        setDropdown(false);
+    }
+
+    if (typeof mobileQuery.addEventListener === "function") {
+        mobileQuery.addEventListener("change", handleViewportChange);
+    } else {
+        mobileQuery.addListener(handleViewportChange);
+    }
+
+    // Animaciones de aparición de las secciones.
+    const revealElements = document.querySelectorAll(".reveal");
+    const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (
+        revealElements.length > 0 &&
+        !prefersReducedMotion &&
+        "IntersectionObserver" in window
+    ) {
+        const observer = new IntersectionObserver(
+            (entries, currentObserver) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        currentObserver.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+        revealElements.forEach((element) => {
+            observer.observe(element);
+        });
+
+        // Activar las animaciones solo cuando están preparadas.
+        document.documentElement.classList.add("js-enabled");
+    } else {
+        // Mostrar el contenido si no se pueden usar las animaciones.
+        revealElements.forEach((element) => {
+            element.classList.add("visible");
+        });
+    }
+});
