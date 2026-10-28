@@ -7,8 +7,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const dropdownToggle = document.querySelector(".nav-dropdown-toggle");
     const dropdown = document.querySelector(".nav-dropdown");
     const yearElement = document.getElementById("year");
-
     const mobileQuery = window.matchMedia("(max-width: 900px)");
+    // Subida suave al inicio al pulsar el logo.
+    const logo = document.querySelector(".logo");
+      if (logo) {
+        logo.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+}
 
     // Actualizar el año del pie de página.
     if (yearElement) {

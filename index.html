@@ -30,54 +30,58 @@
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-  <!-- CABECERA Y NAVEGACIÓN -->
-  <header class="header" id="inicio">
+ 
+<!-- CABECERA Y NAVEGACIÓN -->
+<header class="header" id="inicio">
     <div class="header-inner">
-      <a class="logo" href="index.html" aria-label="ÉVORA, página de inicio">
-        ÉVORA<span class="logo-dot">.</span>
-        <span class="logo-caption">EXPERIENCES · EVENTS</span>
-      </a>
 
-      <button
-        class="menu-toggle"
-        id="menuToggle"
-        type="button"
-        aria-label="Abrir menú"
-        aria-controls="navMenu"
-        aria-expanded="false"
-      >
-        <span></span>
-        <span></span>
-      </button>
+        <a class="logo" href="#inicio" aria-label="ÉVORA, página de inicio">
+            ÉVORA<span class="logo-dot"></span>
+            <span class="logo-caption">EXPERIENCES · EVENTS</span>
+        </a>
 
-      <nav class="nav" id="navMenu" aria-label="Navegación principal">
-        <a href="nosotros.html">Nosotros</a>
-
-        <div class="nav-dropdown">
-          <button
-            class="nav-dropdown-toggle"
+        <button
+            class="menu-toggle"
+            id="menuToggle"
             type="button"
+            aria-label="Abrir menú"
+            aria-controls="navMenu"
             aria-expanded="false"
-            aria-controls="servicesMenu"
-          >
-            Servicios <span aria-hidden="true">⌄</span>
-          </button>
+        >
+            <span></span>
+            <span></span>
+        </button>
 
-          <div class="nav-dropdown-menu" id="servicesMenu">
-            <a href="bodas.html">Bodas</a>
-            <a href="bodas-destino.html">Bodas destino</a>
-            <a href="eventos-corporativos.html">Eventos corporativos</a>
-            <a href="ocasiones-especiales.html">Ocasiones especiales</a>
-          </div>
-        </div>
+        <nav class="nav" id="navMenu" aria-label="Navegación principal">
+            <a href="nosotros.html">Nosotros</a>
 
-        <a href="rsvp-digital.html">RSVP digital</a>
-        <a href="gestion-invitados.html">Gestión de invitados</a>
-        <a href="galeria.html">Galería</a>
-        <a class="nav-cta" href="contacto.html">Hablemos</a>
-      </nav>
+            <div class="nav-dropdown">
+                <button
+                    class="nav-dropdown-toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="servicesMenu"
+                >
+                    Servicios <span aria-hidden="true">⌄</span>
+                </button>
+
+                <div class="nav-dropdown-menu" id="servicesMenu">
+                    <a href="bodas.html">Bodas</a>
+                    <a href="bodas-destino.html">Bodas destino</a>
+                    <a href="eventos-corporativos.html">Eventos corporativos</a>
+                    <a href="ocasiones-especiales.html">Ocasiones especiales</a>
+                </div>
+            </div>
+
+            <a href="rsvp-digital.html">RSVP digital</a>
+            <a href="gestion-invitados.html">Gestión de invitados</a>
+            <a href="galeria.html">Galería</a>
+            <a class="nav-cta" href="contacto.html">Hablemos</a>
+        </nav>
+
     </div>
-  </header>
+</header>
+
 
   <main id="contenido">
     <!-- HERO PRINCIPAL -->
@@ -142,100 +146,137 @@
       </a>
     </section>
 
-    <!-- SERVICIOS PRINCIPALES -->
-    <section class="services section-wrap" id="servicios">
-      <div class="section-heading reveal">
+    
+<!-- SERVICIOS PRINCIPALES -->
+<section class="services section-wrap" id="servicios">
+    <div class="section-heading reveal">
         <div>
-          <p class="eyebrow">NUESTRO UNIVERSO</p>
-          <h2>
-            Un propósito.
-            <em>Mil posibilidades.</em>
-          </h2>
+            <p class="eyebrow">NUESTRO UNIVERSO</p>
+            <h2>
+                Un propósito.
+                <em>Mil posibilidades.</em>
+            </h2>
         </div>
 
         <p>
-          Soluciones integrales para celebrar, conectar y crear momentos
-          que merecen ser recordados.
+            Soluciones integrales para celebrar, conectar y crear momentos
+            que merecen ser recordados.
         </p>
-      </div>
+    </div>
 
-      <div class="service-grid">
+    <div class="service-grid">
+
+        <!-- SERVICIO 01: BODAS -->
         <article class="service-card reveal">
-          <a href="bodas.html" class="service-image-link"
-             aria-label="Descubrir el servicio de bodas">
-            <img
-              src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80"
-              alt="Ceremonia de boda cuidadosamente ambientada"
-              width="900"
-              height="1100"
-              loading="lazy"
-            >
-          </a>
+            <a href="bodas.html" class="service-image-link"
+               aria-label="Descubrir el servicio de bodas">
+                <img
+                    class="service-image image-wedding"
+                    src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=850&q=85"
+                    alt="Ceremonia de boda elegantemente ambientada"
+                    width="850"
+                    height="700"
+                    loading="lazy"
+                >
+            </a>
 
-          <p class="service-number">01 / CELEBRACIONES</p>
-          <h3>Bodas y bodas destino</h3>
-
-          <p>
-            Planificación integral, diseño y coordinación para celebrar
-            una historia única.
-          </p>
-
-          <a class="text-link" href="bodas.html">
-            Explorar servicio <span aria-hidden="true">↗</span>
-          </a>
+            <div class="service-content">
+                <span class="card-kicker">01 / CELEBRACIONES</span>
+                <h3>Bodas</h3>
+                <p>
+                    Planeación completa o parcial y coordinación del día
+                    para vivir tu celebración con tranquilidad.
+                </p>
+                <a class="arrow-link" href="bodas.html">
+                    Explorar servicio <span aria-hidden="true">↗</span>
+                </a>
+            </div>
         </article>
 
+        <!-- SERVICIO 02: BODAS DESTINO -->
         <article class="service-card reveal">
-          <a href="eventos-corporativos.html" class="service-image-link"
-             aria-label="Descubrir los eventos corporativos">
-            <img
-              src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=900&q=80"
-              alt="Salón preparado para un evento corporativo"
-              width="900"
-              height="1100"
-              loading="lazy"
-            >
-          </a>
+            <a href="bodas-destino.html" class="service-image-link"
+               aria-label="Descubrir el servicio de bodas destino">
+                <img
+                    class="service-image image-destination"
+                    src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=850&q=85"
+                    alt="Celebración de boda en un destino especial"
+                    width="850"
+                    height="700"
+                    loading="lazy"
+                >
+            </a>
 
-          <p class="service-number">02 / CONEXIONES</p>
-          <h3>Eventos corporativos</h3>
-
-          <p>
-            Encuentros que conectan personas y comunican la esencia
-            de cada organización.
-          </p>
-
-          <a class="text-link" href="eventos-corporativos.html">
-            Explorar servicio <span aria-hidden="true">↗</span>
-          </a>
+            <div class="service-content">
+                <span class="card-kicker">02 / DESTINOS</span>
+                <h3>Bodas destino</h3>
+                <p>
+                    Celebraciones con identidad propia, en destinos
+                    nacionales e internacionales seleccionados.
+                </p>
+                <a class="arrow-link" href="bodas-destino.html">
+                    Explorar servicio <span aria-hidden="true">↗</span>
+                </a>
+            </div>
         </article>
 
+        <!-- SERVICIO 03: EVENTOS CORPORATIVOS -->
         <article class="service-card reveal">
-          <a href="ocasiones-especiales.html" class="service-image-link"
-             aria-label="Descubrir las ocasiones especiales">
-            <img
-              src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=900&q=80"
-              alt="Mesa decorada para una celebración especial"
-              width="900"
-              height="1100"
-              loading="lazy"
-            >
-          </a>
+            <a href="eventos-corporativos.html" class="service-image-link"
+               aria-label="Descubrir los eventos corporativos">
+                <img
+                    class="service-image image-corporate"
+                    src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=850&q=85"
+                    alt="Espacio preparado para un evento corporativo"
+                    width="850"
+                    height="700"
+                    loading="lazy"
+                >
+            </a>
 
-          <p class="service-number">03 / MOMENTOS</p>
-          <h3>Ocasiones especiales</h3>
-
-          <p>
-            Celebraciones personalizadas que convierten cada ocasión
-            en un recuerdo extraordinario.
-          </p>
-
-          <a class="text-link" href="ocasiones-especiales.html">
-            Explorar servicio <span aria-hidden="true">↗</span>
-          </a>
+            <div class="service-content">
+                <span class="card-kicker">03 / MARCAS Y EQUIPOS</span>
+                <h3>Eventos corporativos</h3>
+                <p>
+                    Congresos, lanzamientos, seminarios y encuentros de
+                    networking organizados con precisión.
+                </p>
+                <a class="arrow-link" href="eventos-corporativos.html">
+                    Explorar servicio <span aria-hidden="true">↗</span>
+                </a>
+            </div>
         </article>
-      </div>
-    </section>
+
+        <!-- SERVICIO 04: OCASIONES ESPECIALES -->
+        <article class="service-card reveal">
+            <a href="ocasiones-especiales.html" class="service-image-link"
+               aria-label="Descubrir las ocasiones especiales">
+                <img
+                    class="service-image image-celebration"
+                    src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=850&q=85"
+                    alt="Mesa decorada para una celebración especial"
+                    width="850"
+                    height="700"
+                    loading="lazy"
+                >
+            </a>
+
+            <div class="service-content">
+                <span class="card-kicker">04 / MOMENTOS PERSONALES</span>
+                <h3>Ocasiones especiales</h3>
+                <p>
+                    Cumpleaños, aniversarios, graduaciones y quinceañeros
+                    diseñados alrededor de tu historia.
+                </p>
+                <a class="arrow-link" href="ocasiones-especiales.html">
+                    Explorar servicio <span aria-hidden="true">↗</span>
+                </a>
+            </div>
+        </article>
+
+    </div>
+</section>
+
 
     <!-- TECNOLOGÍA PARA LA GESTIÓN DE INVITADOS -->
     <section class="technology" aria-labelledby="technology-title">
