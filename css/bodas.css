@@ -1,0 +1,528 @@
+/* ÉVORA — DISEÑO EDITORIAL PARA PAQUETES DE BODAS */
+
+.wedding-packages {
+  --wp-ink: #20251f;
+  --wp-olive: #515847;
+  --wp-gold: #b18a57;
+  --wp-paper: #f4f0e8;
+  --wp-white: #fffdf9;
+  --wp-line: #d9d0c1;
+  background: var(--wp-paper);
+  color: var(--wp-ink);
+  font-family: "Inter", Arial, sans-serif;
+  line-height: 1.7;
+}
+
+.wedding-packages *,
+.wedding-packages *::before,
+.wedding-packages *::after {
+  box-sizing: border-box;
+}
+
+.wedding-packages a {
+  color: inherit;
+}
+
+.wp-heading {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 100px 24px 85px;
+  text-align: center;
+}
+
+.wp-kicker,
+.wp-label,
+.wp-intro > span {
+  display: block;
+  color: var(--wp-gold);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.3px;
+  text-transform: uppercase;
+}
+
+.wp-heading h1,
+.wp-details-heading h2,
+.wp-contact-copy h2,
+.wp-transparency h2 {
+  margin: 20px 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(44px, 6vw, 76px);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.wp-heading h1 em,
+.wp-details-heading h2 em,
+.wp-contact-copy h2 em,
+.wp-transparency h2 em {
+  color: var(--wp-gold);
+  font-weight: 400;
+}
+
+.wp-heading > p {
+  max-width: 610px;
+  margin: 25px auto 0;
+  color: #6f7068;
+  font-size: 14px;
+}
+
+.wp-intro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 24px;
+  border-top: 1px solid var(--wp-line);
+}
+
+.wp-intro p {
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 25px;
+}
+
+.wp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 10px 24px 100px;
+  align-items: stretch;
+}
+
+.wp-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--wp-white);
+  border: 1px solid var(--wp-line);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wp-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px #342b1c12;
+}
+
+.wp-card-featured {
+  border: 1px solid var(--wp-gold);
+}
+
+.wp-ribbon {
+  position: absolute;
+  z-index: 2;
+  top: 18px;
+  right: 18px;
+  padding: 7px 11px;
+  background: var(--wp-gold);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+}
+
+.wp-photo {
+  position: relative;
+  height: 260px;
+  background-size: cover;
+  background-position: center;
+}
+
+.wp-photo::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, #111a14a8, transparent 55%);
+  content: "";
+}
+
+.wp-photo span {
+  position: absolute;
+  z-index: 1;
+  bottom: 17px;
+  left: 20px;
+  color: white;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.wp-photo-one {
+  background-image: url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80");
+}
+
+.wp-photo-two {
+  background-image: url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=80");
+}
+
+.wp-photo-three {
+  background-image: url("https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=900&q=80");
+}
+
+.wp-card-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 28px;
+}
+
+.wp-card .wp-label {
+  margin: 0;
+  font-size: 9px;
+  letter-spacing: 1.4px;
+}
+
+.wp-card h2 {
+  margin: 10px 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.wp-description {
+  min-height: 80px;
+  color: #77776f;
+  font-size: 12px;
+}
+
+.wp-price {
+  margin: 16px 0;
+  color: var(--wp-olive);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 43px;
+  line-height: 1.1;
+}
+
+.wp-price > span {
+  font-size: 22px;
+}
+
+.wp-price small {
+  display: block;
+  margin-top: 8px;
+  color: #85857d;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 10px;
+}
+
+.wp-card ul {
+  margin: 15px 0 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.wp-card li {
+  position: relative;
+  padding: 11px 0 11px 21px;
+  border-bottom: 1px solid #e9e2d7;
+  font-size: 11px;
+}
+
+.wp-card li::before {
+  position: absolute;
+  left: 0;
+  color: var(--wp-gold);
+  content: "✓";
+}
+
+.wp-best {
+  margin-top: auto;
+  padding: 15px;
+  background: #f0ece3;
+  color: #66675e;
+  font-size: 11px;
+}
+
+.wp-best strong {
+  color: var(--wp-ink);
+}
+
+.wp-link {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  margin-top: 14px;
+  padding: 15px 0 4px;
+  border-bottom: 1px solid var(--wp-gold);
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.wp-link span {
+  color: var(--wp-gold);
+  font-size: 19px;
+}
+
+.wp-details {
+  padding: 100px 24px;
+  background: var(--wp-white);
+}
+
+.wp-details-heading {
+  max-width: 780px;
+  margin: 0 auto 65px;
+  text-align: center;
+}
+
+.wp-details-heading h2 {
+  font-size: clamp(40px, 5vw, 61px);
+}
+
+.wp-details-heading > p {
+  color: #77776f;
+  font-size: 13px;
+}
+
+.wp-detail {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 720px);
+  justify-content: center;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 0;
+  border-top: 1px solid var(--wp-line);
+  scroll-margin-top: 30px;
+}
+
+.wp-detail-number {
+  color: var(--wp-gold);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 55px;
+  line-height: 1;
+}
+
+.wp-detail .wp-label {
+  margin: 0;
+}
+
+.wp-detail h3 {
+  margin: 10px 0 18px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.wp-detail p:not(.wp-label) {
+  color: #6f7068;
+  font-size: 13px;
+}
+
+.wp-detail strong {
+  color: var(--wp-ink);
+}
+
+.wp-detail-cta {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--wp-gold);
+  color: var(--wp-ink);
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.wp-transparency {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 70px;
+  align-items: center;
+  padding: 80px max(24px, calc((100% - 1100px) / 2));
+  background: #e8e1d5;
+}
+
+.wp-transparency h2 {
+  font-size: clamp(40px, 5vw, 60px);
+}
+
+.wp-transparency-text {
+  color: #696a61;
+  font-size: 13px;
+}
+
+.wp-transparency-text strong {
+  color: var(--wp-ink);
+}
+
+.wp-contact {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 60px;
+  padding: 100px max(24px, calc((100% - 1100px) / 2));
+  background: #252d25;
+  color: #fffdf9;
+}
+
+.wp-contact-copy h2 {
+  font-size: clamp(42px, 5vw, 64px);
+}
+
+.wp-contact-copy > p {
+  max-width: 390px;
+  color: #d2d3cb;
+  font-size: 13px;
+}
+
+.wp-form {
+  padding: 30px;
+  background: var(--wp-white);
+  color: var(--wp-ink);
+}
+
+.wp-form label {
+  display: block;
+  margin: 15px 0 6px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.wp-form input,
+.wp-form select,
+.wp-form textarea {
+  display: block;
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #d9d4ca;
+  border-radius: 0;
+  background: white;
+  color: var(--wp-ink);
+  font: inherit;
+  font-size: 12px;
+}
+
+.wp-form input:focus,
+.wp-form select:focus,
+.wp-form textarea:focus {
+  outline: 2px solid var(--wp-gold);
+  outline-offset: 1px;
+}
+
+.wp-submit {
+  width: 100%;
+  margin-top: 22px;
+  padding: 16px;
+  border: 1px solid var(--wp-olive);
+  background: var(--wp-olive);
+  color: white;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.wp-submit:hover {
+  background: #343d31;
+}
+
+.wp-form-note {
+  color: #77776f;
+  font-size: 10px;
+}
+
+/* TABLET */
+@media (max-width: 950px) {
+  .wp-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .wp-card:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .wp-card:last-child .wp-card-content {
+    padding: 28px;
+  }
+
+  .wp-transparency,
+  .wp-contact {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+}
+
+/* CELULAR */
+@media (max-width: 620px) {
+  .wp-heading {
+    padding: 70px 20px;
+  }
+
+  .wp-heading h1 {
+    font-size: 48px;
+  }
+
+  .wp-intro {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .wp-intro p {
+    font-size: 22px;
+  }
+
+  .wp-grid {
+    grid-template-columns: 1fr;
+    padding: 10px 16px 65px;
+  }
+
+  .wp-card:last-child {
+    grid-column: auto;
+  }
+
+  .wp-photo {
+    height: 230px;
+  }
+
+  .wp-card-content {
+    padding: 23px;
+  }
+
+  .wp-description {
+    min-height: 0;
+  }
+
+  .wp-details {
+    padding: 70px 20px;
+  }
+
+  .wp-detail {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 30px 0;
+  }
+
+  .wp-detail-number {
+    font-size: 39px;
+  }
+
+  .wp-detail h3 {
+    font-size: 30px;
+  }
+
+  .wp-transparency,
+  .wp-contact {
+    padding: 65px 20px;
+  }
+
+  .wp-form {
+    padding: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wp-card {
+    transition: none;
+  }
+
+  .wp-card:hover {
+    transform: none;
+  }
+}
