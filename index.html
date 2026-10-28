@@ -122,28 +122,101 @@
         <p>Cuéntanos qué tienes en mente. Nos encantará ayudarte a convertirlo en una experiencia extraordinaria.</p>
         <p class="contact-note">Completa el formulario y prepara los detalles iniciales de tu evento.</p>
       </div>
-      <form class="contact-form reveal" id="quoteForm">
-        <div class="form-row">
-          <label>Nombre completo<input type="text" name="nombre" placeholder="Tu nombre" required></label>
-          <label>Correo electrónico<input type="email" name="correo" placeholder="tu@correo.com" required></label>
-        </div>
-        <div class="form-row">
-          <label>Tipo de evento
-            <select name="evento" required>
-              <option value="">Selecciona una opción</option>
-              <option>Boda / boda destino</option>
-              <option>Evento corporativo</option>
-              <option>Celebración exclusiva</option>
-              <option>Otro evento</option>
-            </select>
-          </label>
-          <label>Fecha aproximada<input type="date" name="fecha"></label>
-        </div>
-        <label>Cuéntanos tu idea<textarea name="mensaje" rows="4" placeholder="Lugar, número de invitados, estilo y detalles que imaginas..." required></textarea></label>
-        <button class="button button-dark" type="submit">Preparar solicitud <span aria-hidden="true">↗</span></button>
-        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
-        <p class="form-disclaimer">Este formulario es una demostración visual. Para recibir solicitudes reales debe conectarse a un correo o servidor.</p>
-      </form>
+     
+        <form class="contact-form reveal" id="quoteForm">
+        <!-- Web3Forms -->
+        <input
+          type="hidden"
+          name="access_key"
+          value="2cde73f6-700c-43a6-9e5f-dfe546143baa"
+        >
+
+        <input
+          type="hidden"
+          name="subject"
+          value="Nueva solicitud de evento — ÉVORA"
+        >
+
+        <input
+          type="hidden"
+          name="from_name"
+          value="ÉVORA | Solicitudes web"
+        >
+
+        <!-- Protección básica contra spam -->
+        <input
+          type="checkbox"
+          name="botcheck"
+          style="display:none"
+          tabindex="-1"
+        >
+
+  <div class="form-row">
+    <label>
+      Nombre completo
+      <input
+        type="text"
+        name="nombre"
+        placeholder="Tu nombre"
+        required
+      >
+    </label>
+
+    <label>
+      Correo electrónico
+      <input
+        type="email"
+        name="email"
+        placeholder="tu@correo.com"
+        required
+      >
+    </label>
+  </div>
+
+  <div class="form-row">
+    <label>
+      Tipo de evento
+      <select name="evento" required>
+        <option value="">Selecciona una opción</option>
+        <option>Boda / boda destino</option>
+        <option>Evento corporativo</option>
+        <option>Celebración exclusiva</option>
+        <option>Otro evento</option>
+      </select>
+    </label>
+
+    <label>
+      Fecha aproximada
+      <input type="date" name="fecha">
+    </label>
+  </div>
+
+  <label>
+    Cuéntanos tu idea
+    <textarea
+      name="mensaje"
+      rows="4"
+      placeholder="Lugar, número de invitados, estilo y detalles que imaginas..."
+      required
+    ></textarea>
+  </label>
+
+  <button class="button button-dark" type="submit">
+    Preparar solicitud <span aria-hidden="true">↗</span>
+  </button>
+
+  <p
+    class="form-status"
+    id="formStatus"
+    role="status"
+    aria-live="polite"
+  ></p> 
+
+  <p class="form-disclaimer">
+    Tus datos se utilizarán para gestionar tu solicitud de evento.
+  </p>
+</form>
+
     </section>
   </main>
 

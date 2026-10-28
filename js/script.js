@@ -34,17 +34,62 @@ if ("IntersectionObserver" in window) {
   revealElements.forEach((element) => element.classList.add("visible"));
 }
 
-// Demostración del formulario: valida y prepara un mensaje, pero no lo envía a un servidor.
-const quoteForm = document.querySelector("#quoteForm");
-const formStatus = document.querySelector("#formStatus");
+const quoteForm = document.getElementById("quoteForm");
+const formStatus = document.getElementById("formStatus");
 
-quoteForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  if (!quoteForm.reportValidity()) return;
+if (quoteForm && formStatus) {
+  quoteForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
 
-  const data = new FormData(quoteForm);
-  const nombre = data.get("nombre").trim();
-  const evento = data.get("evento");
-  formStatus.textContent = `Gracias, ${nombre}. Tu solicitud sobre "${evento}" está lista. Para recibirla realmente, conecta este formulario a un correo o servidor.`;
-  quoteForm.reset();
+    const submitButton = quoteForm.querySelector(
+      'button[type="submit"]'
+    );
+
+    const originalText = submitButton.textContent;
+
+    submitButton.disabled = true;
+    submitButton.textContent = "Enviando solicitud...";
+    formStatus.textContent = "";
+
+    try {
+      const response = await fetch(
+        "https://api.web3forms.com/submit",
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json"
+          },
+          body: new FormData(quoteForm)
+        }
+      );
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(
+          result.message || "No se pudo enviar la solicitud."
+        );
+      }
+
+      formStatus.textContent = `Gracias, ${quoteForm.elements.namedItem("nombre").value}.
+      Tu solicitud sobre "${quoteForm.elements.namedItem("evento").value}" está lista. Pronto nos pondremos en contacto contigo.`;
+
+      quoteForm.reset();
+
+      } catch (error) {
+       console.error("Error al enviar el formulario:", error);
+
+       formStatus.textContent = error.message;
+      } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = originalText;
+    }
+
+    document.querySelectorAll('a[href="#inicio"]').forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
+    window.scrollTo(0, 0);
+  });
 });
+  });
+}
