@@ -526,3 +526,287 @@
     transform: none;
   }
 }
+
+/* ==========================================
+   ÉVORA — INTEGRACIÓN GLOBAL EN BODAS
+   Cabecera, navegación y pie de página
+   ========================================== */
+
+/* CABECERA PRINCIPAL */
+
+body > header.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    background: var(--color-ivory, #FAF8F4);
+    border-bottom: 1px solid var(--color-line, rgba(11, 19, 32, 0.14));
+}
+
+.header .header-inner {
+    width: min(90%, 1240px);
+    min-height: var(--header-height, 94px);
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+}
+
+/* LOGO: conserva el estilo oficial de ÉVORA */
+
+.header .logo {
+    color: var(--color-midnight, #0B1320);
+    font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
+    text-decoration: none;
+}
+
+.header .logo-dot {
+    color: var(--color-gold, #D4B483);
+}
+
+.header .logo-caption {
+    color: inherit;
+    font-family: var(--font-body, "Inter", Arial, sans-serif);
+}
+
+/* NAVEGACIÓN */
+
+.header .nav > a,
+.header .nav-dropdown-toggle {
+    color: var(--color-charcoal, #1E293B);
+    font-family: var(--font-body, "Inter", Arial, sans-serif);
+}
+
+.header .nav > a:hover,
+.header .nav-dropdown-toggle:hover {
+    color: #947448;
+}
+
+.header .nav .nav-cta {
+    color: #FFFFFF;
+    background: var(--color-midnight, #0B1320);
+}
+
+.header .nav .nav-cta:hover {
+    color: var(--color-midnight, #0B1320);
+    background: var(--color-gold, #D4B483);
+}
+
+/* MENÚ DESPLEGABLE */
+
+.header .nav-dropdown-menu {
+    background: var(--color-ivory, #FAF8F4);
+    border-color: var(--color-line, rgba(11, 19, 32, 0.14));
+    box-shadow: var(--shadow-soft, 0 10px 30px rgba(0, 0, 0, 0.06));
+}
+
+/* FOOTER GLOBAL */
+
+.wedding-packages > .footer {
+    width: 100%;
+    margin: 0;
+    padding: 55px 6% 24px;
+    color: var(--color-white, #FFFFFF);
+    background: #080E17;
+    font-family: var(--font-body, "Inter", Arial, sans-serif);
+}
+
+.wedding-packages > .footer .logo-footer {
+    color: #FFFFFF;
+}
+
+.wedding-packages > .footer .logo-dot {
+    color: var(--color-gold, #D4B483);
+}
+
+.wedding-packages > .footer .logo-caption {
+    color: inherit;
+}
+
+.wedding-packages > .footer .footer-tagline {
+    color: rgba(255, 255, 255, 0.75);
+    font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
+}
+
+.wedding-packages > .footer .footer-links a {
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 0.73rem;
+}
+
+.wedding-packages > .footer .footer-links a:hover,
+.wedding-packages > .footer .back-top:hover {
+    color: var(--color-gold, #D4B483);
+}
+
+.wedding-packages > .footer .footer-bottom {
+    border-top: 1px solid var(--color-dark-line, rgba(250, 248, 244, 0.18));
+}
+
+.wedding-packages > .footer .footer-bottom small,
+.wedding-packages > .footer .back-top {
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 0.7rem;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+    .header .header-inner {
+        width: 92%;
+    }
+
+    .header .nav {
+        background: var(--color-ivory, #FAF8F4);
+    }
+}
+
+/* MÓVIL */
+
+@media (max-width: 600px) {
+    .header .header-inner {
+        width: 88%;
+    }
+
+    .wedding-packages > .footer {
+        padding: 45px 6% 22px;
+    }
+}
+
+
+/* ==========================================
+   ÉVORA · BODAS
+   01. PORTADA EDITORIAL
+   ========================================== */
+
+.wedding-packages .wp-heading {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-height: clamp(580px, 78svh, 820px);
+    padding: clamp(90px, 12vw, 160px) 24px;
+
+    overflow: hidden;
+    text-align: center;
+    color: #fffdf9;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(15, 20, 17, 0.34) 0%,
+            rgba(15, 20, 17, 0.48) 45%,
+            rgba(15, 20, 17, 0.70) 100%
+        ),
+        url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=85")
+        center 48% / cover no-repeat;
+}
+
+/* Detalle ornamental superior */
+.wedding-packages .wp-heading::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 22px;
+    border: 1px solid rgba(255, 253, 249, 0.25);
+    pointer-events: none;
+}
+
+.wedding-packages .wp-heading .wp-kicker {
+    margin-bottom: 28px;
+    color: #e5cfaa;
+    font-size: 0.69rem;
+    letter-spacing: 0.24em;
+    line-height: 1.8;
+}
+
+.wedding-packages .wp-heading h1 {
+    max-width: 950px;
+    margin: 0 auto 26px;
+
+    color: #fffdf9;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(3.2rem, 7.2vw, 6.7rem);
+    font-weight: 400;
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+    text-wrap: balance;
+}
+
+.wedding-packages .wp-heading h1 em {
+    color: #e5cfaa;
+    font-weight: 400;
+}
+
+.wedding-packages .wp-heading > p {
+    width: min(100%, 590px);
+    margin: 0 auto 34px;
+
+    color: rgba(255, 253, 249, 0.88);
+    font-size: 0.94rem;
+    line-height: 1.9;
+    text-wrap: pretty;
+}
+
+.wedding-packages .wp-heading .wp-main-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+
+    min-height: 52px;
+    padding: 14px 24px;
+
+    border: 1px solid rgba(255, 253, 249, 0.72);
+    color: #fffdf9;
+    background: rgba(255, 253, 249, 0.06);
+
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+
+    transition:
+        background-color 250ms ease,
+        color 250ms ease,
+        border-color 250ms ease;
+}
+
+.wedding-packages .wp-heading .wp-main-button:hover {
+    color: #20251f;
+    background: #e5cfaa;
+    border-color: #e5cfaa;
+}
+
+.wedding-packages .wp-heading .wp-main-button span {
+    transition: transform 250ms ease;
+}
+
+.wedding-packages .wp-heading .wp-main-button:hover span {
+    transform: translateY(3px);
+}
+
+/* Portada en móviles */
+@media (max-width: 600px) {
+    .wedding-packages .wp-heading {
+        min-height: 630px;
+        padding: 100px 28px;
+        background-position: 55% center;
+    }
+
+    .wedding-packages .wp-heading::before {
+        inset: 12px;
+    }
+
+    .wedding-packages .wp-heading h1 {
+        font-size: clamp(3rem, 12vw, 4.5rem);
+        line-height: 1.02;
+    }
+
+    .wedding-packages .wp-heading > p {
+        font-size: 0.86rem;
+        line-height: 1.8;
+    }
+}
