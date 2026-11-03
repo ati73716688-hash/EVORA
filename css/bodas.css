@@ -603,7 +603,7 @@ body > header.header {
 
 /* FOOTER GLOBAL */
 
-.wedding-packages > .footer {
+.footer {
     width: 100%;
     margin: 0;
     padding: 55px 6% 24px;
@@ -612,39 +612,39 @@ body > header.header {
     font-family: var(--font-body, "Inter", Arial, sans-serif);
 }
 
-.wedding-packages > .footer .logo-footer {
+.footer .logo-footer {
     color: #FFFFFF;
 }
 
-.wedding-packages > .footer .logo-dot {
+.footer .logo-dot {
     color: var(--color-gold, #D4B483);
 }
 
-.wedding-packages > .footer .logo-caption {
+.footer .logo-caption {
     color: inherit;
 }
 
-.wedding-packages > .footer .footer-tagline {
+.footer .footer-tagline {
     color: rgba(255, 255, 255, 0.75);
     font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
 }
 
-.wedding-packages > .footer .footer-links a {
+.footer .footer-links a {
     color: rgba(255, 255, 255, 0.76);
     font-size: 0.73rem;
 }
 
-.wedding-packages > .footer .footer-links a:hover,
-.wedding-packages > .footer .back-top:hover {
+.footer .footer-links a:hover,
+.footer .back-top:hover {
     color: var(--color-gold, #D4B483);
 }
 
-.wedding-packages > .footer .footer-bottom {
+.footer .footer-bottom {
     border-top: 1px solid var(--color-dark-line, rgba(250, 248, 244, 0.18));
 }
 
-.wedding-packages > .footer .footer-bottom small,
-.wedding-packages > .footer .back-top {
+.footer .footer-bottom small,
+.footer .back-top {
     color: rgba(255, 255, 255, 0.62);
     font-size: 0.7rem;
 }
@@ -668,7 +668,7 @@ body > header.header {
         width: 88%;
     }
 
-    .wedding-packages > .footer {
+    .footer {
         padding: 45px 6% 22px;
     }
 }
@@ -808,5 +808,103 @@ body > header.header {
     .wedding-packages .wp-heading > p {
         font-size: 0.86rem;
         line-height: 1.8;
+    }
+}
+
+/* ==========================================
+   ÉVORA · ANIMACIONES DE PAQUETES
+   Intensidad progresiva según categoría
+   ========================================== */
+
+.wp-card {
+    position: relative;
+    overflow: hidden;
+    transform: translateY(0);
+    transition:
+        transform 450ms cubic-bezier(0.2, 0.8, 0.2, 1),
+        box-shadow 450ms ease,
+        border-color 350ms ease;
+}
+
+/* ESENCIAL — Movimiento discreto */
+
+.wp-card-essential:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 32px rgba(32, 37, 31, 0.10);
+}
+
+/* SIGNATURE — Mayor presencia */
+
+.wp-card-signature {
+    border-color: rgba(177, 138, 87, 0.65);
+}
+
+.wp-card-signature:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 22px 45px rgba(32, 37, 31, 0.15);
+    border-color: var(--wp-gold);
+}
+
+/* ÉVORA FULL — Experiencia premium */
+
+.wp-card-full:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 30px 60px rgba(32, 37, 31, 0.20);
+    border-color: var(--wp-gold);
+}
+
+/* Movimiento de las fotografías */
+
+.wp-photo {
+    overflow: hidden;
+}
+
+.wp-photo {
+    transition: transform 650ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.wp-card-essential:hover .wp-photo {
+    transform: scale(1.015);
+}
+
+.wp-card-signature:hover .wp-photo {
+    transform: scale(1.035);
+}
+
+.wp-card-full:hover .wp-photo {
+    transform: scale(1.055);
+}
+
+/* Accesibilidad: reducir movimiento si el usuario lo solicita */
+
+@media (prefers-reduced-motion: reduce) {
+    .wp-card,
+    .wp-photo {
+        transition: none;
+    }
+
+    .wp-card-essential:hover,
+    .wp-card-signature:hover,
+    .wp-card-full:hover {
+        transform: none;
+    }
+
+    .wp-card-essential:hover .wp-photo,
+    .wp-card-signature:hover .wp-photo,
+    .wp-card-full:hover .wp-photo {
+        transform: none;
+    }
+}
+
+/* En pantallas táctiles no forzamos efectos hover */
+
+@media (hover: none) {
+    .wp-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    .wp-card:hover .wp-photo {
+        transform: none;
     }
 }
