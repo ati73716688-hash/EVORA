@@ -1,0 +1,927 @@
+
+/* =========================================================
+   ÉVORA — NOSOTROS
+   Hoja de estilos exclusiva de nosotros.html
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   01. VARIABLES Y CONFIGURACIÓN
+--------------------------------------------------------- */
+
+:root {
+    --about-midnight: #0B1320;
+    --about-gold: #D4B483;
+    --about-ivory: #FAF8F4;
+    --about-charcoal: #1E293B;
+    --about-slate: #64748B;
+    --about-mist: #F1F5F9;
+
+    --about-display: "Cormorant Garamond", Georgia, serif;
+    --about-body: "Inter", Arial, sans-serif;
+
+    --about-radius: 16px;
+    --about-radius-premium: 24px;
+
+    --about-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    --about-transition: 300ms ease;
+}
+
+
+/* ---------------------------------------------------------
+   02. CONFIGURACIÓN GENERAL
+--------------------------------------------------------- */
+
+.about-hero,
+.about-history,
+.about-values,
+.about-manifesto,
+.about-cta {
+    position: relative;
+    overflow: hidden;
+}
+
+.about-introduction,
+.about-purpose,
+.about-team {
+    padding-top: 110px;
+    padding-bottom: 110px;
+}
+
+.about-introduction,
+.about-purpose,
+.about-team {
+    background: var(--about-ivory);
+}
+
+.about-hero h1,
+.about-introduction h2,
+.about-history h2,
+.about-purpose h2,
+.about-values h2,
+.about-manifesto h2,
+.about-team h2,
+.about-cta h2 {
+    font-family: var(--about-display);
+    font-weight: 500;
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+}
+
+.about-hero em,
+.about-introduction em,
+.about-history em,
+.about-purpose em,
+.about-manifesto em,
+.about-team em,
+.about-cta em {
+    color: var(--about-gold);
+    font-weight: 400;
+    font-style: italic;
+}
+
+.about-hero p,
+.about-introduction p,
+.about-history p,
+.about-purpose p,
+.about-values p,
+.about-manifesto p,
+.about-team p,
+.about-cta p {
+    font-family: var(--about-body);
+}
+
+
+/* ---------------------------------------------------------
+   03. HERO — NUESTRA ESENCIA
+--------------------------------------------------------- */
+
+.about-hero {
+    min-height: 690px;
+    min-height: min(760px, 85vh);
+
+    display: flex;
+    align-items: center;
+
+    padding: 110px 8% 120px;
+
+    color: #FFFFFF;
+    background: var(--about-midnight);
+}
+
+.about-hero-image {
+    position: absolute;
+    inset: 0;
+
+    background-image: url("https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=2000&q=85");
+    background-size: cover;
+    background-position: center 55%;
+
+    transform: scale(1.02);
+}
+
+.about-hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(11, 19, 32, 0.94) 0%,
+            rgba(11, 19, 32, 0.77) 48%,
+            rgba(11, 19, 32, 0.25) 100%
+        );
+}
+
+.about-hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 850px;
+}
+
+.about-hero-content .eyebrow {
+    margin-bottom: 28px;
+    color: var(--about-gold);
+}
+
+.about-hero h1 {
+    max-width: 850px;
+    margin: 0 0 28px;
+
+    font-size: clamp(58px, 8vw, 108px);
+}
+
+.about-hero h1 em {
+    display: block;
+}
+
+.about-hero-content > p:not(.eyebrow) {
+    max-width: 570px;
+
+    margin-bottom: 35px;
+
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.about-hero-content .button {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.about-hero-note {
+    position: absolute;
+    right: 8%;
+    bottom: 42px;
+    z-index: 2;
+
+    color: rgba(255, 255, 255, 0.75);
+
+    font-size: 10px;
+    letter-spacing: 0.18em;
+}
+
+
+/* ---------------------------------------------------------
+   04. QUIÉNES SOMOS
+--------------------------------------------------------- */
+
+.about-introduction {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 90px;
+}
+
+.about-introduction-heading .eyebrow,
+.about-history-content .eyebrow,
+.about-purpose .eyebrow,
+.about-values .eyebrow,
+.about-team .eyebrow {
+    color: #9A774D;
+}
+
+.about-introduction h2 {
+    max-width: 550px;
+    margin: 18px 0 0;
+
+    color: var(--about-midnight);
+    font-size: clamp(48px, 5.5vw, 72px);
+}
+
+.about-introduction h2 em {
+    display: block;
+}
+
+.about-introduction-content {
+    max-width: 560px;
+}
+
+.about-introduction-content p {
+    margin-bottom: 20px;
+
+    color: var(--about-slate);
+    font-size: 14px;
+    line-height: 2;
+}
+
+.about-introduction-content p:first-child {
+    color: var(--about-charcoal);
+    font-family: var(--about-display);
+    font-size: 28px;
+    line-height: 1.35;
+}
+
+
+/* ---------------------------------------------------------
+   05. NUESTRA HISTORIA
+--------------------------------------------------------- */
+
+.about-history {
+    padding: 110px 0;
+
+    background: var(--about-mist);
+}
+
+.about-history-inner {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+    gap: 85px;
+}
+
+.about-history-image {
+    height: 570px;
+    overflow: hidden;
+
+    border-radius: var(--about-radius-premium);
+}
+
+.about-history-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    transition: transform 800ms ease;
+}
+
+.about-history-image:hover img {
+    transform: scale(1.045);
+}
+
+.about-history-content {
+    max-width: 540px;
+}
+
+.about-history h2 {
+    margin: 20px 0 30px;
+
+    color: var(--about-midnight);
+    font-size: clamp(48px, 5vw, 68px);
+}
+
+.about-history h2 em {
+    display: block;
+}
+
+.about-history-content > p:not(.eyebrow) {
+    margin-bottom: 20px;
+
+    color: var(--about-slate);
+    font-size: 14px;
+    line-height: 2;
+}
+
+
+/* ---------------------------------------------------------
+   06. MISIÓN Y VISIÓN
+--------------------------------------------------------- */
+
+.about-purpose {
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+.about-purpose .section-heading {
+    margin-bottom: 55px;
+}
+
+.about-purpose .section-heading h2,
+.about-values .section-heading h2,
+.about-team .section-heading h2 {
+    color: var(--about-midnight);
+    font-size: clamp(45px, 5vw, 68px);
+}
+
+.about-purpose .section-heading h2 em,
+.about-values .section-heading h2 em,
+.about-team .section-heading h2 em {
+    display: block;
+}
+
+.purpose-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.purpose-card {
+    position: relative;
+    min-height: 370px;
+
+    padding: 48px;
+
+    background: #FFFFFF;
+    border: 1px solid rgba(11, 19, 32, 0.08);
+    border-radius: var(--about-radius-premium);
+
+    box-shadow: var(--about-shadow);
+
+    transition:
+        transform var(--about-transition),
+        box-shadow var(--about-transition);
+}
+
+.purpose-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.09);
+}
+
+.purpose-number {
+    display: block;
+    margin-bottom: 45px;
+
+    color: var(--about-gold);
+    font-family: var(--about-display);
+    font-size: 38px;
+}
+
+.purpose-card .eyebrow {
+    margin-bottom: 14px;
+    color: #9A774D;
+}
+
+.purpose-card h3 {
+    margin-bottom: 20px;
+
+    color: var(--about-midnight);
+    font-family: var(--about-display);
+    font-size: 39px;
+    font-weight: 500;
+}
+
+.purpose-card > p:last-child {
+    max-width: 480px;
+
+    color: var(--about-slate);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.purpose-card-dark {
+    color: #FFFFFF;
+    background: var(--about-midnight);
+    border-color: var(--about-midnight);
+}
+
+.purpose-card-dark .eyebrow {
+    color: var(--about-gold);
+}
+
+.purpose-card-dark h3 {
+    color: #FFFFFF;
+}
+
+.purpose-card-dark > p:last-child {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+
+/* ---------------------------------------------------------
+   07. NUESTROS VALORES
+--------------------------------------------------------- */
+
+.about-values {
+    padding: 115px 0 125px;
+
+    background: #FFFFFF;
+}
+
+.about-values .section-heading {
+    margin-bottom: 65px;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+
+    background: rgba(11, 19, 32, 0.12);
+    border: 1px solid rgba(11, 19, 32, 0.12);
+}
+
+.value-card {
+    min-height: 235px;
+    padding: 38px 32px;
+
+    background: #FFFFFF;
+
+    transition: background var(--about-transition);
+}
+
+.value-card:hover {
+    background: var(--about-ivory);
+}
+
+.value-card > span {
+    display: inline-block;
+    margin-bottom: 28px;
+
+    color: #B18E61;
+    font-family: var(--about-display);
+    font-size: 29px;
+}
+
+.value-card h3 {
+    margin-bottom: 12px;
+
+    color: var(--about-midnight);
+    font-family: var(--about-display);
+    font-size: 31px;
+    font-weight: 500;
+}
+
+.value-card p {
+    max-width: 290px;
+
+    color: var(--about-slate);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* ---------------------------------------------------------
+   08. MANIFIESTO ÉVORA
+--------------------------------------------------------- */
+
+.about-manifesto {
+    padding: 125px 0;
+
+    color: #FFFFFF;
+    background: var(--about-midnight);
+}
+
+.manifesto-inner {
+    max-width: 950px;
+    text-align: center;
+}
+
+.manifesto-inner > .eyebrow {
+    margin-bottom: 35px;
+    color: var(--about-gold);
+}
+
+.about-manifesto h2 {
+    max-width: 850px;
+    margin: 0 auto 55px;
+
+    font-size: clamp(48px, 6vw, 82px);
+}
+
+.about-manifesto h2 em {
+    display: block;
+}
+
+.manifesto-copy {
+    max-width: 670px;
+    margin: 0 auto;
+}
+
+.manifesto-copy p {
+    margin-bottom: 23px;
+
+    color: rgba(255, 255, 255, 0.79);
+    font-size: 15px;
+    line-height: 2;
+}
+
+.manifesto-signature {
+    margin-top: 48px;
+
+    color: var(--about-gold);
+    font-family: var(--about-display);
+    font-size: 26px;
+    font-style: italic;
+}
+
+
+/* ---------------------------------------------------------
+   09. NUESTRO EQUIPO
+--------------------------------------------------------- */
+
+.about-team {
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+.about-team .section-heading {
+    margin-bottom: 55px;
+}
+
+.team-placeholder {
+    min-height: 330px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 55px 30px;
+
+    text-align: center;
+
+    background: var(--about-mist);
+    border: 1px solid rgba(11, 19, 32, 0.08);
+    border-radius: var(--about-radius-premium);
+}
+
+.team-placeholder .eyebrow {
+    margin-bottom: 25px;
+    color: #9A774D;
+}
+
+.team-placeholder h3 {
+    max-width: 650px;
+    margin-bottom: 22px;
+
+    color: var(--about-midnight);
+    font-family: var(--about-display);
+    font-size: clamp(38px, 5vw, 58px);
+    font-weight: 500;
+    line-height: 1.05;
+}
+
+.team-placeholder h3 em {
+    color: #A88961;
+}
+
+.team-placeholder > p:last-child {
+    max-width: 550px;
+
+    color: var(--about-slate);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+
+/* ---------------------------------------------------------
+   10. LLAMADA A LA ACCIÓN
+--------------------------------------------------------- */
+
+.about-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 110px 7% 120px;
+
+    color: #FFFFFF;
+    background: var(--about-midnight);
+
+    text-align: center;
+}
+
+.about-cta::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(212, 180, 131, 0.12),
+            transparent 55%
+        );
+
+    pointer-events: none;
+}
+
+.about-cta > * {
+    position: relative;
+    z-index: 1;
+}
+
+.about-cta .eyebrow {
+    margin-bottom: 30px;
+    color: var(--about-gold);
+}
+
+.about-cta h2 {
+    max-width: 850px;
+    margin-bottom: 25px;
+
+    font-size: clamp(50px, 6vw, 82px);
+}
+
+.about-cta h2 em {
+    display: block;
+}
+
+.about-cta > p:not(.eyebrow) {
+    max-width: 560px;
+    margin-bottom: 35px;
+
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.about-cta-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+
+/* ---------------------------------------------------------
+   11. ANIMACIONES Y ACCESIBILIDAD
+--------------------------------------------------------- */
+
+@media (prefers-reduced-motion: no-preference) {
+
+    .about-hero-content {
+        animation: aboutFadeUp 800ms ease both;
+    }
+
+    .about-hero-note {
+        animation: aboutFadeUp 1000ms ease both;
+    }
+
+}
+
+@keyframes aboutFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .about-hero-content,
+    .about-hero-note {
+        animation: none;
+    }
+
+    .about-history-image img,
+    .purpose-card,
+    .value-card {
+        transition: none;
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   12. RESPONSIVE — TABLETS
+--------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+
+    .about-introduction {
+        gap: 45px;
+    }
+
+    .about-history-inner {
+        gap: 45px;
+    }
+
+    .about-history-image {
+        height: 480px;
+    }
+
+    .purpose-card {
+        padding: 38px;
+    }
+
+    .values-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   13. RESPONSIVE — MÓVILES
+--------------------------------------------------------- */
+
+@media (max-width: 768px) {
+
+    .about-hero {
+        min-height: 650px;
+        padding: 100px 7% 110px;
+    }
+
+    .about-hero-overlay {
+        background:
+            linear-gradient(
+                90deg,
+                rgba(11, 19, 32, 0.91),
+                rgba(11, 19, 32, 0.65)
+            );
+    }
+
+    .about-hero h1 {
+        font-size: clamp(52px, 12vw, 76px);
+    }
+
+    .about-hero-note {
+        right: 7%;
+        bottom: 30px;
+
+        font-size: 9px;
+    }
+
+    .about-introduction,
+    .about-history-inner {
+        grid-template-columns: 1fr;
+        gap: 38px;
+    }
+
+    .about-introduction,
+    .about-purpose,
+    .about-team {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .about-introduction h2,
+    .about-history h2 {
+        font-size: 55px;
+    }
+
+    .about-history {
+        padding: 80px 0;
+    }
+
+    .about-history-image {
+        height: 400px;
+    }
+
+    .about-purpose .section-heading,
+    .about-values .section-heading,
+    .about-team .section-heading {
+        gap: 20px;
+    }
+
+    .purpose-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .purpose-card {
+        min-height: 320px;
+    }
+
+    .about-values {
+        padding: 80px 0;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .value-card {
+        min-height: 220px;
+        padding: 28px 22px;
+    }
+
+    .about-manifesto {
+        padding: 90px 0;
+    }
+
+    .about-manifesto h2 {
+        margin-bottom: 38px;
+    }
+
+    .about-team {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .about-cta {
+        padding: 85px 7%;
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   14. RESPONSIVE — MÓVILES PEQUEÑOS
+--------------------------------------------------------- */
+
+@media (max-width: 480px) {
+
+    .about-hero {
+        min-height: 600px;
+    }
+
+    .about-hero h1 {
+        font-size: 49px;
+    }
+
+    .about-hero-content > p:not(.eyebrow) {
+        font-size: 13px;
+    }
+
+    .about-hero-note {
+        font-size: 8px;
+        letter-spacing: 0.12em;
+    }
+
+    .about-introduction h2,
+    .about-history h2 {
+        font-size: 47px;
+    }
+
+    .about-introduction-content p:first-child {
+        font-size: 25px;
+    }
+
+    .about-history-image {
+        height: 310px;
+    }
+
+    .about-purpose .section-heading h2,
+    .about-values .section-heading h2,
+    .about-team .section-heading h2 {
+        font-size: 46px;
+    }
+
+    .purpose-card {
+        min-height: auto;
+        padding: 30px;
+    }
+
+    .purpose-number {
+        margin-bottom: 30px;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .value-card {
+        min-height: 190px;
+    }
+
+    .about-manifesto h2 {
+        font-size: 49px;
+    }
+
+    .manifesto-copy p {
+        font-size: 13px;
+    }
+
+    .manifesto-signature {
+        font-size: 23px;
+    }
+
+    .team-placeholder {
+        min-height: 300px;
+        padding: 35px 22px;
+    }
+
+    .team-placeholder h3 {
+        font-size: 42px;
+    }
+
+    .about-cta h2 {
+        font-size: 49px;
+    }
+
+    .about-cta-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .about-cta-actions .button {
+        width: 100%;
+        justify-content: center;
+    }
+
+}
