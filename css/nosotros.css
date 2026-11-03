@@ -1,12 +1,11 @@
-
 /* =========================================================
    ÉVORA — NOSOTROS
-   Hoja de estilos exclusiva de nosotros.html
+   Diseño editorial e institucional
    ========================================================= */
 
 
 /* ---------------------------------------------------------
-   01. VARIABLES Y CONFIGURACIÓN
+   01. VARIABLES EXCLUSIVAS
 --------------------------------------------------------- */
 
 :root {
@@ -20,69 +19,57 @@
     --about-display: "Cormorant Garamond", Georgia, serif;
     --about-body: "Inter", Arial, sans-serif;
 
-    --about-radius: 16px;
-    --about-radius-premium: 24px;
-
-    --about-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    --about-border: rgba(11, 19, 32, 0.15);
     --about-transition: 300ms ease;
 }
 
 
 /* ---------------------------------------------------------
-   02. CONFIGURACIÓN GENERAL
+   02. BASE DE LA PÁGINA
 --------------------------------------------------------- */
 
-.about-hero,
-.about-history,
+.about-cover,
+.about-identity,
+.about-story,
+.about-purpose,
 .about-values,
 .about-manifesto,
+.about-team,
 .about-cta {
     position: relative;
-    overflow: hidden;
 }
 
-.about-introduction,
-.about-purpose,
-.about-team {
-    padding-top: 110px;
-    padding-bottom: 110px;
-}
-
-.about-introduction,
-.about-purpose,
-.about-team {
-    background: var(--about-ivory);
-}
-
-.about-hero h1,
-.about-introduction h2,
-.about-history h2,
+.about-cover h1,
+.about-identity h2,
+.about-story h2,
 .about-purpose h2,
+.about-purpose h3,
 .about-values h2,
+.about-values h3,
 .about-manifesto h2,
 .about-team h2,
+.about-team h3,
 .about-cta h2 {
     font-family: var(--about-display);
     font-weight: 500;
-    line-height: 0.98;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.035em;
 }
 
-.about-hero em,
-.about-introduction em,
-.about-history em,
+.about-cover em,
+.about-identity em,
+.about-story em,
 .about-purpose em,
+.about-values em,
 .about-manifesto em,
 .about-team em,
 .about-cta em {
-    color: var(--about-gold);
     font-weight: 400;
     font-style: italic;
 }
 
-.about-hero p,
-.about-introduction p,
-.about-history p,
+.about-cover p,
+.about-identity p,
+.about-story p,
 .about-purpose p,
 .about-values p,
 .about-manifesto p,
@@ -91,213 +78,406 @@
     font-family: var(--about-body);
 }
 
+.about-cover img,
+.about-story img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 
 /* ---------------------------------------------------------
-   03. HERO — NUESTRA ESENCIA
+   03. PORTADA EDITORIAL
 --------------------------------------------------------- */
 
-.about-hero {
-    min-height: 690px;
-    min-height: min(760px, 85vh);
-
-    display: flex;
-    align-items: center;
-
-    padding: 110px 8% 120px;
-
-    color: #FFFFFF;
-    background: var(--about-midnight);
+.about-cover {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    min-height: 680px;
+    background: var(--about-ivory);
+    overflow: hidden;
 }
 
-.about-hero-image {
-    position: absolute;
-    inset: 0;
-
-    background-image: url("https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=2000&q=85");
-    background-size: cover;
-    background-position: center 55%;
-
-    transform: scale(1.02);
-}
-
-.about-hero-overlay {
-    position: absolute;
-    inset: 0;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(11, 19, 32, 0.94) 0%,
-            rgba(11, 19, 32, 0.77) 48%,
-            rgba(11, 19, 32, 0.25) 100%
-        );
-}
-
-.about-hero-content {
+.about-cover-content {
     position: relative;
     z-index: 2;
 
-    width: 100%;
-    max-width: 850px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding: 100px 9% 105px max(8%, calc((100vw - 1400px) / 2));
+
+    background: var(--about-ivory);
 }
 
-.about-hero-content .eyebrow {
-    margin-bottom: 28px;
-    color: var(--about-gold);
+.about-kicker {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 34px;
+
+    color: #8D704A;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
 }
 
-.about-hero h1 {
-    max-width: 850px;
+.about-kicker span {
+    width: 28px;
+    height: 1px;
+    background: var(--about-gold);
+}
+
+.about-cover h1 {
+    max-width: 620px;
     margin: 0 0 28px;
 
-    font-size: clamp(58px, 8vw, 108px);
-}
-
-.about-hero h1 em {
-    display: block;
-}
-
-.about-hero-content > p:not(.eyebrow) {
-    max-width: 570px;
-
-    margin-bottom: 35px;
-
-    color: rgba(255, 255, 255, 0.82);
-    font-size: 15px;
-    line-height: 1.9;
-}
-
-.about-hero-content .button {
-    display: inline-flex;
-    align-items: center;
-    gap: 14px;
-}
-
-.about-hero-note {
-    position: absolute;
-    right: 8%;
-    bottom: 42px;
-    z-index: 2;
-
-    color: rgba(255, 255, 255, 0.75);
-
-    font-size: 10px;
-    letter-spacing: 0.18em;
-}
-
-
-/* ---------------------------------------------------------
-   04. QUIÉNES SOMOS
---------------------------------------------------------- */
-
-.about-introduction {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 90px;
-}
-
-.about-introduction-heading .eyebrow,
-.about-history-content .eyebrow,
-.about-purpose .eyebrow,
-.about-values .eyebrow,
-.about-team .eyebrow {
-    color: #9A774D;
-}
-
-.about-introduction h2 {
-    max-width: 550px;
-    margin: 18px 0 0;
-
     color: var(--about-midnight);
-    font-size: clamp(48px, 5.5vw, 72px);
+    font-size: clamp(54px, 6vw, 84px);
+    line-height: 0.98;
 }
 
-.about-introduction h2 em {
+.about-cover h1 em {
     display: block;
+    color: #A88961;
 }
 
-.about-introduction-content {
-    max-width: 560px;
-}
-
-.about-introduction-content p {
-    margin-bottom: 20px;
+.about-cover-description {
+    max-width: 480px;
+    margin-bottom: 36px;
 
     color: var(--about-slate);
     font-size: 14px;
-    line-height: 2;
+    line-height: 1.95;
 }
 
-.about-introduction-content p:first-child {
-    color: var(--about-charcoal);
-    font-family: var(--about-display);
-    font-size: 28px;
-    line-height: 1.35;
+.about-discover-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 24px;
+
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--about-gold);
+
+    color: var(--about-midnight);
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition:
+        gap var(--about-transition),
+        color var(--about-transition);
 }
 
+.about-discover-link:hover {
+    gap: 34px;
+    color: #98764E;
+}
 
-/* ---------------------------------------------------------
-   05. NUESTRA HISTORIA
---------------------------------------------------------- */
+.about-discover-link > span:last-child {
+    color: #A88961;
+    font-size: 18px;
+}
 
-.about-history {
-    padding: 110px 0;
+.about-cover-index {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
 
+    width: 100%;
+    max-width: 480px;
+    margin-top: 75px;
+    padding-top: 17px;
+
+    border-top: 1px solid var(--about-border);
+
+    color: var(--about-slate);
+    font-size: 9px;
+    letter-spacing: 0.13em;
+}
+
+.about-cover-index span:first-child {
+    color: var(--about-midnight);
+    font-weight: 700;
+}
+
+.about-cover-visual {
+    position: relative;
+    min-height: 680px;
+    overflow: hidden;
     background: var(--about-mist);
 }
 
-.about-history-inner {
+.about-cover-visual img {
+    position: absolute;
+    inset: 0;
+
+    object-position: center 50%;
+
+    transition: transform 900ms ease;
+}
+
+.about-cover-visual:hover img {
+    transform: scale(1.025);
+}
+
+.about-image-caption {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+
+    padding: 24px 30px;
+
+    color: #FFFFFF;
+    background: linear-gradient(
+        transparent,
+        rgba(11, 19, 32, 0.78)
+    );
+
+    font-size: 9px;
+    letter-spacing: 0.13em;
+}
+
+.about-vertical-label {
+    position: absolute;
+    top: 50%;
+    right: 23px;
+
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+
+    writing-mode: vertical-rl;
+    transform: translateY(-50%);
+}
+
+
+/* ---------------------------------------------------------
+   04. IDENTIDAD
+--------------------------------------------------------- */
+
+.about-identity {
     display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
-    align-items: center;
-    gap: 85px;
+    grid-template-columns: 0.32fr 1fr;
+    gap: 65px;
+
+    padding: 145px max(8%, calc((100vw - 1300px) / 2));
+
+    background: #FFFFFF;
 }
 
-.about-history-image {
-    height: 570px;
-    overflow: hidden;
+.identity-aside {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
 
-    border-radius: var(--about-radius-premium);
+    padding-top: 10px;
 }
 
-.about-history-image img {
-    display: block;
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-    object-position: center;
-
-    transition: transform 800ms ease;
+.about-section-number {
+    color: var(--about-gold);
+    font-family: var(--about-display);
+    font-size: 58px;
+    line-height: 1;
 }
 
-.about-history-image:hover img {
-    transform: scale(1.045);
+.about-section-label {
+    color: var(--about-slate);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.17em;
 }
 
-.about-history-content {
-    max-width: 540px;
+.identity-main {
+    max-width: 940px;
 }
 
-.about-history h2 {
-    margin: 20px 0 30px;
+.identity-main > .eyebrow {
+    margin-bottom: 24px;
+    color: #98764E;
+}
+
+.identity-main h2 {
+    max-width: 850px;
+    margin: 0 0 55px;
 
     color: var(--about-midnight);
-    font-size: clamp(48px, 5vw, 68px);
+    font-size: clamp(55px, 6.5vw, 88px);
+    line-height: 0.96;
 }
 
-.about-history h2 em {
+.identity-main h2 em {
     display: block;
+    color: #A88961;
 }
 
-.about-history-content > p:not(.eyebrow) {
-    margin-bottom: 20px;
+.identity-copy {
+    display: grid;
+    grid-template-columns: 0.85fr 1fr;
+    gap: 70px;
+    align-items: start;
+}
+
+.identity-lead {
+    margin: 0;
+
+    color: var(--about-charcoal);
+    font-family: var(--about-display) !important;
+    font-size: clamp(27px, 3vw, 36px);
+    line-height: 1.3;
+}
+
+.identity-detail p {
+    margin: 0 0 20px;
 
     color: var(--about-slate);
-    font-size: 14px;
+    font-size: 13px;
     line-height: 2;
+}
+
+.identity-signature {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    width: fit-content;
+    margin-top: 55px;
+    padding-top: 16px;
+
+    border-top: 1px solid var(--about-gold);
+}
+
+.identity-signature span:first-child {
+    color: var(--about-midnight);
+    font-family: var(--about-display);
+    font-size: 27px;
+    letter-spacing: 0.08em;
+}
+
+.identity-signature span:last-child {
+    color: var(--about-slate);
+    font-size: 8px;
+    letter-spacing: 0.15em;
+}
+
+
+/* ---------------------------------------------------------
+   05. HISTORIA
+--------------------------------------------------------- */
+
+.about-story {
+    display: grid;
+    grid-template-columns: 1fr 0.9fr;
+    align-items: center;
+    gap: 100px;
+
+    padding: 120px max(8%, calc((100vw - 1300px) / 2));
+
+    background: var(--about-ivory);
+}
+
+.story-image {
+    position: relative;
+    height: 630px;
+    overflow: hidden;
+}
+
+.story-image img {
+    object-position: center;
+    transition: transform 900ms ease;
+}
+
+.story-image:hover img {
+    transform: scale(1.035);
+}
+
+.story-image-note {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    padding: 17px 22px;
+
+    color: var(--about-midnight);
+    background: var(--about-gold);
+
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+}
+
+.story-content {
+    max-width: 530px;
+    padding: 20px 0;
+}
+
+.story-content .eyebrow {
+    margin-bottom: 25px;
+    color: #98764E;
+}
+
+.story-content h2 {
+    margin: 0 0 30px;
+
+    color: var(--about-midnight);
+    font-size: clamp(54px, 5.5vw, 74px);
+    line-height: 0.97;
+}
+
+.story-content h2 em {
+    display: block;
+    color: #A88961;
+}
+
+.story-content p {
+    margin: 0 0 19px;
+
+    color: var(--about-slate);
+    font-size: 13px;
+    line-height: 1.95;
+}
+
+.story-content .story-lead {
+    margin-bottom: 25px;
+
+    color: var(--about-charcoal);
+    font-family: var(--about-display) !important;
+    font-size: 27px;
+    line-height: 1.35;
+}
+
+.story-footnote {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+
+    margin-top: 45px;
+    padding-top: 18px;
+
+    border-top: 1px solid var(--about-border);
+}
+
+.story-footnote span:first-child {
+    color: var(--about-midnight);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+}
+
+.story-footnote span:last-child {
+    color: var(--about-slate);
+    font-size: 8px;
+    letter-spacing: 0.12em;
 }
 
 
@@ -306,391 +486,499 @@
 --------------------------------------------------------- */
 
 .about-purpose {
-    padding-top: 120px;
-    padding-bottom: 120px;
-}
-
-.about-purpose .section-heading {
-    margin-bottom: 55px;
-}
-
-.about-purpose .section-heading h2,
-.about-values .section-heading h2,
-.about-team .section-heading h2 {
-    color: var(--about-midnight);
-    font-size: clamp(45px, 5vw, 68px);
-}
-
-.about-purpose .section-heading h2 em,
-.about-values .section-heading h2 em,
-.about-team .section-heading h2 em {
-    display: block;
-}
-
-.purpose-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 90px;
+
+    padding: 135px max(8%, calc((100vw - 1300px) / 2));
+
+    color: #FFFFFF;
+    background: var(--about-midnight);
 }
 
-.purpose-card {
-    position: relative;
-    min-height: 370px;
-
-    padding: 48px;
-
-    background: #FFFFFF;
-    border: 1px solid rgba(11, 19, 32, 0.08);
-    border-radius: var(--about-radius-premium);
-
-    box-shadow: var(--about-shadow);
-
-    transition:
-        transform var(--about-transition),
-        box-shadow var(--about-transition);
+.purpose-heading {
+    position: sticky;
+    top: 130px;
+    align-self: start;
 }
 
-.purpose-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.09);
-}
-
-.purpose-number {
-    display: block;
-    margin-bottom: 45px;
-
+.purpose-heading .eyebrow {
+    margin-bottom: 25px;
     color: var(--about-gold);
-    font-family: var(--about-display);
-    font-size: 38px;
 }
 
-.purpose-card .eyebrow {
-    margin-bottom: 14px;
-    color: #9A774D;
+.purpose-heading h2 {
+    margin: 0 0 25px;
+
+    font-size: clamp(50px, 5.5vw, 72px);
+    line-height: 0.98;
 }
 
-.purpose-card h3 {
-    margin-bottom: 20px;
-
-    color: var(--about-midnight);
-    font-family: var(--about-display);
-    font-size: 39px;
-    font-weight: 500;
+.purpose-heading h2 em {
+    display: block;
+    color: var(--about-gold);
 }
 
-.purpose-card > p:last-child {
-    max-width: 480px;
+.purpose-heading > p:last-child {
+    max-width: 380px;
 
-    color: var(--about-slate);
-    font-size: 14px;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 13px;
     line-height: 1.9;
 }
 
-.purpose-card-dark {
-    color: #FFFFFF;
-    background: var(--about-midnight);
-    border-color: var(--about-midnight);
+.purpose-statements {
+    display: flex;
+    flex-direction: column;
 }
 
-.purpose-card-dark .eyebrow {
+.purpose-statement {
+    padding: 20px 0 65px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.purpose-statement + .purpose-statement {
+    padding-top: 65px;
+}
+
+.purpose-statement-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+
+    margin-bottom: 65px;
+
+    color: var(--about-gold);
+    font-size: 9px;
+    letter-spacing: 0.14em;
+}
+
+.purpose-label {
+    margin-bottom: 18px;
+
+    color: var(--about-gold);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+}
+
+.purpose-statement h3 {
+    max-width: 550px;
+    margin: 0 0 25px;
+
+    color: #FFFFFF;
+    font-size: clamp(43px, 5vw, 64px);
+    line-height: 0.98;
+}
+
+.purpose-statement h3 em {
+    display: block;
     color: var(--about-gold);
 }
 
-.purpose-card-dark h3 {
-    color: #FFFFFF;
-}
+.purpose-description {
+    max-width: 510px;
+    margin: 0;
 
-.purpose-card-dark > p:last-child {
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 13px;
+    line-height: 2;
 }
 
 
 /* ---------------------------------------------------------
-   07. NUESTROS VALORES
+   07. VALORES
 --------------------------------------------------------- */
 
 .about-values {
-    padding: 115px 0 125px;
+    padding: 135px max(8%, calc((100vw - 1300px) / 2));
 
     background: #FFFFFF;
 }
 
-.about-values .section-heading {
+.values-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 60px;
+
     margin-bottom: 65px;
 }
 
-.values-grid {
+.values-heading .eyebrow {
+    margin-bottom: 22px;
+    color: #98764E;
+}
+
+.values-heading h2 {
+    margin: 0;
+
+    color: var(--about-midnight);
+    font-size: clamp(50px, 5.5vw, 72px);
+    line-height: 0.98;
+}
+
+.values-heading h2 em {
+    display: block;
+    color: #A88961;
+}
+
+.values-heading > p {
+    max-width: 310px;
+    margin: 0 0 8px;
+
+    color: var(--about-slate);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.values-list {
+    border-top: 1px solid var(--about-border);
+}
+
+.value-row {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1px;
+    grid-template-columns: 70px 0.9fr 1fr 30px;
+    align-items: center;
+    gap: 25px;
 
-    background: rgba(11, 19, 32, 0.12);
-    border: 1px solid rgba(11, 19, 32, 0.12);
+    min-height: 116px;
+    padding: 22px 10px;
+
+    border-bottom: 1px solid var(--about-border);
+
+    transition:
+        background var(--about-transition),
+        padding var(--about-transition);
 }
 
-.value-card {
-    min-height: 235px;
-    padding: 38px 32px;
-
-    background: #FFFFFF;
-
-    transition: background var(--about-transition);
-}
-
-.value-card:hover {
+.value-row:hover {
+    padding-right: 18px;
+    padding-left: 18px;
     background: var(--about-ivory);
 }
 
-.value-card > span {
-    display: inline-block;
-    margin-bottom: 28px;
-
-    color: #B18E61;
+.value-index {
+    color: #A88961;
     font-family: var(--about-display);
     font-size: 29px;
 }
 
-.value-card h3 {
-    margin-bottom: 12px;
+.value-row h3 {
+    margin: 0;
 
     color: var(--about-midnight);
-    font-family: var(--about-display);
-    font-size: 31px;
-    font-weight: 500;
+    font-size: 32px;
+    line-height: 1;
 }
 
-.value-card p {
-    max-width: 290px;
+.value-row p {
+    max-width: 370px;
+    margin: 0;
 
     color: var(--about-slate);
-    font-size: 13px;
+    font-size: 12px;
     line-height: 1.8;
 }
 
+.value-symbol {
+    color: var(--about-gold);
+    font-size: 19px;
+    text-align: right;
+    transition: transform var(--about-transition);
+}
+
+.value-row:hover .value-symbol {
+    transform: translate(3px, -3px);
+}
+
 
 /* ---------------------------------------------------------
-   08. MANIFIESTO ÉVORA
+   08. MANIFIESTO
 --------------------------------------------------------- */
 
 .about-manifesto {
-    padding: 125px 0;
+    padding: 35px max(8%, calc((100vw - 1300px) / 2)) 30px;
 
     color: #FFFFFF;
     background: var(--about-midnight);
 }
 
-.manifesto-inner {
-    max-width: 950px;
-    text-align: center;
-}
+.manifesto-topline,
+.manifesto-bottomline {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
 
-.manifesto-inner > .eyebrow {
-    margin-bottom: 35px;
-    color: var(--about-gold);
-}
-
-.about-manifesto h2 {
-    max-width: 850px;
-    margin: 0 auto 55px;
-
-    font-size: clamp(48px, 6vw, 82px);
-}
-
-.about-manifesto h2 em {
-    display: block;
-}
-
-.manifesto-copy {
-    max-width: 670px;
-    margin: 0 auto;
-}
-
-.manifesto-copy p {
-    margin-bottom: 23px;
-
-    color: rgba(255, 255, 255, 0.79);
-    font-size: 15px;
-    line-height: 2;
-}
-
-.manifesto-signature {
-    margin-top: 48px;
+    padding: 18px 0;
 
     color: var(--about-gold);
-    font-family: var(--about-display);
-    font-size: 26px;
-    font-style: italic;
+    font-size: 8px;
+    letter-spacing: 0.16em;
 }
 
-
-/* ---------------------------------------------------------
-   09. NUESTRO EQUIPO
---------------------------------------------------------- */
-
-.about-team {
-    padding-top: 120px;
-    padding-bottom: 120px;
+.manifesto-topline {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.about-team .section-heading {
-    margin-bottom: 55px;
+.manifesto-layout {
+    display: grid;
+    grid-template-columns: 1fr 0.85fr;
+    gap: 100px;
+
+    padding: 105px 0 110px;
 }
 
-.team-placeholder {
-    min-height: 330px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    padding: 55px 30px;
-
-    text-align: center;
-
-    background: var(--about-mist);
-    border: 1px solid rgba(11, 19, 32, 0.08);
-    border-radius: var(--about-radius-premium);
-}
-
-.team-placeholder .eyebrow {
-    margin-bottom: 25px;
-    color: #9A774D;
-}
-
-.team-placeholder h3 {
-    max-width: 650px;
-    margin-bottom: 22px;
-
-    color: var(--about-midnight);
-    font-family: var(--about-display);
-    font-size: clamp(38px, 5vw, 58px);
-    font-weight: 500;
-    line-height: 1.05;
-}
-
-.team-placeholder h3 em {
-    color: #A88961;
-}
-
-.team-placeholder > p:last-child {
-    max-width: 550px;
-
-    color: var(--about-slate);
-    font-size: 14px;
-    line-height: 1.9;
-}
-
-
-/* ---------------------------------------------------------
-   10. LLAMADA A LA ACCIÓN
---------------------------------------------------------- */
-
-.about-cta {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    padding: 110px 7% 120px;
-
-    color: #FFFFFF;
-    background: var(--about-midnight);
-
-    text-align: center;
-}
-
-.about-cta::before {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
-    background:
-        radial-gradient(
-            circle at 50% 100%,
-            rgba(212, 180, 131, 0.12),
-            transparent 55%
-        );
-
-    pointer-events: none;
-}
-
-.about-cta > * {
-    position: relative;
-    z-index: 1;
-}
-
-.about-cta .eyebrow {
+.manifesto-heading .eyebrow {
     margin-bottom: 30px;
     color: var(--about-gold);
 }
 
-.about-cta h2 {
-    max-width: 850px;
-    margin-bottom: 25px;
+.manifesto-heading h2 {
+    max-width: 620px;
+    margin: 0;
 
-    font-size: clamp(50px, 6vw, 82px);
+    font-size: clamp(55px, 6vw, 82px);
+    line-height: 0.96;
+}
+
+.manifesto-heading h2 em {
+    display: block;
+    color: var(--about-gold);
+}
+
+.manifesto-text {
+    max-width: 520px;
+    padding-top: 48px;
+}
+
+.manifesto-text p {
+    margin: 0 0 23px;
+
+    color: rgba(255, 255, 255, 0.74);
+    font-size: 13px;
+    line-height: 2;
+}
+
+.manifesto-text .manifesto-emphasis {
+    color: #FFFFFF;
+    font-family: var(--about-display) !important;
+    font-size: 29px;
+    line-height: 1.35;
+}
+
+.manifesto-signature {
+    display: block;
+    margin-top: 42px;
+
+    color: var(--about-gold);
+    font-family: var(--about-display);
+    font-size: 23px;
+    font-style: italic;
+}
+
+.manifesto-bottomline {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+
+/* ---------------------------------------------------------
+   09. EQUIPO
+--------------------------------------------------------- */
+
+.about-team {
+    padding: 135px max(8%, calc((100vw - 1300px) / 2));
+
+    background: var(--about-ivory);
+}
+
+.team-intro {
+    max-width: 820px;
+    margin-bottom: 65px;
+}
+
+.team-intro .eyebrow {
+    margin-bottom: 24px;
+    color: #98764E;
+}
+
+.team-intro h2 {
+    margin: 0 0 25px;
+
+    color: var(--about-midnight);
+    font-size: clamp(53px, 6vw, 78px);
+    line-height: 0.97;
+}
+
+.team-intro h2 em {
+    display: block;
+    color: #A88961;
+}
+
+.team-intro > p:last-child {
+    max-width: 510px;
+    margin: 0;
+
+    color: var(--about-slate);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.team-editorial {
+    display: grid;
+    grid-template-columns: 0.65fr 1fr;
+    align-items: center;
+    gap: 65px;
+
+    min-height: 350px;
+    padding: 55px 8%;
+
+    background: #FFFFFF;
+    border: 1px solid var(--about-border);
+}
+
+.team-editorial-number {
+    color: rgba(212, 180, 131, 0.55);
+    font-family: var(--about-display);
+    font-size: clamp(140px, 20vw, 240px);
+    font-weight: 500;
+    line-height: 0.8;
+    text-align: center;
+}
+
+.team-editorial-content {
+    max-width: 520px;
+}
+
+.team-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-bottom: 24px;
+
+    color: var(--about-slate);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+}
+
+.team-status span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--about-gold);
+}
+
+.team-editorial-content h3 {
+    margin: 0 0 20px;
+
+    color: var(--about-midnight);
+    font-size: clamp(38px, 4vw, 54px);
+    line-height: 0.98;
+}
+
+.team-editorial-content h3 em {
+    display: block;
+    color: #A88961;
+}
+
+.team-editorial-content > p {
+    margin: 0;
+
+    color: var(--about-slate);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+
+/* ---------------------------------------------------------
+   10. CTA FINAL
+--------------------------------------------------------- */
+
+.about-cta {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    align-items: center;
+    gap: 70px;
+
+    padding: 100px max(8%, calc((100vw - 1300px) / 2));
+
+    color: #FFFFFF;
+    background: var(--about-midnight);
+}
+
+.about-cta-copy .eyebrow {
+    margin-bottom: 24px;
+    color: var(--about-gold);
+}
+
+.about-cta h2 {
+    max-width: 780px;
+    margin: 0 0 23px;
+
+    font-size: clamp(48px, 5.5vw, 72px);
+    line-height: 0.97;
 }
 
 .about-cta h2 em {
     display: block;
+    color: var(--about-gold);
 }
 
-.about-cta > p:not(.eyebrow) {
-    max-width: 560px;
-    margin-bottom: 35px;
+.about-cta-copy > p:last-child {
+    max-width: 520px;
+    margin: 0;
 
-    color: rgba(255, 255, 255, 0.78);
-    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 13px;
     line-height: 1.9;
 }
 
-.about-cta-actions {
+.about-cta-action {
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+}
+
+.about-cta-action > span {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 8px;
+    letter-spacing: 0.13em;
+}
+
+.about-cta-action .button {
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
     gap: 15px;
 }
 
 
 /* ---------------------------------------------------------
-   11. ANIMACIONES Y ACCESIBILIDAD
+   11. INTERACCIONES Y ACCESIBILIDAD
 --------------------------------------------------------- */
 
 @media (prefers-reduced-motion: no-preference) {
 
-    .about-hero-content {
-        animation: aboutFadeUp 800ms ease both;
+    .about-discover-link,
+    .value-row,
+    .value-symbol,
+    .about-cover-visual img,
+    .story-image img {
+        transition-duration: 300ms;
     }
 
-    .about-hero-note {
-        animation: aboutFadeUp 1000ms ease both;
-    }
-
-}
-
-@keyframes aboutFadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(22px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 @media (prefers-reduced-motion: reduce) {
 
-    .about-hero-content,
-    .about-hero-note {
-        animation: none;
-    }
-
-    .about-history-image img,
-    .purpose-card,
-    .value-card {
+    .about-discover-link,
+    .value-row,
+    .value-symbol,
+    .about-cover-visual img,
+    .story-image img {
         transition: none;
     }
 
@@ -698,132 +986,256 @@
 
 
 /* ---------------------------------------------------------
-   12. RESPONSIVE — TABLETS
+   12. TABLETS
 --------------------------------------------------------- */
 
 @media (max-width: 1024px) {
 
-    .about-introduction {
+    .about-cover {
+        grid-template-columns: 1fr 0.9fr;
+        min-height: 590px;
+    }
+
+    .about-cover-content {
+        padding-left: 7%;
+        padding-right: 7%;
+    }
+
+    .about-cover-visual {
+        min-height: 590px;
+    }
+
+    .about-cover h1 {
+        font-size: clamp(52px, 6.5vw, 70px);
+    }
+
+    .about-identity {
+        grid-template-columns: 0.2fr 1fr;
+        gap: 35px;
+        padding: 110px 7%;
+    }
+
+    .identity-copy {
+        gap: 35px;
+    }
+
+    .about-story {
+        gap: 55px;
+        padding: 100px 7%;
+    }
+
+    .story-image {
+        height: 540px;
+    }
+
+    .about-purpose {
+        gap: 55px;
+        padding: 110px 7%;
+    }
+
+    .about-values,
+    .about-team {
+        padding-right: 7%;
+        padding-left: 7%;
+    }
+
+    .manifesto-layout {
+        gap: 55px;
+    }
+
+    .about-cta {
+        padding-right: 7%;
+        padding-left: 7%;
         gap: 45px;
-    }
-
-    .about-history-inner {
-        gap: 45px;
-    }
-
-    .about-history-image {
-        height: 480px;
-    }
-
-    .purpose-card {
-        padding: 38px;
-    }
-
-    .values-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
 }
 
 
 /* ---------------------------------------------------------
-   13. RESPONSIVE — MÓVILES
+   13. TABLETS PEQUEÑAS Y MÓVILES
 --------------------------------------------------------- */
 
 @media (max-width: 768px) {
 
-    .about-hero {
-        min-height: 650px;
-        padding: 100px 7% 110px;
-    }
-
-    .about-hero-overlay {
-        background:
-            linear-gradient(
-                90deg,
-                rgba(11, 19, 32, 0.91),
-                rgba(11, 19, 32, 0.65)
-            );
-    }
-
-    .about-hero h1 {
-        font-size: clamp(52px, 12vw, 76px);
-    }
-
-    .about-hero-note {
-        right: 7%;
-        bottom: 30px;
-
-        font-size: 9px;
-    }
-
-    .about-introduction,
-    .about-history-inner {
-        grid-template-columns: 1fr;
-        gap: 38px;
-    }
-
-    .about-introduction,
-    .about-purpose,
-    .about-team {
-        padding-top: 80px;
-        padding-bottom: 80px;
-    }
-
-    .about-introduction h2,
-    .about-history h2 {
-        font-size: 55px;
-    }
-
-    .about-history {
-        padding: 80px 0;
-    }
-
-    .about-history-image {
-        height: 400px;
-    }
-
-    .about-purpose .section-heading,
-    .about-values .section-heading,
-    .about-team .section-heading {
-        gap: 20px;
-    }
-
-    .purpose-grid {
+    .about-cover {
         grid-template-columns: 1fr;
     }
 
-    .purpose-card {
-        min-height: 320px;
+    .about-cover-content {
+        min-height: 570px;
+        padding: 85px 7% 45px;
+    }
+
+    .about-cover h1 {
+        max-width: 650px;
+        font-size: clamp(53px, 10vw, 76px);
+    }
+
+    .about-cover-visual {
+        min-height: 470px;
+    }
+
+    .about-image-caption {
+        padding: 20px;
+        font-size: 8px;
+    }
+
+    .about-vertical-label {
+        right: 15px;
+    }
+
+    .about-cover-index {
+        margin-top: 55px;
+    }
+
+    .about-identity {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 95px 7%;
+    }
+
+    .identity-aside {
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .about-section-number {
+        font-size: 38px;
+    }
+
+    .identity-main h2 {
+        margin-bottom: 38px;
+        font-size: clamp(51px, 9vw, 68px);
+    }
+
+    .identity-copy {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .identity-lead {
+        max-width: 540px;
+    }
+
+    .identity-signature {
+        margin-top: 35px;
+    }
+
+    .about-story {
+        grid-template-columns: 1fr;
+        gap: 45px;
+        padding: 85px 7%;
+    }
+
+    .story-image {
+        height: 480px;
+    }
+
+    .story-content {
+        max-width: 650px;
+    }
+
+    .about-purpose {
+        grid-template-columns: 1fr;
+        gap: 45px;
+        padding: 90px 7%;
+    }
+
+    .purpose-heading {
+        position: static;
+    }
+
+    .purpose-heading h2 {
+        max-width: 600px;
+    }
+
+    .purpose-statement {
+        padding-bottom: 50px;
+    }
+
+    .purpose-statement + .purpose-statement {
+        padding-top: 50px;
+    }
+
+    .purpose-statement-top {
+        margin-bottom: 45px;
     }
 
     .about-values {
-        padding: 80px 0;
+        padding: 90px 7%;
     }
 
-    .values-grid {
-        grid-template-columns: 1fr 1fr;
+    .values-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        margin-bottom: 45px;
     }
 
-    .value-card {
-        min-height: 220px;
-        padding: 28px 22px;
+    .values-heading > p {
+        max-width: 500px;
+    }
+
+    .value-row {
+        grid-template-columns: 45px 1fr 25px;
+        gap: 15px;
+        min-height: 105px;
+    }
+
+    .value-row h3 {
+        font-size: 28px;
+    }
+
+    .value-row p {
+        grid-column: 2;
+        grid-row: 2;
+        max-width: 440px;
+    }
+
+    .value-symbol {
+        grid-column: 3;
+        grid-row: 1 / span 2;
     }
 
     .about-manifesto {
-        padding: 90px 0;
+        padding-right: 7%;
+        padding-left: 7%;
     }
 
-    .about-manifesto h2 {
-        margin-bottom: 38px;
+    .manifesto-layout {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 80px 0;
+    }
+
+    .manifesto-text {
+        max-width: 650px;
+        padding-top: 10px;
     }
 
     .about-team {
-        padding-top: 80px;
-        padding-bottom: 80px;
+        padding: 95px 7%;
+    }
+
+    .team-intro {
+        margin-bottom: 45px;
+    }
+
+    .team-editorial {
+        grid-template-columns: 0.45fr 1fr;
+        gap: 35px;
+        padding: 40px 5%;
+    }
+
+    .team-editorial-number {
+        font-size: 130px;
     }
 
     .about-cta {
+        grid-template-columns: 1fr;
+        gap: 35px;
         padding: 85px 7%;
     }
 
@@ -831,97 +1243,198 @@
 
 
 /* ---------------------------------------------------------
-   14. RESPONSIVE — MÓVILES PEQUEÑOS
+   14. MÓVILES PEQUEÑOS
 --------------------------------------------------------- */
 
 @media (max-width: 480px) {
 
-    .about-hero {
-        min-height: 600px;
+    .about-cover-content {
+        min-height: 550px;
+        padding-top: 75px;
     }
 
-    .about-hero h1 {
-        font-size: 49px;
-    }
-
-    .about-hero-content > p:not(.eyebrow) {
-        font-size: 13px;
-    }
-
-    .about-hero-note {
+    .about-kicker {
         font-size: 8px;
         letter-spacing: 0.12em;
     }
 
-    .about-introduction h2,
-    .about-history h2 {
-        font-size: 47px;
+    .about-cover h1 {
+        font-size: 51px;
     }
 
-    .about-introduction-content p:first-child {
-        font-size: 25px;
-    }
-
-    .about-history-image {
-        height: 310px;
-    }
-
-    .about-purpose .section-heading h2,
-    .about-values .section-heading h2,
-    .about-team .section-heading h2 {
-        font-size: 46px;
-    }
-
-    .purpose-card {
-        min-height: auto;
-        padding: 30px;
-    }
-
-    .purpose-number {
-        margin-bottom: 30px;
-    }
-
-    .values-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .value-card {
-        min-height: 190px;
-    }
-
-    .about-manifesto h2 {
-        font-size: 49px;
-    }
-
-    .manifesto-copy p {
+    .about-cover-description {
         font-size: 13px;
     }
 
+    .about-cover-visual {
+        min-height: 390px;
+    }
+
+    .about-image-caption {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .about-cover-index {
+        font-size: 8px;
+    }
+
+    .about-identity {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .identity-main h2 {
+        font-size: 49px;
+    }
+
+    .identity-lead {
+        font-size: 27px;
+    }
+
+    .identity-detail p {
+        font-size: 12px;
+    }
+
+    .about-story {
+        padding-top: 75px;
+        padding-bottom: 75px;
+    }
+
+    .story-image {
+        height: 360px;
+    }
+
+    .story-content h2 {
+        font-size: 53px;
+    }
+
+    .story-content .story-lead {
+        font-size: 24px;
+    }
+
+    .story-content p {
+        font-size: 12px;
+    }
+
+    .about-purpose {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .purpose-heading h2 {
+        font-size: 48px;
+    }
+
+    .purpose-statement h3 {
+        font-size: 43px;
+    }
+
+    .purpose-statement-top {
+        margin-bottom: 35px;
+        font-size: 8px;
+    }
+
+    .purpose-description {
+        font-size: 12px;
+    }
+
+    .about-values {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .values-heading h2 {
+        font-size: 49px;
+    }
+
+    .value-row {
+        grid-template-columns: 34px 1fr 18px;
+        gap: 10px;
+        padding: 20px 3px;
+    }
+
+    .value-index {
+        font-size: 24px;
+    }
+
+    .value-row h3 {
+        font-size: 25px;
+    }
+
+    .value-row p {
+        font-size: 11px;
+    }
+
+    .about-manifesto {
+        padding-top: 25px;
+    }
+
+    .manifesto-topline,
+    .manifesto-bottomline {
+        font-size: 7px;
+        letter-spacing: 0.1em;
+    }
+
+    .manifesto-layout {
+        padding: 70px 0;
+    }
+
+    .manifesto-heading h2 {
+        font-size: 53px;
+    }
+
+    .manifesto-text p {
+        font-size: 12px;
+    }
+
+    .manifesto-text .manifesto-emphasis {
+        font-size: 25px;
+    }
+
     .manifesto-signature {
-        font-size: 23px;
+        font-size: 21px;
     }
 
-    .team-placeholder {
-        min-height: 300px;
-        padding: 35px 22px;
+    .about-team {
+        padding-top: 80px;
+        padding-bottom: 80px;
     }
 
-    .team-placeholder h3 {
-        font-size: 42px;
+    .team-intro h2 {
+        font-size: 51px;
+    }
+
+    .team-editorial {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 35px 25px;
+    }
+
+    .team-editorial-number {
+        font-size: 115px;
+        text-align: left;
+    }
+
+    .team-editorial-content h3 {
+        font-size: 43px;
+    }
+
+    .about-cta {
+        padding-top: 75px;
+        padding-bottom: 75px;
     }
 
     .about-cta h2 {
         font-size: 49px;
     }
 
-    .about-cta-actions {
+    .about-cta-action {
         width: 100%;
-        flex-direction: column;
     }
 
-    .about-cta-actions .button {
+    .about-cta-action .button {
         width: 100%;
-        justify-content: center;
     }
 
 }
