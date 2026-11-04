@@ -11,23 +11,69 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="./css/bodas.css">
+ <link rel="stylesheet" href="./css/estilos.css">
+<link rel="stylesheet" href="./css/bodas.css">
 </head>
 
 <body>
 
-<main class="wedding-page" id="inicio">
+ <!-- HEADER GLOBAL ÉVORA -->
+<header class="header" id="inicio">
+  <div class="header-inner">
 
-  <!-- NAVEGACIÓN -->
-  <nav class="topbar">
-    <a class="brand" href="./index.html">
-      ÉVORA
-      <span>EXPERIENCES · EVENTS</span>
+    <a href="./index.html" class="logo" aria-label="ÉVORA - Inicio">
+      ÉVORA<span class="logo-dot">.</span>
+      <span class="logo-caption">EXPERIENCES · EVENTS</span>
     </a>
 
-    <a class="back-link" href="./index.html">← Volver a Inicio</a>
-  </nav>
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="navMenu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
+    <nav class="nav" id="navMenu" aria-label="Navegación principal">
+
+      <a href="./index.html">Inicio</a>
+
+      <a href="./nosotros.html">Nosotros</a>
+
+      <div class="nav-dropdown" id="servicesMenu">
+        <button
+          class="nav-dropdown-toggle"
+          type="button"
+          aria-expanded="false"
+        >
+          Servicios <span class="dropdown-arrow">⌄</span>
+        </button>
+
+        <div class="nav-dropdown-menu">
+          <a href="./bodas.html" aria-current="page">Bodas</a>
+          <a href="./bodas-destino.html">Bodas destino</a>
+          <a href="./corporativos.html">Eventos corporativos</a>
+          <a href="./ocasiones.html">Ocasiones especiales</a>
+        </div>
+      </div>
+
+      <a href="./rsvp.html">RSVP digital</a>
+
+      <a href="./invitados.html">Gestión de invitados</a>
+
+      <a href="./galeria.html">Galería</a>
+
+      <a href="./contacto.html" class="nav-cta">Hablemos</a>
+
+    </nav>
+  </div>
+</header>
+
+<main class="wedding-page" id="inicio">
   <!-- PORTADA -->
   <header class="hero">
     <div class="hero-image"></div>
@@ -493,18 +539,47 @@
       Hablemos de tu boda ↗
     </a>
   </section>
+</main>
 
-  <!-- PIE DE PÁGINA -->
-  <footer class="footer">
-    <a class="brand" href="./index.html">
-      ÉVORA
-      <span>EXPERIENCES · EVENTS · DESTINATION WEDDINGS</span>
+ <!-- FOOTER GLOBAL ÉVORA -->
+<footer class="footer">
+
+  <div class="footer-inner">
+
+    <div class="footer-brand">
+      <a href="./index.html" class="logo-footer">
+        ÉVORA<span class="logo-dot">.</span>
+        <span class="logo-caption">
+          EXPERIENCES · EVENTS
+        </span>
+      </a>
+
+      <p class="footer-tagline">
+        Cada detalle, perfectamente planeado.
+      </p>
+    </div>
+
+    <div class="footer-links">
+      <a href="./index.html">Inicio</a>
+      <a href="./nosotros.html">Nosotros</a>
+      <a href="./bodas.html">Bodas</a>
+      <a href="./contacto.html">Contacto</a>
+      <a href="./rsvp.html">RSVP digital</a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <small>
+      © <span id="year"></span> ÉVORA. Todos los derechos reservados.
+    </small>
+
+    <a href="#inicio" class="back-top">
+      Volver arriba ↑
     </a>
+  </div>
 
-    <p>Cada detalle, perfectamente planeado.</p>
-
-    <a href="#inicio">Volver arriba ↑</a>
-  </footer>
+</footer>
 
 <!-- WHATSAPP -->
 <a
