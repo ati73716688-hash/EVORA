@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de paquete | ÉVORA</title>
+
+    <link rel="stylesheet" href="./css/consulta.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="encabezado">
+        <a href="./index.html" class="logo">ÉVORA</a>
+        <a href="./bodas.html" class="volver">Volver a paquetes</a>
+    </header>
+
+    <main class="contenedor">
+
+        <section class="presentacion">
+            <span>HAGAMOS REALIDAD TU EVENTO</span>
+            <h1>Cuéntanos tus planes</h1>
+            <p>
+                Completa este pequeño cuestionario para conocer
+                los detalles de tu evento y poder brindarte una
+                propuesta personalizada.
+            </p>
+        </section>
+
+        <form id="formularioConsulta">
+
+            <h2>Información de contacto</h2>
+
+            <div class="campo">
+                <label for="nombre">Nombre completo *</label>
+                <input type="text" id="nombre" name="nombre"
+                    placeholder="Escribe tu nombre" required>
+            </div>
+
+            <div class="fila">
+                <div class="campo">
+                    <label for="correo">Correo electrónico *</label>
+                    <input type="email" id="correo" name="correo"
+                        placeholder="ejemplo@gmail.com" required>
+                </div>
+
+                <div class="campo">
+                    <label for="telefono">Teléfono *</label>
+                    <input type="tel" id="telefono" name="telefono"
+                        placeholder="Tu número de contacto" required>
+                </div>
+            </div>
+
+            <h2>Detalles del evento</h2>
+
+            <div class="campo">
+                <label for="paquete">Paquete que deseas consultar</label>
+                <input type="text" id="paquete" name="paquete" readonly>
+            </div>
+
+            <div class="fila">
+                <div class="campo">
+                    <label for="fecha">Fecha aproximada del evento</label>
+                    <input type="date" id="fecha" name="fecha">
+                </div>
+
+                <div class="campo">
+                    <label for="invitados">Cantidad de invitados</label>
+                    <input type="number" id="invitados" name="invitados"
+                        min="1" placeholder="Ej. 100">
+                </div>
+            </div>
+
+            <div class="campo">
+                <label for="lugar">Lugar donde será el evento</label>
+                <input type="text" id="lugar" name="lugar"
+                    placeholder="Ciudad o lugar aproximado">
+            </div>
+
+            <div class="campo">
+                <label for="mensaje">Cuéntanos un poco más sobre tu evento</label>
+                <textarea id="mensaje" name="mensaje" rows="5"
+                    placeholder="Describe tus ideas, preferencias o algún detalle importante..."></textarea>
+            </div>
+
+            <p class="nota">* Los campos marcados son obligatorios.</p>
+
+            <button type="submit" id="btnEnviar">
+                Enviar consulta
+            </button>
+
+            <p id="respuesta"></p>
+
+        </form>
+
+    </main>
+
+    <footer>
+        ÉVORA · Cada detalle, perfectamente planeado.
+    </footer>
+
+    <!-- Librería de EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="./js/consulta.js"></script>
+
+</body>
+</html>

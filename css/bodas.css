@@ -1,528 +1,1039 @@
-/* ÉVORA — DISEÑO EDITORIAL PARA PAQUETES DE BODAS */
+/* =====================================
+   ÉVORA - PAQUETES DE BODAS
+===================================== */
 
-.wedding-packages {
-  --wp-ink: #20251f;
-  --wp-olive: #515847;
-  --wp-gold: #b18a57;
-  --wp-paper: #f4f0e8;
-  --wp-white: #fffdf9;
-  --wp-line: #d9d0c1;
-  background: var(--wp-paper);
-  color: var(--wp-ink);
-  font-family: "Inter", Arial, sans-serif;
-  line-height: 1.7;
+:root {
+    --ink: #292421;
+    --muted: #77706a;
+    --cream: #f8f5f0;
+    --paper: #fffdfa;
+    --rose: #c79d98;
+    --rose-dark: #9c716d;
+    --line: #e9e0d8;
+
+    --serif: "Cormorant Garamond", Georgia, serif;
+    --sans: "Montserrat", Arial, sans-serif;
 }
 
-.wedding-packages *,
-.wedding-packages *::before,
-.wedding-packages *::after {
-  box-sizing: border-box;
+* {
+    box-sizing: border-box;
 }
 
-.wedding-packages a {
-  color: inherit;
+html {
+    scroll-behavior: smooth;
 }
 
-.wp-heading {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 100px 24px 85px;
-  text-align: center;
+body {
+    margin: 0;
+    color: var(--ink);
+    background: var(--paper);
+    font-family: var(--sans);
 }
 
-.wp-kicker,
-.wp-label,
-.wp-intro > span {
-  display: block;
-  color: var(--wp-gold);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 2.3px;
-  text-transform: uppercase;
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
-.wp-heading h1,
-.wp-details-heading h2,
-.wp-contact-copy h2,
-.wp-transparency h2 {
-  margin: 20px 0;
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(44px, 6vw, 76px);
-  font-weight: 400;
-  line-height: 1;
+.wedding-page {
+    overflow: hidden;
 }
 
-.wp-heading h1 em,
-.wp-details-heading h2 em,
-.wp-contact-copy h2 em,
-.wp-transparency h2 em {
-  color: var(--wp-gold);
-  font-weight: 400;
+/* =====================================
+   BARRA DE NAVEGACIÓN
+===================================== */
+
+.topbar {
+    height: 88px;
+    padding: 0 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: var(--paper);
 }
 
-.wp-heading > p {
-  max-width: 610px;
-  margin: 25px auto 0;
-  color: #6f7068;
-  font-size: 14px;
-}
-
-.wp-intro {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 24px;
-  border-top: 1px solid var(--wp-line);
-}
-
-.wp-intro p {
-  margin: 0;
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 25px;
-}
-
-.wp-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 10px 24px 100px;
-  align-items: stretch;
-}
-
-.wp-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  background: var(--wp-white);
-  border: 1px solid var(--wp-line);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.wp-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 40px #342b1c12;
-}
-
-.wp-card-featured {
-  border: 1px solid var(--wp-gold);
-}
-
-.wp-ribbon {
-  position: absolute;
-  z-index: 2;
-  top: 18px;
-  right: 18px;
-  padding: 7px 11px;
-  background: var(--wp-gold);
-  color: #fff;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 1.3px;
-}
-
-.wp-photo {
-  position: relative;
-  height: 260px;
-  background-size: cover;
-  background-position: center;
-}
-
-.wp-photo::after {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(0deg, #111a14a8, transparent 55%);
-  content: "";
-}
-
-.wp-photo span {
-  position: absolute;
-  z-index: 1;
-  bottom: 17px;
-  left: 20px;
-  color: white;
-  font-size: 9px;
-  letter-spacing: 2px;
-}
-
-.wp-photo-one {
-  background-image: url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80");
-}
-
-.wp-photo-two {
-  background-image: url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=80");
-}
-
-.wp-photo-three {
-  background-image: url("https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=900&q=80");
-}
-
-.wp-card-content {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  padding: 28px;
-}
-
-.wp-card .wp-label {
-  margin: 0;
-  font-size: 9px;
-  letter-spacing: 1.4px;
-}
-
-.wp-card h2 {
-  margin: 10px 0;
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 40px;
-  font-weight: 400;
-  line-height: 1.1;
-}
-
-.wp-description {
-  min-height: 80px;
-  color: #77776f;
-  font-size: 12px;
-}
-
-.wp-price {
-  margin: 16px 0;
-  color: var(--wp-olive);
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 43px;
-  line-height: 1.1;
-}
-
-.wp-price > span {
-  font-size: 22px;
-}
-
-.wp-price small {
-  display: block;
-  margin-top: 8px;
-  color: #85857d;
-  font-family: "Inter", Arial, sans-serif;
-  font-size: 10px;
-}
-
-.wp-card ul {
-  margin: 15px 0 20px;
-  padding: 0;
-  list-style: none;
-}
-
-.wp-card li {
-  position: relative;
-  padding: 11px 0 11px 21px;
-  border-bottom: 1px solid #e9e2d7;
-  font-size: 11px;
-}
-
-.wp-card li::before {
-  position: absolute;
-  left: 0;
-  color: var(--wp-gold);
-  content: "✓";
-}
-
-.wp-best {
-  margin-top: auto;
-  padding: 15px;
-  background: #f0ece3;
-  color: #66675e;
-  font-size: 11px;
-}
-
-.wp-best strong {
-  color: var(--wp-ink);
-}
-
-.wp-link {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  align-items: center;
-  margin-top: 14px;
-  padding: 15px 0 4px;
-  border-bottom: 1px solid var(--wp-gold);
-  text-decoration: none;
-  font-size: 11px;
-  font-weight: 700;
-}
-
-.wp-link span {
-  color: var(--wp-gold);
-  font-size: 19px;
-}
-
-.wp-details {
-  padding: 100px 24px;
-  background: var(--wp-white);
-}
-
-.wp-details-heading {
-  max-width: 780px;
-  margin: 0 auto 65px;
-  text-align: center;
-}
-
-.wp-details-heading h2 {
-  font-size: clamp(40px, 5vw, 61px);
-}
-
-.wp-details-heading > p {
-  color: #77776f;
-  font-size: 13px;
-}
-
-.wp-detail {
-  display: grid;
-  grid-template-columns: 100px minmax(0, 720px);
-  justify-content: center;
-  gap: 30px;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 40px 0;
-  border-top: 1px solid var(--wp-line);
-  scroll-margin-top: 30px;
-}
-
-.wp-detail-number {
-  color: var(--wp-gold);
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 55px;
-  line-height: 1;
-}
-
-.wp-detail .wp-label {
-  margin: 0;
-}
-
-.wp-detail h3 {
-  margin: 10px 0 18px;
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 34px;
-  font-weight: 400;
-  line-height: 1.1;
-}
-
-.wp-detail p:not(.wp-label) {
-  color: #6f7068;
-  font-size: 13px;
-}
-
-.wp-detail strong {
-  color: var(--wp-ink);
-}
-
-.wp-detail-cta {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 12px 0;
-  border-bottom: 1px solid var(--wp-gold);
-  color: var(--wp-ink);
-  font-size: 11px;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.wp-transparency {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: 70px;
-  align-items: center;
-  padding: 80px max(24px, calc((100% - 1100px) / 2));
-  background: #e8e1d5;
-}
-
-.wp-transparency h2 {
-  font-size: clamp(40px, 5vw, 60px);
-}
-
-.wp-transparency-text {
-  color: #696a61;
-  font-size: 13px;
-}
-
-.wp-transparency-text strong {
-  color: var(--wp-ink);
-}
-
-.wp-contact {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 60px;
-  padding: 100px max(24px, calc((100% - 1100px) / 2));
-  background: #252d25;
-  color: #fffdf9;
-}
-
-.wp-contact-copy h2 {
-  font-size: clamp(42px, 5vw, 64px);
-}
-
-.wp-contact-copy > p {
-  max-width: 390px;
-  color: #d2d3cb;
-  font-size: 13px;
-}
-
-.wp-form {
-  padding: 30px;
-  background: var(--wp-white);
-  color: var(--wp-ink);
-}
-
-.wp-form label {
-  display: block;
-  margin: 15px 0 6px;
-  font-size: 11px;
-  font-weight: 700;
-}
-
-.wp-form input,
-.wp-form select,
-.wp-form textarea {
-  display: block;
-  width: 100%;
-  padding: 13px;
-  border: 1px solid #d9d4ca;
-  border-radius: 0;
-  background: white;
-  color: var(--wp-ink);
-  font: inherit;
-  font-size: 12px;
-}
-
-.wp-form input:focus,
-.wp-form select:focus,
-.wp-form textarea:focus {
-  outline: 2px solid var(--wp-gold);
-  outline-offset: 1px;
-}
-
-.wp-submit {
-  width: 100%;
-  margin-top: 22px;
-  padding: 16px;
-  border: 1px solid var(--wp-olive);
-  background: var(--wp-olive);
-  color: white;
-  font: inherit;
-  font-size: 11px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.wp-submit:hover {
-  background: #343d31;
-}
-
-.wp-form-note {
-  color: #77776f;
-  font-size: 10px;
-}
-
-/* TABLET */
-@media (max-width: 950px) {
-  .wp-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .wp-card:last-child {
-    grid-column: 1 / -1;
-  }
-
-  .wp-card:last-child .wp-card-content {
-    padding: 28px;
-  }
-
-  .wp-transparency,
-  .wp-contact {
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
-}
-
-/* CELULAR */
-@media (max-width: 620px) {
-  .wp-heading {
-    padding: 70px 20px;
-  }
-
-  .wp-heading h1 {
-    font-size: 48px;
-  }
-
-  .wp-intro {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .wp-intro p {
-    font-size: 22px;
-  }
-
-  .wp-grid {
-    grid-template-columns: 1fr;
-    padding: 10px 16px 65px;
-  }
-
-  .wp-card:last-child {
-    grid-column: auto;
-  }
-
-  .wp-photo {
-    height: 230px;
-  }
-
-  .wp-card-content {
-    padding: 23px;
-  }
-
-  .wp-description {
-    min-height: 0;
-  }
-
-  .wp-details {
-    padding: 70px 20px;
-  }
-
-  .wp-detail {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    padding: 30px 0;
-  }
-
-  .wp-detail-number {
-    font-size: 39px;
-  }
-
-  .wp-detail h3 {
+.brand {
+    font-family: var(--serif);
     font-size: 30px;
-  }
-
-  .wp-transparency,
-  .wp-contact {
-    padding: 65px 20px;
-  }
-
-  .wp-form {
-    padding: 20px;
-  }
+    letter-spacing: 5px;
+    line-height: .8;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .wp-card {
-    transition: none;
-  }
+.brand span {
+    display: block;
+    margin-top: 9px;
 
-  .wp-card:hover {
-    transform: none;
-  }
+    font: 8px var(--sans);
+    letter-spacing: 2px;
+    color: var(--muted);
+}
+
+.back-link {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+
+    border-bottom: 1px solid var(--rose);
+    padding-bottom: 7px;
+}
+
+/* =====================================
+   PORTADA PRINCIPAL
+===================================== */
+
+.hero {
+    min-height: 650px;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    background: #6d625a;
+    color: white;
+}
+
+.hero-image {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(31,27,25,.78),
+            rgba(31,27,25,.35) 58%,
+            rgba(31,27,25,.12)
+        ),
+        url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=85")
+        center 48% / cover;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+
+    width: min(760px, 78%);
+    margin-left: 12%;
+    padding: 85px 0;
+}
+
+.eyebrow {
+    display: inline-block;
+
+    color: var(--rose-dark);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2.4px;
+}
+
+.hero .eyebrow,
+.closing .eyebrow {
+    color: #ead2cd;
+}
+
+.hero-overline {
+    margin: 35px 0 12px;
+
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+.hero h1 {
+    margin: 0;
+
+    font: 500 clamp(48px, 6vw, 82px)/.92 var(--serif);
+    letter-spacing: -.8px;
+}
+
+h1 em,
+h2 em,
+h3 em {
+    color: #d8b5ae;
+    font-weight: 400;
+}
+
+.hero-copy {
+    max-width: 500px;
+    margin: 28px 0 34px;
+
+    color: #eee8e3;
+    font-size: 12px;
+    line-height: 2;
+}
+
+/* =====================================
+   BOTONES
+===================================== */
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+
+    min-height: 48px;
+    padding: 0 24px;
+
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+
+    transition: .25s;
+}
+
+.button-light {
+    background: #f8f3ed;
+    color: var(--ink);
+}
+
+.button-light:hover {
+    background: var(--rose);
+    color: white;
+}
+
+.button-dark {
+    background: var(--ink);
+    color: white;
+}
+
+.button-dark:hover {
+    background: var(--rose-dark);
+}
+
+.hero-side-note {
+    position: absolute;
+    right: 4%;
+    bottom: 42px;
+
+    writing-mode: vertical-rl;
+
+    font-size: 8px;
+    letter-spacing: 3px;
+    color: #e8dcd5;
+}
+
+/* =====================================
+   INTRODUCCIÓN
+===================================== */
+
+.section-wrap {
+    width: min(1180px, 86%);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.intro {
+    padding: 115px 0 65px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    align-items: end;
+    gap: 70px;
+}
+
+.intro h2,
+.details-heading h2,
+.transparency h2 {
+    margin-top: 22px;
+
+    font-size: clamp(46px, 5vw, 66px);
+}
+
+.intro h2 em,
+.details-heading h2 em,
+.transparency h2 em {
+    color: var(--rose-dark);
+}
+
+.intro-text {
+    max-width: 490px;
+    margin: 0 0 7px;
+
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 2.1;
+}
+
+/* =====================================
+   TARJETAS DE PAQUETES
+===================================== */
+
+.package-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 22px;
+    align-items: stretch;
+
+    padding-bottom: 130px;
+}
+
+.package-card {
+    position: relative;
+
+    background: #fff;
+    border: 1px solid var(--line);
+
+    box-shadow: 0 12px 35px rgba(55,42,35,.045);
+
+    transition:
+        transform .3s,
+        box-shadow .3s;
+}
+
+.package-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow: 0 22px 48px rgba(55,42,35,.1);
+}
+
+.package-card.featured {
+    border-color: #cba6a0;
+}
+
+/* Etiqueta de paquete destacado */
+
+.popular-label {
+    position: absolute;
+    z-index: 2;
+
+    top: 16px;
+    right: -1px;
+
+    background: var(--rose-dark);
+    color: white;
+
+    padding: 10px 15px;
+
+    font-size: 8px;
+    letter-spacing: 1.5px;
+}
+
+/* Fotografías */
+
+.package-photo {
+    height: 210px;
+    position: relative;
+
+    background-size: cover;
+    background-position: center;
+
+    overflow: hidden;
+}
+
+.package-photo::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            0deg,
+            rgba(35,27,24,.5),
+            transparent 55%
+        );
+}
+
+.package-photo span,
+.package-photo b {
+    position: absolute;
+    z-index: 1;
+
+    color: white;
+}
+
+.package-photo span {
+    left: 22px;
+    bottom: 20px;
+
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+.package-photo b {
+    right: 20px;
+    top: 15px;
+
+    font: 300 40px var(--serif);
+    opacity: .85;
+}
+
+.photo-essential {
+    background-image: url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=85");
+}
+
+.photo-signature {
+    background-image: url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=85");
+}
+
+.photo-full {
+    background-image: url("https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?auto=format&fit=crop&w=900&q=85");
+}
+
+/* Contenido de las tarjetas */
+
+.package-body {
+    padding: 29px 27px 30px;
+}
+
+.package-tag,
+.includes-heading {
+    color: var(--rose-dark);
+
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.package-body h3 {
+    margin: 8px 0 10px;
+
+    font: 500 43px/.95 var(--serif);
+}
+
+.package-description {
+    min-height: 72px;
+
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.9;
+}
+
+/* Precios */
+
+.price {
+    margin-top: 22px;
+
+    font: 600 31px var(--serif);
+}
+
+.price span {
+    font: 11px var(--sans);
+    vertical-align: 7px;
+}
+
+.price small {
+    display: block;
+    margin-top: 1px;
+
+    color: #938982;
+
+    font: 8px var(--sans);
+    letter-spacing: .8px;
+}
+
+.mini-divider {
+    height: 1px;
+
+    background: var(--line);
+
+    margin: 23px 0 20px;
+}
+
+.includes-heading {
+    margin-bottom: 14px;
+    color: var(--ink);
+}
+
+/* Lista de servicios */
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.feature-list li {
+    position: relative;
+
+    padding: 0 0 10px 18px;
+
+    color: #68615c;
+    font-size: 9px;
+    line-height: 1.7;
+}
+
+.feature-list li::before {
+    content: "✳";
+
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    color: var(--rose-dark);
+    font-size: 10px;
+}
+
+/* Ideal para */
+
+.ideal {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+
+    margin: 14px 0 20px;
+    padding: 13px;
+
+    background: var(--cream);
+}
+
+.ideal span {
+    color: var(--rose-dark);
+    font-size: 18px;
+}
+
+.ideal p {
+    margin: 0;
+
+    color: #706761;
+    font-size: 9px;
+    line-height: 1.8;
+}
+
+.ideal strong {
+    color: var(--ink);
+}
+
+/* Enlaces */
+
+.text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+
+    padding-bottom: 6px;
+
+    border-bottom: 1px solid var(--rose);
+
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.text-link span {
+    color: var(--rose-dark);
+    font-size: 13px;
+}
+
+/* =====================================
+   DETALLES DE LOS PAQUETES
+===================================== */
+
+.details-section {
+    padding: 105px 0 120px;
+
+    background: var(--cream);
+}
+
+.details-heading {
+    text-align: center;
+}
+
+.details-heading h2 {
+    font-size: clamp(43px, 5vw, 62px);
+}
+
+.details-heading p {
+    max-width: 570px;
+    margin: 23px auto 0;
+
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 2;
+}
+
+.detail-list {
+    margin-top: 65px;
+
+    display: grid;
+    gap: 28px;
+}
+
+/* Panel de cada paquete */
+
+.detail-panel {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+
+    background: white;
+
+    box-shadow: 0 12px 40px rgba(50,38,30,.055);
+
+    scroll-margin-top: 25px;
+}
+
+/* Columna de precio */
+
+.detail-aside {
+    min-height: 100%;
+    padding: 40px 32px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+    justify-content: space-between;
+
+    background: #e8d9d2;
+    color: var(--ink);
+}
+
+.detail-aside > span {
+    font: 56px var(--serif);
+}
+
+.detail-aside > p {
+    margin: 0;
+
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+.detail-price {
+    margin-top: 100px;
+
+    font: 500 32px var(--serif);
+}
+
+.detail-aside small {
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+.aside-rose {
+    background: #d9b8b2;
+}
+
+.aside-dark {
+    background: #514541;
+    color: white;
+}
+
+/* Información de cada paquete */
+
+.detail-main {
+    padding: 48px 7%;
+}
+
+.detail-main h3 {
+    margin: 14px 0;
+
+    font: 500 clamp(34px, 4vw, 49px)/.98 var(--serif);
+}
+
+.detail-main h3 em {
+    color: var(--rose-dark);
+}
+
+.detail-main > p {
+    max-width: 720px;
+
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 2;
+}
+
+.detail-main h4 {
+    margin: 30px 0 17px;
+
+    font: 600 10px var(--sans);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Beneficios */
+
+.value-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px 30px;
+}
+
+.value-grid > div {
+    display: flex;
+    gap: 13px;
+
+    align-items: flex-start;
+}
+
+.value-grid b {
+    color: var(--rose-dark);
+    font: 20px var(--serif);
+}
+
+.value-grid p {
+    margin: 0;
+
+    color: var(--muted);
+    font-size: 9px;
+    line-height: 1.8;
+}
+
+.value-grid strong {
+    color: var(--ink);
+    font-size: 10px;
+}
+
+/* Explicación del precio */
+
+.investment-note {
+    margin: 28px 0 24px;
+    padding: 18px 20px;
+
+    border-left: 2px solid var(--rose-dark);
+
+    background: #faf7f3;
+}
+
+.investment-note strong {
+    font-size: 10px;
+}
+
+.investment-note p {
+    margin: 7px 0 0;
+
+    color: var(--muted);
+    font-size: 9px;
+    line-height: 1.9;
+}
+
+/* =====================================
+   TRANSPARENCIA
+===================================== */
+
+.transparency {
+    padding-top: 115px;
+    padding-bottom: 115px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 90px;
+    align-items: center;
+}
+
+.transparency-mark {
+    position: relative;
+    min-height: 300px;
+}
+
+.transparency-mark h2 {
+    font-size: clamp(44px, 5vw, 63px);
+}
+
+/* Sello decorativo */
+
+.seal {
+    width: 100px;
+    height: 100px;
+
+    margin: 35px 0 0 45%;
+
+    border: 1px solid #c9aaa3;
+    border-radius: 50%;
+
+    display: grid;
+    place-content: center;
+
+    text-align: center;
+
+    font: 43px var(--serif);
+    color: var(--rose-dark);
+
+    transform: rotate(-10deg);
+}
+
+.seal small {
+    font: 7px var(--sans);
+    letter-spacing: 2px;
+}
+
+/* Texto de transparencia */
+
+.transparency-copy {
+    color: var(--muted);
+
+    font-size: 10px;
+    line-height: 2;
+}
+
+.transparency-lead {
+    color: var(--ink);
+    font: 26px var(--serif);
+}
+
+.notice {
+    display: flex;
+    gap: 15px;
+
+    margin: 25px 0;
+    padding: 20px;
+
+    background: var(--cream);
+}
+
+.notice > span {
+    color: var(--rose-dark);
+    font-size: 20px;
+}
+
+.notice strong {
+    color: var(--ink);
+    font-size: 10px;
+}
+
+.notice p {
+    margin: 7px 0 0;
+}
+
+.fine-print {
+    font-size: 9px;
+    color: #8a817b;
+}
+
+/* =====================================
+   CIERRE
+===================================== */
+
+.closing {
+    padding: 90px 20px;
+
+    text-align: center;
+    color: white;
+
+    background:
+        linear-gradient(
+            rgba(44,35,32,.72),
+            rgba(44,35,32,.72)
+        ),
+        url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1800&q=85")
+        center / cover;
+}
+
+.closing h2 {
+    margin: 22px 0 30px;
+
+    font-size: clamp(42px, 5vw, 64px);
+}
+
+/* =====================================
+   PIE DE PÁGINA
+===================================== */
+
+.footer {
+    min-height: 120px;
+    padding: 30px 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    background: #f4eee8;
+}
+
+.footer p,
+.footer > a:last-child {
+    color: var(--muted);
+    font-size: 9px;
+}
+
+.footer > a:last-child {
+    border-bottom: 1px solid var(--rose);
+    padding-bottom: 5px;
+}
+
+/* =====================================
+   DISEÑO PARA TABLETS
+===================================== */
+
+@media (max-width: 900px) {
+
+    .package-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .package-card:last-child {
+        grid-column: 1 / -1;
+
+        max-width: 560px;
+        width: 100%;
+
+        justify-self: center;
+    }
+
+    .intro,
+    .transparency {
+        gap: 35px;
+    }
+
+    .detail-panel {
+        grid-template-columns: 190px 1fr;
+    }
+
+    .detail-aside {
+        padding: 30px 22px;
+    }
+}
+
+/* =====================================
+   DISEÑO PARA CELULARES
+===================================== */
+
+@media (max-width: 650px) {
+
+    .topbar {
+        height: 72px;
+        padding: 0 6%;
+    }
+
+    .brand {
+        font-size: 25px;
+    }
+
+    .back-link {
+        font-size: 8px;
+    }
+
+    .hero {
+        min-height: 590px;
+    }
+
+    .hero-content {
+        width: 85%;
+        margin-left: 7%;
+    }
+
+    .hero h1 {
+        font-size: 55px;
+    }
+
+    .hero-side-note {
+        display: none;
+    }
+
+    .section-wrap {
+        width: 88%;
+    }
+
+    .intro {
+        padding: 75px 0 40px;
+
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .intro h2 {
+        font-size: 53px;
+    }
+
+    .package-grid {
+        grid-template-columns: 1fr;
+        padding-bottom: 80px;
+    }
+
+    .package-card:last-child {
+        grid-column: auto;
+        max-width: none;
+    }
+
+    .package-description {
+        min-height: 0;
+    }
+
+    .details-section {
+        padding: 75px 0;
+    }
+
+    .details-heading {
+        text-align: left;
+    }
+
+    .details-heading h2 {
+        font-size: 45px;
+    }
+
+    .details-heading p {
+        margin-left: 0;
+    }
+
+    .detail-list {
+        margin-top: 40px;
+    }
+
+    .detail-panel {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-aside {
+        min-height: 180px;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        gap: 10px;
+        align-items: center;
+    }
+
+    .detail-aside > span {
+        grid-row: span 2;
+        font-size: 48px;
+    }
+
+    .detail-price {
+        margin: 0;
+        text-align: right;
+    }
+
+    .detail-aside small {
+        text-align: right;
+    }
+
+    .detail-main {
+        padding: 35px 7%;
+    }
+
+    .detail-main h3 {
+        font-size: 39px;
+    }
+
+    .value-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .transparency {
+        padding-top: 75px;
+        padding-bottom: 75px;
+
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .transparency-mark {
+        min-height: 0;
+    }
+
+    .seal {
+        margin: 25px 0 0 60%;
+    }
+
+    .closing {
+        padding: 75px 7%;
+    }
+
+    .closing h2 {
+        font-size: 45px;
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
