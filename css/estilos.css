@@ -1607,3 +1607,68 @@ header[id] {
     transform: translateY(-15px) !important;
     box-shadow: 0 22px 45px rgba(11, 19, 32, 0.18);
 }
+
+
+/* ==========================================
+   ÉVORA — MICROINTERACCIONES DE NAVEGACIÓN
+   ========================================== */
+
+/* Enlaces principales y botón de Servicios */
+.header .nav > a:not(.nav-cta),
+.header .nav-dropdown-toggle {
+    position: relative;
+    transition: color 250ms ease;
+}
+
+/* Línea dorada animada */
+.header .nav > a:not(.nav-cta)::after,
+.header .nav-dropdown-toggle::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 1px;
+    background: var(--color-gold, #D4B483);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 280ms ease;
+}
+
+/* Hover y teclado */
+.header .nav > a:not(.nav-cta):hover,
+.header .nav-dropdown-toggle:hover,
+.header .nav > a:not(.nav-cta):focus-visible,
+.header .nav-dropdown-toggle:focus-visible {
+    color: var(--color-gold, #D4B483);
+}
+
+.header .nav > a:not(.nav-cta):hover::after,
+.header .nav-dropdown-toggle:hover::after,
+.header .nav > a:not(.nav-cta):focus-visible::after,
+.header .nav-dropdown-toggle:focus-visible::after {
+    transform: scaleX(1);
+}
+
+/* Estado de la sección actual */
+.header .nav > a[aria-current="page"]:not(.nav-cta)::after {
+    transform: scaleX(1);
+}
+
+/* Botón Hablemos */
+.header .nav .nav-cta {
+    transition:
+        color 250ms ease,
+        background-color 250ms ease,
+        border-color 250ms ease;
+}
+
+/* Respeta la preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+    .header .nav > a,
+    .header .nav-dropdown-toggle,
+    .header .nav > a::after,
+    .header .nav-dropdown-toggle::after {
+        transition: none;
+    }
+}
