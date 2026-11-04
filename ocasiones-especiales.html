@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ocasiones Especiales | ÉVORA - Experiences & Events</title>
+
+  <meta
+    name="description"
+    content="Diseño y coordinación exclusiva de cumpleaños, aniversarios, graduaciones y quinceañeros con el toque elegante de ÉVORA."
+  >
+
+  <meta name="theme-color" content="#0B1320">
+  <meta name="robots" content="index, follow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="js/script.js" defer></script>
+
+  <!-- ESTILOS COMPLEMENTARIOS PARA GALERÍA COMPACTA -->
+  <style>
+    .gallery-grid-compact {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+    .gallery-card-compact {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      aspect-ratio: 4 / 3;
+    }
+    .gallery-card-compact img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .gallery-card-compact:hover img {
+      transform: scale(1.05);
+    }
+    .gallery-card-compact span {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 8px 12px;
+      background: linear-gradient(0deg, rgba(11, 19, 32, 0.85) 0%, transparent 100%);
+      color: #FAF8F4;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    .category-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      color: #0B1320;
+      margin-bottom: 16px;
+      border-bottom: 1px solid #D4B483;
+      padding-bottom: 8px;
+    }
+  </style>
+</head>
+
+<body id="ocasiones-especiales">
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <!-- CABECERA Y NAVEGACIÓN -->
+  <header class="header">
+    <div class="header-inner">
+
+      <a class="logo" href="index.html" aria-label="ÉVORA, página de inicio">
+        ÉVORA<span class="logo-dot"></span>
+        <span class="logo-caption">EXPERIENCES · EVENTS</span>
+      </a>
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Abrir menú"
+        aria-controls="navMenu"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav" id="navMenu" aria-label="Navegación principal">
+        <a href="nosotros.html">Nosotros</a>
+
+        <div class="nav-dropdown">
+          <button
+            class="nav-dropdown-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="servicesMenu"
+          >
+            Servicios <span aria-hidden="true">⌄</span>
+          </button>
+
+          <div class="nav-dropdown-menu" id="servicesMenu">
+            <a href="bodas.html">Bodas</a>
+            <a href="bodas-destino.html">Bodas destino</a>
+            <a href="eventos-corporativos.html">Eventos corporativos</a>
+            <a href="ocasiones-especiales.html">Ocasiones especiales</a>
+          </div>
+        </div>
+
+        <a href="rsvp-digital.html">RSVP digital</a>
+        <a href="gestion-invitados.html">Gestión de invitados</a>
+        <a href="galeria.html">Galería</a>
+        <a class="nav-cta" href="contacto.html">Hablemos</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main id="contenido">
+    <!-- CABECERA DIRECTA -->
+    <section class="page-header section-wrap">
+      <p class="eyebrow">04 / MOMENTOS PERSONALES</p>
+      <h1>Ocasiones especiales</h1>
+    </section>
+
+    <!-- GRILLA DE SERVICIOS -->
+    <section class="services section-wrap" id="servicios-especiales">
+      <div class="service-grid">
+
+        <!-- 1. CUMPLEAÑOS -->
+        <article class="service-card reveal">
+          <div class="service-image-link">
+            <img
+              class="service-image"
+              src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=850&q=85"
+              alt="Celebración exclusiva de cumpleaños con ambientación elegante"
+              width="850"
+              height="700"
+              loading="lazy"
+            >
+          </div>
+          <div class="service-content">
+            <span class="card-kicker">01 / CELEBRACIÓN DE VIDA</span>
+            <h3>Cumpleaños</h3>
+            <p>
+              Fiestas temáticas y reuniones exclusivas diseñadas a medida. Cuidamos la ambientación, gastronomía y entretenimiento para hacer de tu día algo extraordinario.
+            </p>
+          </div>
+        </article>
+
+        <!-- 2. ANIVERSARIOS -->
+        <article class="service-card reveal">
+          <div class="service-image-link">
+            <img
+              class="service-image"
+              src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=850&q=85"
+              alt="Cena romántica de aniversario a la luz de las velas"
+              width="850"
+              height="700"
+              loading="lazy"
+            >
+          </div>
+          <div class="service-content">
+            <span class="card-kicker">02 / HISTORIAS DE AMOR</span>
+            <h3>Aniversarios</h3>
+            <p>
+              Conmemoramos la trayectoria de tu pareja con cenas íntimas o renovaciones de votos llenas de romanticismo, estilo y momentos significativos.
+            </p>
+          </div>
+        </article>
+
+        <!-- 3. GRADUACIONES -->
+        <article class="service-card reveal">
+          <div class="service-image-link">
+            <img
+              class="service-image"
+              src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=850&q=85"
+              alt="Recepción elegante para fiesta de graduación"
+              width="850"
+              height="700"
+              loading="lazy"
+            >
+          </div>
+          <div class="service-content">
+            <span class="card-kicker">03 / LOGROS Y METAS</span>
+            <h3>Graduaciones</h3>
+            <p>
+              Galas y recepciones sofisticadas para homenajear el esfuerzo académico y profesional, garantizando una noche memorable para graduados y sus familias.
+            </p>
+          </div>
+        </article>
+
+        <!-- 4. QUINCEAÑEROS -->
+        <article class="service-card reveal">
+          <div class="service-image-link">
+            <img
+              class="service-image"
+              src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=850&q=85"
+              alt="Montaje de gala elegante para quinceañero"
+              width="850"
+              height="700"
+              loading="lazy"
+            >
+          </div>
+          <div class="service-content">
+            <span class="card-kicker">04 / TRADICIÓN Y ESTILO</span>
+            <h3>Quinceañeros</h3>
+            <p>
+              Transformamos la clásica recepción en una experiencia moderna y glamurosa, adaptando el concepto visual a los gustos de la homenajeada.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN DE GALERÍA DE PORTAFOLIO COMPACTA (5 FOTOS POR CELEBRACIÓN) -->
+    <section class="featured section-wrap reveal">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">PORTAFOLIO DE TRABAJOS</p>
+          <h2>
+            Galeria de
+            <em>experiencias reales.</em>
+          </h2>
+        </div>
+      </div>
+
+ <!-- CATEGORÍA 1: CUMPLEAÑOS (5 FOTOS PRECISAS) -->
+      <h3 class="category-subtitle">01. Cumpleaños Exclusivos</h3>
+      <div class="gallery-grid-compact">
+        <div class="gallery-card-compact">
+          <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=500&q=80" alt="Copas de cóctel en barra elegante" loading="lazy">
+          <span>Noche de Cóctel</span>
+        </div>
+        <div class="gallery-card-compact">
+          <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=500&q=80" alt="Globos y luces de fiesta" loading="lazy">
+          <span>Montaje Temático</span>
+        </div>
+        <div class="gallery-card-compact">
+          <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=500&q=80" alt="Brindis de invitados" loading="lazy">
+          <span>Reunión Privada</span>
+        </div>
+        <div class="gallery-card-compact">
+          <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=500&q=80" alt="Pastel de cumpleaños artesanal" loading="lazy">
+          <span>Repostería Fina</span>
+        </div>
+        <div class="gallery-card-compact">
+          <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=500&q=80" alt="Ambiente lounge con luces" loading="lazy">
+          <span>Lounge Nocturno</span>
+        </div>
+      </div>
+
+      <!-- CATEGORÍA 2: ANIVERSARIOS (5 FOTOS PRECISAS) -->
+      <h3 class="category-subtitle">02. Aniversarios & Veladas Románticas</h3>
+      <div class="gallery-grid-compact">
+        <div class="gallery-card-compact">
+          <img src="https://images.unsplash.com/photo-1517816743773-6e0fd518b4a6?auto=format&fit=crop&w=500&q=80" alt="Mesa con velas encendidas" loading="lazy">
+          <span>Cena a las Velas</span>
+        </div>
+        <div class="gallery-card-compact">
+          <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=500&q=80" alt="Arreglo floral elegante" loading="lazy">
+          <span>Diseño Floral</span>
+        </div>
+        <div class="gallery-card-compact">
+          <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=500&q=80" alt="Brindis íntimo" loading="lazy">
+          <span>Brindis Especial</span>
+        </div>
+        <div class="gallery-card-compact">
+          <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=500&q=80" alt="Mesa servida de lujo" loading="lazy">
+          <span>Mesa Servida</span>
+        </div>
+        <div class="gallery-card-compact">
+          <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=500&q=80" alt="Pareja celebrando renovación" loading="lazy">
+          <span>Renovación de Votos</span>
+        </div>
+      </div>
+
+      <!-- CATEGORÍA 3: GRADUACIONES (5 FOTOS PRECISAS) -->
+      <h3 class="category-subtitle">03. Galas de Graduación</h3>
+      <div class="gallery-grid-compact">
+        <div class="gallery-card-compact">
+          <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=500&q=80" alt="Lanzamiento de birretes de graduación" loading="lazy">
+          <span>Gala de Honor</span>
+        </div>
+        <div class="gallery-card-compact">
+          <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=500&q=80" alt="Escenario e iluminación de gala" loading="lazy">
+          <span>Escenario & Luces</span>
+        </div>
+        <div class="gallery-card-compact">
+          <img src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=500&q=80" alt="Banquete de gala preparado" loading="lazy">
+          <span>Banquete Académico</span>
+        </div>
+        <div class="gallery-card-compact">
+          <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=500&q=80" alt="Mesa familiar de graduados" loading="lazy">
+          <span>Recepción Familiar</span>
+        </div>
+        <div class="gallery-card-compact">
+          <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=500&q=80" alt="Pista de baile y fiesta de graduación" loading="lazy">
+          <span>Fiesta & Baile</span>
+        </div>
+      </div>
+
+      <!-- CATEGORÍA 4: QUINCEAÑEROS (5 FOTOS PRECISAS) -->
+      <h3 class="category-subtitle">04. Quinceañeros de Ensueño</h3>
+      <div class="gallery-grid-compact">
+        <div class="gallery-card-compact">
+          <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=500&q=80" alt="Salón decorado para quinceañera" loading="lazy">
+          <span>Ambiente Principal</span>
+        </div>
+        <div class="gallery-card-compact">
+          <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=500&q=80" alt="Mesa de dulces y postres decorada" loading="lazy">
+          <span>Mesa de Dulces</span>
+        </div>
+        <div class="gallery-card-compact">
+          <img src="https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?auto=format&fit=crop&w=500&q=80" alt="Centros de mesa florales para quinceañero" loading="lazy">
+          <span>Centros de Mesa</span>
+        </div>
+        <div class="gallery-card-compact">
+          <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=500&q=80" alt="Pista de baile con luces modernas" loading="lazy">
+          <span>Pista de Luces</span>
+        </div>
+        <div class="gallery-card-compact">
+          <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=500&q=80" alt="Brindis de gala familiar" loading="lazy">
+          <span>Brindis Familiar</span>
+        </div>
+      </div>
+      
+    <!-- LLAMADA A LA ACCIÓN FINAL -->
+    <section class="final-cta reveal">
+      <p class="eyebrow light">CREEMOS ALGO ÚNICO</p>
+      <h2>
+        ¿Tienes una fecha especial
+        <em>por celebrar?</em>
+      </h2>
+      <p>
+        Cuéntanos tu visión e idea general. Nos encargaremos de transformar tu celebración en un recuerdo perfecto.
+      </p>
+      <a class="button button-gold" href="contacto.html#cotizacion">
+        Planificar mi celebración <span aria-hidden="true">↗</span>
+      </a>
+    </section>
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="footer">
+    <div class="footer-main">
+      <a class="logo logo-footer" href="index.html">
+        ÉVORA<span class="logo-dot"></span>
+        <span class="logo-caption">EXPERIENCES · EVENTS</span>
+      </a>
+
+      <p class="footer-tagline">
+        Cada detalle, perfectamente planeado.
+      </p>
+
+      <nav class="footer-links" aria-label="Enlaces del pie de página">
+        <a href="paquetes.html">Paquetes</a>
+        <a href="blog.html">Blog</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="rsvp-digital.html">RSVP digital</a>
+      </nav>
+    </div>
+
+    <div class="footer-bottom">
+      <small>
+        © <span id="year"></span> ÉVORA. Todos los derechos reservados.
+      </small>
+
+      <a class="back-top" href="#contenido">Volver arriba ↑</a>
+    </div>
+  </footer>
+
+  <!-- BOTÓN CON ICONO SVG OFICIAL DE WHATSAPP -->
+  <a
+    class="whatsapp-float"
+    href="https://wa.me/"
+    aria-label="Contactar con ÉVORA por WhatsApp"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M18.403 5.633A8.919 8.919 0 0012.005 3C7.07 3 3.064 7.006 3.064 11.94c0 1.577.411 3.118 1.193 4.474L3 21l4.707-1.235a8.9 8.9 0 004.295 1.112h.004c4.934 0 8.94-4.006 8.94-8.94 0-2.39-0.93-4.636-2.543-6.299zM12.005 19.347h-.003a7.42 7.42 0 01-3.784-1.037l-.272-.162-2.812.738.75-2.74-.177-.282a7.423 7.423 0 01-1.139-3.924c0-4.103 3.338-7.442 7.441-7.442 1.987 0 3.856.775 5.26 2.18 1.405 1.406 2.179 3.275 2.179 5.263 0 4.104-3.339 7.443-7.444 7.443zm4.082-5.578c-.224-.112-1.326-.654-1.531-.729-.205-.075-.355-.112-.505.112-.15.224-.58.729-.711.879-.13.15-.262.168-.486.056-.224-.112-.947-.349-1.803-1.112-.667-.595-1.117-1.33-1.248-1.555-.13-.224-.014-.346.098-.458.101-.1.224-.262.336-.393.112-.131.15-.224.224-.374.075-.15.037-.281-.019-.393-.056-.112-.505-1.217-.692-1.666-.182-.437-.367-.378-.505-.385-.13-.007-.28-.007-.43-.007-.15 0-.393.056-.599.281-.205.224-.786.768-.786 1.872 0 1.104.805 2.17 0.917 2.32.112.15 1.583 2.418 3.837 3.391.536.231.954.369 1.28.473.538.171 1.028.147 1.415.089.431-.064 1.326-.542 1.513-1.066.187-.524.187-.973.131-1.066-.056-.093-.205-.15-.429-.262z" fill="#0B1320"/>
+    </svg>
+  </a>
+</body>
+</html>

@@ -1,551 +1,92 @@
-/* ÉVORA — DISEÑO EDITORIAL PARA PAQUETES DE BODAS */
 
-.wedding-packages {
-  --wp-ink: #20251f;
-  --wp-olive: #515847;
-  --wp-gold: #b18a57;
-  --wp-paper: #f4f0e8;
-  --wp-white: #fffdf9;
-  --wp-line: #d9d0c1;
-  background: var(--wp-paper);
-  color: var(--wp-ink);
-  font-family: "Inter", Arial, sans-serif;
-  line-height: 1.7;
+/* ==========================================
+   ÉVORA — BODAS
+   Hoja de estilos de la página
+========================================== */
+
+:root {
+    --w-ink: #292421;
+    --w-muted: #77706a;
+    --w-cream: #f8f5f0;
+    --w-paper: #fffdfa;
+    --w-rose: #c79d98;
+    --w-rose-dark: #9c716d;
+    --w-gold: #D4B483;
+    --w-line: #e9e0d8;
+    --w-dark: #0B1320;
+
+    --w-serif: "Cormorant Garamond", Georgia, serif;
+    --w-sans: "Montserrat", Arial, sans-serif;
 }
 
-.wedding-packages *,
-.wedding-packages *::before,
-.wedding-packages *::after {
-  box-sizing: border-box;
+/* BASE */
+
+* {
+    box-sizing: border-box;
 }
 
-.wedding-packages a {
-  color: inherit;
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 110px;
 }
 
-.wp-heading {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 100px 24px 85px;
-  text-align: center;
+body {
+    margin: 0;
+    color: var(--w-ink);
+    background: var(--w-paper);
+    font-family: var(--w-sans);
 }
 
-.wp-kicker,
-.wp-label,
-.wp-intro > span {
-  display: block;
-  color: var(--wp-gold);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 2.3px;
-  text-transform: uppercase;
+body,
+button,
+a {
+    font-family: var(--w-sans);
 }
 
-.wp-heading h1,
-.wp-details-heading h2,
-.wp-contact-copy h2,
-.wp-transparency h2 {
-  margin: 20px 0;
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(44px, 6vw, 76px);
-  font-weight: 400;
-  line-height: 1;
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
-.wp-heading h1 em,
-.wp-details-heading h2 em,
-.wp-contact-copy h2 em,
-.wp-transparency h2 em {
-  color: var(--wp-gold);
-  font-weight: 400;
+button {
+    font: inherit;
 }
 
-.wp-heading > p {
-  max-width: 610px;
-  margin: 25px auto 0;
-  color: #6f7068;
-  font-size: 14px;
+.wedding-page {
+    width: 100%;
+    overflow: hidden;
 }
 
-.wp-intro {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 24px;
-  border-top: 1px solid var(--wp-line);
+.section-wrap {
+    width: min(1120px, 88%);
+    margin-inline: auto;
 }
 
-.wp-intro p {
-  margin: 0;
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 25px;
-}
-
-.wp-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 10px 24px 100px;
-  align-items: stretch;
-}
-
-.wp-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  background: var(--wp-white);
-  border: 1px solid var(--wp-line);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.wp-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 40px #342b1c12;
-}
-
-.wp-card-featured {
-  border: 1px solid var(--wp-gold);
-}
-
-.wp-ribbon {
-  position: absolute;
-  z-index: 2;
-  top: 18px;
-  right: 18px;
-  padding: 7px 11px;
-  background: var(--wp-gold);
-  color: #fff;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 1.3px;
-}
-
-.wp-photo {
-  position: relative;
-  height: 260px;
-  background-size: cover;
-  background-position: center;
-}
-
-.wp-photo::after {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(0deg, #111a14a8, transparent 55%);
-  content: "";
-}
-
-.wp-photo span {
-  position: absolute;
-  z-index: 1;
-  bottom: 17px;
-  left: 20px;
-  color: white;
-  font-size: 9px;
-  letter-spacing: 2px;
-}
-
-.wp-photo-one {
-  background-image: url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80");
-}
-
-.wp-photo-two {
-  background-image: url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=80");
-}
-
-.wp-photo-three {
-  background-image: url("https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=900&q=80");
-}
-
-.wp-card-content {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  padding: 28px;
-}
-
-.wp-card .wp-label {
-  margin: 0;
-  font-size: 9px;
-  letter-spacing: 1.4px;
-}
-
-.wp-card h2 {
-  margin: 10px 0;
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 40px;
-  font-weight: 400;
-  line-height: 1.1;
-}
-
-.wp-description {
-  min-height: 80px;
-  color: #77776f;
-  font-size: 12px;
-}
-
-.wp-price {
-  margin: 16px 0;
-  color: var(--wp-olive);
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 43px;
-  line-height: 1.1;
-}
-
-.wp-price > span {
-  font-size: 22px;
-}
-
-.wp-price small {
-  display: block;
-  margin-top: 8px;
-  color: #85857d;
-  font-family: "Inter", Arial, sans-serif;
-  font-size: 10px;
-}
-
-.wp-card ul {
-  margin: 15px 0 20px;
-  padding: 0;
-  list-style: none;
-}
-
-.wp-card li {
-  position: relative;
-  padding: 11px 0 11px 21px;
-  border-bottom: 1px solid #e9e2d7;
-  font-size: 11px;
-}
-
-.wp-card li::before {
-  position: absolute;
-  left: 0;
-  color: var(--wp-gold);
-  content: "✓";
-}
-
-.wp-best {
-  margin-top: auto;
-  padding: 15px;
-  background: #f0ece3;
-  color: #66675e;
-  font-size: 11px;
-}
-
-.wp-best strong {
-  color: var(--wp-ink);
-}
-
-.wp-link {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  align-items: center;
-  margin-top: 14px;
-  padding: 15px 0 4px;
-  border-bottom: 1px solid var(--wp-gold);
-  text-decoration: none;
-  font-size: 11px;
-  font-weight: 700;
-}
-
-.wp-link span {
-  color: var(--wp-gold);
-  font-size: 19px;
-}
-
-.wp-details {
-  padding: 100px 24px;
-  background: var(--wp-white);
-}
-
-.wp-details-heading {
-  max-width: 780px;
-  margin: 0 auto 65px;
-  text-align: center;
-}
-
-.wp-details-heading h2 {
-  font-size: clamp(40px, 5vw, 61px);
-}
-
-.wp-details-heading > p {
-  color: #77776f;
-  font-size: 13px;
-}
-
-.wp-detail {
-  display: grid;
-  grid-template-columns: 100px minmax(0, 720px);
-  justify-content: center;
-  gap: 30px;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 40px 0;
-  border-top: 1px solid var(--wp-line);
-  scroll-margin-top: 30px;
-}
-
-.wp-detail-number {
-  color: var(--wp-gold);
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 55px;
-  line-height: 1;
-}
-
-.wp-detail .wp-label {
-  margin: 0;
-}
-
-.wp-detail h3 {
-  margin: 10px 0 18px;
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 34px;
-  font-weight: 400;
-  line-height: 1.1;
-}
-
-.wp-detail p:not(.wp-label) {
-  color: #6f7068;
-  font-size: 13px;
-}
-
-.wp-detail strong {
-  color: var(--wp-ink);
-}
-
-.wp-detail-cta {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 12px 0;
-  border-bottom: 1px solid var(--wp-gold);
-  color: var(--wp-ink);
-  font-size: 11px;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.wp-transparency {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: 70px;
-  align-items: center;
-  padding: 80px max(24px, calc((100% - 1100px) / 2));
-  background: #e8e1d5;
-}
-
-.wp-transparency h2 {
-  font-size: clamp(40px, 5vw, 60px);
-}
-
-.wp-transparency-text {
-  color: #696a61;
-  font-size: 13px;
-}
-
-.wp-transparency-text strong {
-  color: var(--wp-ink);
-}
-
-.wp-contact {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 60px;
-  padding: 100px max(24px, calc((100% - 1100px) / 2));
-  background: #252d25;
-  color: #fffdf9;
-}
-
-.wp-contact-copy h2 {
-  font-size: clamp(42px, 5vw, 64px);
-}
-
-.wp-contact-copy > p {
-  max-width: 390px;
-  color: #d2d3cb;
-  font-size: 13px;
-}
-
-.wp-form {
-  padding: 30px;
-  background: var(--wp-white);
-  color: var(--wp-ink);
-}
-
-.wp-form label {
-  display: block;
-  margin: 15px 0 6px;
-  font-size: 11px;
-  font-weight: 700;
-}
-
-.wp-form input,
-.wp-form select,
-.wp-form textarea {
-  display: block;
-  width: 100%;
-  padding: 13px;
-  border: 1px solid #d9d4ca;
-  border-radius: 0;
-  background: white;
-  color: var(--wp-ink);
-  font: inherit;
-  font-size: 12px;
-}
-
-.wp-form input:focus,
-.wp-form select:focus,
-.wp-form textarea:focus {
-  outline: 2px solid var(--wp-gold);
-  outline-offset: 1px;
-}
-
-.wp-submit {
-  width: 100%;
-  margin-top: 22px;
-  padding: 16px;
-  border: 1px solid var(--wp-olive);
-  background: var(--wp-olive);
-  color: white;
-  font: inherit;
-  font-size: 11px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.wp-submit:hover {
-  background: #343d31;
-}
-
-.wp-form-note {
-  color: #77776f;
-  font-size: 10px;
-}
-
-/* TABLET */
-@media (max-width: 950px) {
-  .wp-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .wp-card:last-child {
-    grid-column: 1 / -1;
-  }
-
-  .wp-card:last-child .wp-card-content {
-    padding: 28px;
-  }
-
-  .wp-transparency,
-  .wp-contact {
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
-}
-
-/* CELULAR */
-@media (max-width: 620px) {
-  .wp-heading {
-    padding: 70px 20px;
-  }
-
-  .wp-heading h1 {
-    font-size: 48px;
-  }
-
-  .wp-intro {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .wp-intro p {
-    font-size: 22px;
-  }
-
-  .wp-grid {
-    grid-template-columns: 1fr;
-    padding: 10px 16px 65px;
-  }
-
-  .wp-card:last-child {
-    grid-column: auto;
-  }
-
-  .wp-photo {
-    height: 230px;
-  }
-
-  .wp-card-content {
-    padding: 23px;
-  }
-
-  .wp-description {
-    min-height: 0;
-  }
-
-  .wp-details {
-    padding: 70px 20px;
-  }
-
-  .wp-detail {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    padding: 30px 0;
-  }
-
-  .wp-detail-number {
-    font-size: 39px;
-  }
-
-  .wp-detail h3 {
-    font-size: 30px;
-  }
-
-  .wp-transparency,
-  .wp-contact {
-    padding: 65px 20px;
-  }
-
-  .wp-form {
-    padding: 20px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .wp-card {
-    transition: none;
-  }
-
-  .wp-card:hover {
-    transform: none;
-  }
+.eyebrow {
+    display: inline-block;
+    color: var(--w-rose-dark);
+    font-size: .68rem;
+    font-weight: 600;
+    letter-spacing: .19em;
+    line-height: 1.8;
 }
 
 /* ==========================================
-   ÉVORA — INTEGRACIÓN GLOBAL EN BODAS
-   Cabecera, navegación y pie de página
-   ========================================== */
-
-/* CABECERA PRINCIPAL */
+   HEADER GLOBAL
+========================================== */
 
 body > header.header {
     position: sticky;
     top: 0;
     z-index: 1000;
     width: 100%;
-    background: var(--color-ivory, #FAF8F4);
-    border-bottom: 1px solid var(--color-line, rgba(11, 19, 32, 0.14));
+    background: #FAF8F4;
+    border-bottom: 1px solid rgba(11, 19, 32, .12);
 }
 
 .header .header-inner {
     width: min(90%, 1240px);
-    min-height: var(--header-height, 94px);
+    min-height: 94px;
     margin-inline: auto;
     display: flex;
     align-items: center;
@@ -553,29 +94,41 @@ body > header.header {
     gap: 28px;
 }
 
-/* LOGO: conserva el estilo oficial de ÉVORA */
-
 .header .logo {
-    color: var(--color-midnight, #0B1320);
-    font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
-    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    color: #0B1320;
+    font-family: var(--w-serif);
+    font-size: 29px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    line-height: .85;
 }
 
 .header .logo-dot {
-    color: var(--color-gold, #D4B483);
+    display: inline;
+    color: var(--w-gold);
 }
 
 .header .logo-caption {
-    color: inherit;
-    font-family: var(--font-body, "Inter", Arial, sans-serif);
+    margin-top: 9px;
+
+    font: 8px var(--sans);
+    letter-spacing: 2px;
 }
 
-/* NAVEGACIÓN */
+.header .nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
 
 .header .nav > a,
 .header .nav-dropdown-toggle {
-    color: var(--color-charcoal, #1E293B);
-    font-family: var(--font-body, "Inter", Arial, sans-serif);
+    color: #1E293B;
+    font-size: .72rem;
+    font-weight: 500;
+    transition: color .25s ease;
 }
 
 .header .nav > a:hover,
@@ -584,327 +137,887 @@ body > header.header {
 }
 
 .header .nav .nav-cta {
-    color: #FFFFFF;
-    background: var(--color-midnight, #0B1320);
+    padding: 13px 19px;
+    color: white;
+    background: var(--w-dark);
 }
 
 .header .nav .nav-cta:hover {
-    color: var(--color-midnight, #0B1320);
-    background: var(--color-gold, #D4B483);
+    color: var(--w-dark);
+    background: var(--w-gold);
 }
 
-/* MENÚ DESPLEGABLE */
+.header .nav-dropdown {
+    position: relative;
+}
+
+.header .nav-dropdown-toggle {
+    padding: 10px 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
 
 .header .nav-dropdown-menu {
-    background: var(--color-ivory, #FAF8F4);
-    border-color: var(--color-line, rgba(11, 19, 32, 0.14));
-    box-shadow: var(--shadow-soft, 0 10px 30px rgba(0, 0, 0, 0.06));
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 20;
+    display: none;
+    min-width: 220px;
+    padding: 12px;
+    background: #FAF8F4;
+    border: 1px solid rgba(11, 19, 32, .12);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
 }
 
-/* FOOTER GLOBAL */
+.header .nav-dropdown:hover .nav-dropdown-menu,
+.header .nav-dropdown:focus-within .nav-dropdown-menu {
+    display: block;
+}
+
+.header .nav-dropdown-menu a {
+    display: block;
+    padding: 11px 12px;
+    color: #1E293B;
+    font-size: .75rem;
+}
+
+.header .nav-dropdown-menu a:hover {
+    color: var(--w-rose-dark);
+    background: var(--w-cream);
+}
+
+.header .menu-toggle {
+    display: none;
+}
+
+/* ==========================================
+   PORTADA
+========================================== */
+
+.hero {
+    position: relative;
+    isolation: isolate;
+    min-height: min(780px, 88vh);
+    display: flex;
+    align-items: center;
+    padding: 110px 10%;
+    overflow: hidden;
+    color: var(--w-paper);
+    background: #292421;
+}
+
+.hero-image {
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+    background-image: url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=85");
+    background-size: cover;
+    background-position: center 48%;
+    transform: scale(1.02);
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(20, 20, 18, .78),
+        rgba(20, 20, 18, .43) 65%,
+        rgba(20, 20, 18, .18)
+    );
+}
+
+.hero-content {
+    width: min(780px, 100%);
+}
+
+.hero .eyebrow {
+    color: #e5cfaa;
+    margin-bottom: 30px;
+}
+
+.hero-overline {
+    margin: 0 0 18px;
+    color: rgba(255, 253, 249, .8);
+    font-size: .7rem;
+    letter-spacing: .22em;
+}
+
+.hero h1 {
+    margin: 0 0 25px;
+    font-family: var(--w-serif);
+    font-size: clamp(3.7rem, 7.5vw, 7rem);
+    font-weight: 400;
+    line-height: .94;
+    letter-spacing: -.035em;
+}
+
+.hero h1 em {
+    color: #e5cfaa;
+    font-weight: 400;
+}
+
+.hero-copy {
+    max-width: 540px;
+    margin: 0 0 32px;
+    color: rgba(255, 253, 249, .86);
+    font-size: .9rem;
+    line-height: 1.9;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    min-height: 51px;
+    padding: 14px 23px;
+    font-size: .73rem;
+    font-weight: 500;
+    transition: .3s ease;
+}
+
+.button-light {
+    color: var(--w-ink);
+    background: var(--w-paper);
+    border: 1px solid var(--w-paper);
+}
+
+.button-light:hover {
+    color: white;
+    background: transparent;
+}
+
+.button-dark {
+    color: white;
+    background: var(--w-dark);
+    border: 1px solid var(--w-dark);
+}
+
+.button-dark:hover {
+    color: var(--w-dark);
+    background: var(--w-gold);
+    border-color: var(--w-gold);
+}
+
+.hero-side-note {
+    position: absolute;
+    right: 35px;
+    bottom: 45px;
+    color: rgba(255, 255, 255, .7);
+    font-size: .58rem;
+    letter-spacing: .2em;
+    writing-mode: vertical-rl;
+}
+
+/* ==========================================
+   INTRODUCCIÓN
+========================================== */
+
+.intro {
+    display: grid;
+    grid-template-columns: 1fr .8fr;
+    align-items: end;
+    gap: 80px;
+    padding-top: 115px;
+    padding-bottom: 75px;
+}
+
+.intro h2,
+.details-heading h2,
+.transparency h2,
+.closing h2 {
+    margin: 17px 0 0;
+    font-family: var(--w-serif);
+    font-size: clamp(2.8rem, 5vw, 4.7rem);
+    font-weight: 400;
+    line-height: .98;
+    letter-spacing: -.025em;
+}
+
+.intro h2 em,
+.details-heading h2 em,
+.transparency h2 em,
+.closing h2 em {
+    color: var(--w-rose-dark);
+    font-weight: 400;
+}
+
+.intro-text {
+    max-width: 470px;
+    margin: 0 0 7px;
+    color: var(--w-muted);
+    font-size: .88rem;
+    line-height: 2;
+}
+
+/* ==========================================
+   PAQUETES
+========================================== */
+
+.package-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 23px;
+    padding-top: 25px;
+    padding-bottom: 125px;
+}
+
+.package-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    background: white;
+    border: 1px solid var(--w-line);
+    transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.package-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 18px 40px rgba(41, 36, 33, .1);
+}
+
+.package-card.featured {
+    border-color: var(--w-rose);
+    box-shadow: 0 12px 35px rgba(156, 113, 109, .12);
+}
+
+.package-photo {
+    position: relative;
+    min-height: 250px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 22px;
+    overflow: hidden;
+    color: white;
+    background-size: cover;
+    background-position: center;
+}
+
+.package-photo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(0, 0, 0, .55), transparent 70%);
+}
+
+.package-photo span,
+.package-photo b {
+    position: relative;
+    z-index: 1;
+}
+
+.package-photo span {
+    font-size: .61rem;
+    letter-spacing: .15em;
+}
+
+.package-photo b {
+    font-family: var(--w-serif);
+    font-size: 2.8rem;
+    font-weight: 400;
+}
+
+.photo-essential {
+    background-image: url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=85");
+}
+
+.photo-signature {
+    background-image: url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=85");
+}
+
+.photo-full {
+    background-image: url("https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=900&q=85");
+}
+
+.popular-label {
+    position: absolute;
+    z-index: 2;
+    top: 15px;
+    right: 15px;
+    padding: 9px 12px;
+    color: white;
+    background: var(--w-rose-dark);
+    font-size: .55rem;
+    letter-spacing: .12em;
+}
+
+.package-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 30px 27px;
+}
+
+.package-tag {
+    color: var(--w-rose-dark);
+    font-size: .57rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    line-height: 1.7;
+}
+
+.package-body h3 {
+    margin: 12px 0;
+    font-family: var(--w-serif);
+    font-size: 2.6rem;
+    font-weight: 500;
+}
+
+.package-description {
+    min-height: 90px;
+    margin: 0;
+    color: var(--w-muted);
+    font-size: .78rem;
+    line-height: 1.85;
+}
+
+.price {
+    margin-top: 22px;
+    font-family: var(--w-serif);
+    font-size: 2.6rem;
+    font-weight: 500;
+}
+
+.price span {
+    font-family: var(--w-sans);
+    font-size: .9rem;
+}
+
+.price small {
+    display: block;
+    margin-top: 1px;
+    color: var(--w-muted);
+    font-family: var(--w-sans);
+    font-size: .62rem;
+    font-weight: 400;
+}
+
+.mini-divider {
+    height: 1px;
+    margin: 23px 0;
+    background: var(--w-line);
+}
+
+.includes-heading {
+    color: var(--w-ink);
+    font-size: .62rem;
+    font-weight: 600;
+    letter-spacing: .13em;
+}
+
+.feature-list {
+    display: grid;
+    gap: 12px;
+    padding: 0;
+    margin: 12px 0 24px;
+    list-style: none;
+}
+
+.feature-list li {
+    position: relative;
+    padding-left: 19px;
+    color: var(--w-muted);
+    font-size: .72rem;
+    line-height: 1.65;
+}
+
+.feature-list li::before {
+    content: "✳";
+    position: absolute;
+    left: 0;
+    color: var(--w-rose-dark);
+}
+
+.ideal {
+    display: flex;
+    gap: 12px;
+    margin-top: auto;
+    padding: 15px;
+    background: var(--w-cream);
+}
+
+.ideal > span {
+    color: var(--w-rose-dark);
+}
+
+.ideal p {
+    margin: 0;
+    color: var(--w-muted);
+    font-size: .69rem;
+    line-height: 1.7;
+}
+
+.ideal strong {
+    color: var(--w-ink);
+}
+
+.text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 13px;
+    align-self: flex-start;
+    margin-top: 23px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--w-rose);
+    color: var(--w-ink);
+    font-size: .7rem;
+    transition: color .25s ease;
+}
+
+.text-link:hover {
+    color: var(--w-rose-dark);
+}
+
+/* ==========================================
+   DETALLES DE LOS PAQUETES
+========================================== */
+
+.details-section {
+    padding: 110px 0 120px;
+    background: var(--w-cream);
+}
+
+.details-heading {
+    margin-bottom: 65px;
+}
+
+.details-heading h2 {
+    max-width: 850px;
+}
+
+.details-heading > p {
+    max-width: 570px;
+    margin-top: 25px;
+    color: var(--w-muted);
+    font-size: .85rem;
+    line-height: 1.9;
+}
+
+.detail-list {
+    display: grid;
+    gap: 35px;
+}
+
+.detail-panel {
+    display: grid;
+    grid-template-columns: .32fr .68fr;
+    background: white;
+    border: 1px solid var(--w-line);
+    scroll-margin-top: 110px;
+}
+
+.detail-aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 450px;
+    padding: 35px;
+    color: white;
+    background: #b58d87;
+}
+
+.detail-aside > span {
+    margin-bottom: auto;
+    font-family: var(--w-serif);
+    font-size: 4rem;
+}
+
+.detail-aside > p {
+    font-size: .63rem;
+    letter-spacing: .16em;
+}
+
+.detail-price {
+    margin-top: 25px;
+    font-family: var(--w-serif);
+    font-size: 2rem;
+}
+
+.detail-aside small {
+    margin-top: 5px;
+    font-size: .6rem;
+    letter-spacing: .17em;
+}
+
+.aside-rose {
+    background: #9c716d;
+}
+
+.aside-dark {
+    background: var(--w-dark);
+}
+
+.detail-main {
+    padding: 55px clamp(30px, 6vw, 75px);
+}
+
+.detail-main h3 {
+    margin: 16px 0 20px;
+    font-family: var(--w-serif);
+    font-size: clamp(2.4rem, 4vw, 3.8rem);
+    font-weight: 400;
+    line-height: 1;
+}
+
+.detail-main h3 em {
+    color: var(--w-rose-dark);
+    font-weight: 400;
+}
+
+.detail-main > p {
+    max-width: 650px;
+    color: var(--w-muted);
+    font-size: .8rem;
+    line-height: 1.95;
+}
+
+.detail-main h4 {
+    margin: 35px 0 20px;
+    font-family: var(--w-serif);
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.value-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.value-grid > div {
+    display: flex;
+    gap: 14px;
+    padding-top: 16px;
+    border-top: 1px solid var(--w-line);
+}
+
+.value-grid b {
+    color: var(--w-rose-dark);
+    font-family: var(--w-serif);
+    font-size: 1.35rem;
+    font-weight: 500;
+}
+
+.value-grid p {
+    margin: 0;
+    color: var(--w-muted);
+    font-size: .72rem;
+    line-height: 1.7;
+}
+
+.value-grid strong {
+    color: var(--w-ink);
+}
+
+.investment-note {
+    margin: 30px 0;
+    padding: 20px 23px;
+    background: var(--w-cream);
+}
+
+.investment-note strong {
+    font-size: .75rem;
+}
+
+.investment-note p {
+    margin-bottom: 0;
+    color: var(--w-muted);
+    font-size: .72rem;
+    line-height: 1.8;
+}
+
+/* ==========================================
+   TRANSPARENCIA
+========================================== */
+
+.transparency {
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    gap: 90px;
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+.transparency-mark {
+    position: relative;
+}
+
+.transparency-mark h2 {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+}
+
+.seal {
+    width: 95px;
+    height: 95px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 55px;
+    border: 1px solid var(--w-rose);
+    border-radius: 50%;
+    color: var(--w-rose-dark);
+    font-family: var(--w-serif);
+    font-size: 2.3rem;
+}
+
+.seal small {
+    font-family: var(--w-sans);
+    font-size: .48rem;
+    letter-spacing: .12em;
+}
+
+.transparency-copy {
+    align-self: center;
+}
+
+.transparency-copy > p {
+    color: var(--w-muted);
+    font-size: .82rem;
+    line-height: 1.95;
+}
+
+.transparency-copy .transparency-lead {
+    color: var(--w-ink);
+    font-family: var(--w-serif);
+    font-size: 1.8rem;
+    line-height: 1.3;
+}
+
+.notice {
+    display: flex;
+    gap: 17px;
+    margin: 27px 0;
+    padding: 22px;
+    background: var(--w-cream);
+}
+
+.notice > span {
+    color: var(--w-rose-dark);
+}
+
+.notice strong {
+    font-size: .75rem;
+}
+
+.notice p {
+    margin-bottom: 0;
+    color: var(--w-muted);
+    font-size: .72rem;
+    line-height: 1.8;
+}
+
+.transparency-copy .fine-print {
+    font-size: .68rem;
+}
+
+/* ==========================================
+   CIERRE
+========================================== */
+
+.closing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 110px 25px;
+    text-align: center;
+    color: white;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(199, 157, 152, .2), transparent 55%),
+        var(--w-dark);
+}
+
+.closing .eyebrow {
+    color: #e5cfaa;
+}
+
+.closing h2 {
+    margin: 25px 0 35px;
+    font-size: clamp(2.8rem, 5.5vw, 5rem);
+}
+
+.closing h2 em {
+    color: #e5cfaa;
+}
+
+/* ==========================================
+   FOOTER GLOBAL
+========================================== */
 
 .footer {
     width: 100%;
     margin: 0;
     padding: 55px 6% 24px;
-    color: var(--color-white, #FFFFFF);
+    color: white;
     background: #080E17;
-    font-family: var(--font-body, "Inter", Arial, sans-serif);
+}
+
+.footer-inner {
+    width: min(1120px, 100%);
+    margin: 0 auto 45px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px;
 }
 
 .footer .logo-footer {
-    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-family: var(--w-serif);
+    font-size: 29px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    line-height: .85;
 }
 
 .footer .logo-dot {
-    color: var(--color-gold, #D4B483);
+    color: var(--w-gold);
 }
 
 .footer .logo-caption {
-    color: inherit;
+    margin-top: 9px;
+    font-family: var(--w-sans);
+    font-size: 8px;
+    font-weight: 500;
+    letter-spacing: 2px;
 }
 
 .footer .footer-tagline {
-    color: rgba(255, 255, 255, 0.75);
-    font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
+    margin-top: 23px;
+    color: rgba(255, 255, 255, .75);
+    font-family: var(--w-serif);
+    font-size: 1.3rem;
 }
 
-.footer .footer-links a {
-    color: rgba(255, 255, 255, 0.76);
-    font-size: 0.73rem;
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 18px 25px;
 }
 
-.footer .footer-links a:hover,
+.footer-links a {
+    color: rgba(255, 255, 255, .76);
+    font-size: .7rem;
+    transition: color .25s ease;
+}
+
+.footer-links a:hover,
 .footer .back-top:hover {
-    color: var(--color-gold, #D4B483);
+    color: var(--w-gold);
 }
 
-.footer .footer-bottom {
-    border-top: 1px solid var(--color-dark-line, rgba(250, 248, 244, 0.18));
+.footer-bottom {
+    width: min(1120px, 100%);
+    margin: 0 auto;
+    padding-top: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border-top: 1px solid rgba(250, 248, 244, .18);
 }
 
-.footer .footer-bottom small,
+.footer-bottom small,
 .footer .back-top {
-    color: rgba(255, 255, 255, 0.62);
-    font-size: 0.7rem;
+    color: rgba(255, 255, 255, .62);
+    font-size: .68rem;
 }
 
-/* TABLET */
+/* WHATSAPP */
 
-@media (max-width: 900px) {
+.whatsapp-float {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 999;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: white;
+    background: #25D366;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .2);
+    font-size: .75rem;
+    font-weight: 700;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 1000px) {
     .header .header-inner {
-        width: 92%;
+        width: 94%;
     }
 
     .header .nav {
-        background: var(--color-ivory, #FAF8F4);
+        gap: 14px;
+    }
+
+    .header .nav > a,
+    .header .nav-dropdown-toggle {
+        font-size: .66rem;
+    }
+
+    .package-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .package-card:last-child {
+        grid-column: 1 / -1;
+        width: calc(50% - 12px);
+        justify-self: center;
+    }
+
+    .transparency {
+        gap: 45px;
     }
 }
 
-/* MÓVIL */
-
-@media (max-width: 600px) {
+@media (max-width: 760px) {
     .header .header-inner {
-        width: 88%;
+        min-height: 78px;
     }
 
-    .footer {
-        padding: 45px 6% 22px;
-    }
-}
-
-
-/* ==========================================
-   ÉVORA · BODAS
-   01. PORTADA EDITORIAL
-   ========================================== */
-
-.wedding-packages .wp-heading {
-    position: relative;
-    isolation: isolate;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    min-height: clamp(580px, 78svh, 820px);
-    padding: clamp(90px, 12vw, 160px) 24px;
-
-    overflow: hidden;
-    text-align: center;
-    color: #fffdf9;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(15, 20, 17, 0.34) 0%,
-            rgba(15, 20, 17, 0.48) 45%,
-            rgba(15, 20, 17, 0.70) 100%
-        ),
-        url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=85")
-        center 48% / cover no-repeat;
-}
-
-/* Detalle ornamental superior */
-.wedding-packages .wp-heading::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    inset: 22px;
-    border: 1px solid rgba(255, 253, 249, 0.25);
-    pointer-events: none;
-}
-
-.wedding-packages .wp-heading .wp-kicker {
-    margin-bottom: 28px;
-    color: #e5cfaa;
-    font-size: 0.69rem;
-    letter-spacing: 0.24em;
-    line-height: 1.8;
-}
-
-.wedding-packages .wp-heading h1 {
-    max-width: 950px;
-    margin: 0 auto 26px;
-
-    color: #fffdf9;
-    font-family: "Cormorant Garamond", Georgia, serif;
-    font-size: clamp(3.2rem, 7.2vw, 6.7rem);
-    font-weight: 400;
-    line-height: 0.98;
-    letter-spacing: -0.045em;
-    text-wrap: balance;
-}
-
-.wedding-packages .wp-heading h1 em {
-    color: #e5cfaa;
-    font-weight: 400;
-}
-
-.wedding-packages .wp-heading > p {
-    width: min(100%, 590px);
-    margin: 0 auto 34px;
-
-    color: rgba(255, 253, 249, 0.88);
-    font-size: 0.94rem;
-    line-height: 1.9;
-    text-wrap: pretty;
-}
-
-.wedding-packages .wp-heading .wp-main-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 18px;
-
-    min-height: 52px;
-    padding: 14px 24px;
-
-    border: 1px solid rgba(255, 253, 249, 0.72);
-    color: #fffdf9;
-    background: rgba(255, 253, 249, 0.06);
-
-    font-size: 0.75rem;
-    letter-spacing: 0.06em;
-    text-decoration: none;
-
-    transition:
-        background-color 250ms ease,
-        color 250ms ease,
-        border-color 250ms ease;
-}
-
-.wedding-packages .wp-heading .wp-main-button:hover {
-    color: #20251f;
-    background: #e5cfaa;
-    border-color: #e5cfaa;
-}
-
-.wedding-packages .wp-heading .wp-main-button span {
-    transition: transform 250ms ease;
-}
-
-.wedding-packages .wp-heading .wp-main-button:hover span {
-    transform: translateY(3px);
-}
-
-/* Portada en móviles */
-@media (max-width: 600px) {
-    .wedding-packages .wp-heading {
-        min-height: 630px;
-        padding: 100px 28px;
-        background-position: 55% center;
+    .header .menu-toggle {
+        width: 42px;
+        height: 42px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+        padding: 8px;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
     }
 
-    .wedding-packages .wp-heading::before {
-        inset: 12px;
+    .header .menu-toggle span {
+        width: 100%;
+        height: 2px;
+        background: var(--w-dark);
     }
 
-    .wedding-packages .wp-heading h1 {
-        font-size: clamp(3rem, 12vw, 4.5rem);
-        line-height: 1.02;
-    }
-
-    .wedding-packages .wp-heading > p {
-        font-size: 0.86rem;
-        line-height: 1.8;
-    }
-}
-
-/* ==========================================
-   ÉVORA · ANIMACIONES DE PAQUETES
-   Intensidad progresiva según categoría
-   ========================================== */
-
-.wp-card {
-    position: relative;
-    overflow: hidden;
-    transform: translateY(0);
-    transition:
-        transform 450ms cubic-bezier(0.2, 0.8, 0.2, 1),
-        box-shadow 450ms ease,
-        border-color 350ms ease;
-}
-
-/* ESENCIAL — Movimiento discreto */
-
-.wp-card-essential:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 14px 32px rgba(32, 37, 31, 0.10);
-}
-
-/* SIGNATURE — Mayor presencia */
-
-.wp-card-signature {
-    border-color: rgba(177, 138, 87, 0.65);
-}
-
-.wp-card-signature:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 22px 45px rgba(32, 37, 31, 0.15);
-    border-color: var(--wp-gold);
-}
-
-/* ÉVORA FULL — Experiencia premium */
-
-.wp-card-full:hover {
-    transform: translateY(-15px);
-    box-shadow: 0 30px 60px rgba(32, 37, 31, 0.20);
-    border-color: var(--wp-gold);
-}
-
-/* Movimiento de las fotografías */
-
-.wp-photo {
-    overflow: hidden;
-}
-
-.wp-photo {
-    transition: transform 650ms cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.wp-card-essential:hover .wp-photo {
-    transform: scale(1.015);
-}
-
-.wp-card-signature:hover .wp-photo {
-    transform: scale(1.035);
-}
-
-.wp-card-full:hover .wp-photo {
-    transform: scale(1.055);
-}
-
-/* Accesibilidad: reducir movimiento si el usuario lo solicita */
-
-@media (prefers-reduced-motion: reduce) {
-    .wp-card,
-    .wp-photo {
-        transition: none;
-    }
-
-    .wp-card-essential:hover,
-    .wp-card-signature:hover,
-    .wp-card-full:hover {
-        transform: none;
-    }
-
-    .wp-card-essential:hover .wp-photo,
-    .wp-card-signature:hover .wp-photo,
-    .wp-card-full:hover .wp-photo {
-        transform: none;
-    }
-}
-
-/* En pantallas táctiles no forzamos efectos hover */
-
-@media (hover: none) {
-    .wp-card:hover {
-        transform: none;
-        box-shadow: none;
-    }
-
-    .wp-card:hover .wp-photo {
-        transform: none;
+    .header .nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
     }
 }
