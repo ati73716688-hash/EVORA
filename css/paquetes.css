@@ -1,0 +1,1338 @@
+
+/* ==========================================
+   ÉVORA - PAQUETES
+   Diseño azul noche y dorado
+   ========================================== */
+
+/* COLORES OFICIALES */
+
+:root {
+    --pk-navy: #0B1320;
+    --pk-gold: #D4B483;
+    --pk-ivory: #FAF8F4;
+    --pk-ink: #1E293B;
+    --pk-gray: #64748B;
+    --pk-light: #F1F5F9;
+    --pk-white: #FFFFFF;
+
+    --pk-serif: 'Cormorant Garamond', Georgia, serif;
+    --pk-sans: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+
+/* ==========================================
+   1. ESTILOS GENERALES
+   ========================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    margin: 0;
+    background: var(--pk-ivory);
+    color: var(--pk-ink);
+    font-family: var(--pk-sans);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+body.pk-menu-open {
+    overflow: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+.pk-table-scroll:focus-visible {
+    outline: 3px solid var(--pk-gold);
+    outline-offset: 4px;
+}
+
+.pk-container {
+    width: min(90%, 1250px);
+    margin: 0 auto;
+}
+
+.pk-skip {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 2000;
+    padding: 12px 18px;
+    background: var(--pk-navy);
+    color: white;
+    transform: translateY(-200%);
+}
+
+.pk-skip:focus {
+    transform: none;
+}
+
+/* ==========================================
+   2. ENCABEZADO UNIFICADO
+   ========================================== */
+
+.pk-header {
+    position: sticky;
+    top: 0;
+    z-index: 800;
+    background: var(--pk-navy);
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.pk-header-inner {
+    min-height: 88px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+}
+
+/* LOGOTIPO */
+
+.pk-brand {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    line-height: 1;
+    color: white;
+}
+
+.pk-brand-row {
+    font-family: var(--pk-serif);
+    font-size: 38px;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    white-space: nowrap;
+}
+
+.pk-brand-icon {
+    color: var(--pk-gold);
+    font-size: 26px;
+    margin-right: 7px;
+}
+
+.pk-brand-caption {
+    margin: 8px 0 0 45px;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+}
+
+/* NAVEGACIÓN */
+
+.pk-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: clamp(9px, 1.1vw, 18px);
+}
+
+.pk-nav > a,
+.pk-dropdown > summary {
+    display: block;
+    padding: 10px 0;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.pk-nav > a:hover,
+.pk-dropdown > summary:hover,
+.pk-nav .pk-active {
+    color: var(--pk-gold);
+}
+
+.pk-nav .pk-active {
+    border-bottom: 2px solid var(--pk-gold);
+}
+
+/* BOTÓN HABLEMOS */
+
+.pk-nav .pk-nav-cta {
+    padding: 12px 19px;
+    background: var(--pk-gold);
+    color: var(--pk-navy);
+    border-radius: 40px;
+    transition: background 300ms ease;
+}
+
+.pk-nav .pk-nav-cta:hover {
+    background: #E6CEA9;
+    color: var(--pk-navy);
+}
+
+/* MENÚS DESPLEGABLES */
+
+.pk-dropdown {
+    position: relative;
+}
+
+.pk-dropdown > summary {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    list-style: none;
+}
+
+.pk-dropdown > summary::-webkit-details-marker {
+    display: none;
+}
+
+.pk-dropdown > summary span {
+    color: var(--pk-gold);
+}
+
+.pk-dropdown-links {
+    position: absolute;
+    top: 100%;
+    left: -12px;
+    width: 234px;
+    padding: 12px;
+    background: #152438;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
+}
+
+.pk-dropdown-links a {
+    display: block;
+    padding: 12px;
+    color: white;
+    font-size: 12px;
+    border-radius: 9px;
+}
+
+.pk-dropdown-links a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--pk-gold);
+}
+
+/* BOTÓN DEL MENÚ MÓVIL */
+
+.pk-menu-button {
+    display: none;
+    width: 45px;
+    height: 45px;
+    padding: 11px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+}
+
+.pk-menu-button span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    margin: 5px auto;
+    background: white;
+}
+
+/* ==========================================
+   3. TÍTULOS Y BOTONES
+   ========================================== */
+
+.pk-eyebrow {
+    margin: 0 0 14px;
+    color: #846B49;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.19em;
+    text-transform: uppercase;
+}
+
+.pk-eyebrow-light {
+    color: var(--pk-gold);
+}
+
+h1,
+h2,
+h3,
+p {
+    overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--pk-serif);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+}
+
+h1 em,
+h2 em {
+    color: #A37C46;
+    font-weight: 500;
+}
+
+/* BOTONES */
+
+.pk-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 50px;
+    padding: 13px 23px;
+    border: 1px solid transparent;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+    transition:
+        background 300ms ease,
+        color 300ms ease,
+        transform 300ms ease;
+}
+
+.pk-button:hover {
+    transform: translateY(-2px);
+}
+
+.pk-button-gold {
+    background: var(--pk-gold);
+    color: var(--pk-navy);
+}
+
+.pk-button-gold:hover {
+    background: #E6CEA9;
+}
+
+.pk-button-light {
+    border-color: var(--pk-gold);
+    color: white;
+}
+
+.pk-button-light:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.pk-button-outline {
+    border-color: var(--pk-navy);
+    color: var(--pk-navy);
+}
+
+.pk-button-outline:hover {
+    background: var(--pk-navy);
+    color: white;
+}
+
+/* ==========================================
+   4. PORTADA CON FOTOGRAFÍA
+   ========================================== */
+
+.pk-hero {
+    position: relative;
+    min-height: 555px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: var(--pk-navy);
+    color: white;
+}
+
+.pk-hero-image,
+.pk-hero-shade {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.pk-hero-image {
+    object-fit: cover;
+    object-position: center;
+}
+
+.pk-hero-shade {
+    background: linear-gradient(
+        90deg,
+        rgba(11, 19, 32, 0.98) 0%,
+        rgba(11, 19, 32, 0.91) 35%,
+        rgba(11, 19, 32, 0.50) 68%,
+        rgba(11, 19, 32, 0.15) 100%
+    );
+}
+
+.pk-hero-inner {
+    position: relative;
+    z-index: 1;
+    padding: 95px 0;
+}
+
+.pk-hero-content {
+    max-width: 690px;
+}
+
+.pk-hero h1 {
+    margin: 0 0 23px;
+    font-size: clamp(52px, 5.5vw, 82px);
+    line-height: 0.99;
+}
+
+.pk-hero h1 em {
+    color: var(--pk-gold);
+}
+
+.pk-hero-text {
+    max-width: 550px;
+    margin: 0 0 28px;
+    color: #E2E6EB;
+    line-height: 1.8;
+}
+
+.pk-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* ==========================================
+   5. INTRODUCCIÓN
+   ========================================== */
+
+.pk-intro {
+    padding: 85px 0 75px;
+    text-align: center;
+}
+
+.pk-intro h2 {
+    max-width: 800px;
+    margin: 0 auto 19px;
+    color: var(--pk-navy);
+    font-size: clamp(43px, 4.6vw, 67px);
+    line-height: 1.04;
+}
+
+.pk-intro > p:last-child {
+    max-width: 750px;
+    margin: 0 auto;
+    color: var(--pk-gray);
+}
+
+/* ENCABEZADOS DE SECCIONES */
+
+.pk-section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 35px;
+    margin-bottom: 42px;
+}
+
+.pk-section-heading > div {
+    max-width: 650px;
+}
+
+.pk-section-heading h2 {
+    margin: 0;
+    color: var(--pk-navy);
+    font-size: clamp(43px, 4.3vw, 65px);
+    line-height: 1.03;
+}
+
+.pk-section-heading > p {
+    max-width: 365px;
+    margin: 0 0 5px;
+    color: var(--pk-gray);
+    font-size: 13px;
+}
+
+/* ==========================================
+   6. TARJETAS DE PAQUETES
+   ========================================== */
+
+.pk-plans {
+    padding-bottom: 100px;
+}
+
+.pk-plan-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 20px;
+}
+
+/* TARJETA GENERAL */
+
+.pk-plan {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+    background: white;
+    border: 1px solid #E5DFD4;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+
+    /* ANIMACIÓN PARA ELEVAR LA TARJETA */
+    transition:
+        transform 300ms ease,
+        box-shadow 300ms ease,
+        border-color 300ms ease;
+}
+
+/* ==========================================
+   7. IMÁGENES DE LOS PAQUETES
+   ========================================== */
+
+.pk-plan-photo {
+    position: relative;
+    height: 225px;
+    overflow: hidden;
+    background: #E9E5DF;
+}
+
+.pk-plan-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    /* ANIMACIÓN DE LA FOTOGRAFÍA */
+    transition: transform 400ms ease;
+}
+
+.pk-photo-label {
+    position: absolute;
+    bottom: 15px;
+    left: 18px;
+    z-index: 1;
+    padding: 7px 13px;
+    background: rgba(11, 19, 32, 0.86);
+    color: var(--pk-gold);
+    border: 1px solid rgba(212, 180, 131, 0.35);
+    border-radius: 30px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+/* ==========================================
+   8. EFECTO AL PASAR EL MOUSE
+   ========================================== */
+
+@media (hover: hover) and (pointer: fine) {
+
+    /* LA TARJETA SUBE UN POQUITO */
+
+    .pk-plan:hover {
+        transform: translateY(-9px);
+        border-color: var(--pk-gold);
+        box-shadow:
+            0 22px 45px rgba(11, 19, 32, 0.18);
+    }
+
+    /* LA IMAGEN SE ACERCA SUAVEMENTE */
+
+    .pk-plan:hover .pk-plan-photo img {
+        transform: scale(1.055);
+    }
+
+    /* SIGNATURE YA ESTÁ MÁS ALTO,
+       POR ESO SE ELEVA UN POCO MÁS */
+
+    .pk-plan-featured:hover {
+        transform: translateY(-21px);
+    }
+
+}
+
+/* ==========================================
+   9. INFORMACIÓN DE CADA PAQUETE
+   ========================================== */
+
+.pk-plan-top {
+    min-height: 210px;
+    padding: 30px 28px 24px;
+    background: linear-gradient(
+        145deg,
+        #F9F6EF,
+        #FFFFFF
+    );
+}
+
+.pk-plan-index {
+    color: #8F7047;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+}
+
+.pk-plan h3 {
+    margin: 14px 0 6px;
+    color: var(--pk-navy);
+    font-size: clamp(43px, 4vw, 55px);
+    line-height: 1.05;
+}
+
+.pk-plan-slogan {
+    margin: 0 0 15px;
+    color: var(--pk-gray);
+    font-size: 13px;
+}
+
+.pk-plan-price {
+    margin: 0;
+    color: var(--pk-navy);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* INFORMACIÓN INFERIOR */
+
+.pk-plan-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 25px 28px 30px;
+}
+
+.pk-includes {
+    margin: 0 0 13px;
+    color: var(--pk-navy);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* LISTA DE SERVICIOS */
+
+.pk-plan ul {
+    margin: 0 0 28px;
+    padding: 0;
+    list-style: none;
+}
+
+.pk-plan li {
+    position: relative;
+    padding: 11px 0 11px 24px;
+    border-bottom: 1px solid #EDE8DF;
+    color: #465364;
+    font-size: 12px;
+}
+
+.pk-plan li::before {
+    content: "✓";
+    position: absolute;
+    top: 11px;
+    left: 0;
+    color: #947044;
+    font-weight: 800;
+}
+
+/* BOTONES AL FINAL DE LAS TARJETAS */
+
+.pk-plan-body .pk-button {
+    width: 100%;
+    margin-top: auto;
+}
+
+/* ==========================================
+   10. SIGNATURE DESTACADO
+   ========================================== */
+
+.pk-plan-featured {
+    background: var(--pk-navy);
+    border-color: var(--pk-gold);
+    transform: translateY(-12px);
+}
+
+.pk-plan-featured .pk-plan-top {
+    background: #182639;
+}
+
+.pk-plan-featured h3,
+.pk-plan-featured .pk-plan-price,
+.pk-plan-featured .pk-includes {
+    color: white;
+}
+
+.pk-plan-featured .pk-plan-slogan,
+.pk-plan-featured li {
+    color: #E0E5EB;
+}
+
+.pk-plan-featured li {
+    border-bottom-color: #334050;
+}
+
+.pk-plan-featured .pk-plan-index,
+.pk-plan-featured li::before {
+    color: var(--pk-gold);
+}
+
+/* ETIQUETA DORADA */
+
+.pk-featured-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    padding: 9px;
+    background: var(--pk-gold);
+    color: var(--pk-navy);
+    font-size: 10px;
+    font-weight: 800;
+    text-align: center;
+    letter-spacing: 0.13em;
+}
+
+.pk-plan-featured .pk-plan-photo {
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+}
+
+.pk-clarification {
+    margin: 28px 0 0;
+    color: #5C6877;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* ==========================================
+   11. TABLA COMPARATIVA
+   ========================================== */
+
+.pk-compare {
+    padding: 85px 0;
+    background: #F0EDE7;
+}
+
+.pk-table-scroll {
+    overflow-x: auto;
+    background: white;
+    border: 1px solid #E5DDD1;
+    border-radius: 18px;
+}
+
+.pk-table {
+    width: 100%;
+    min-width: 670px;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.pk-table caption {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.pk-table th,
+.pk-table td {
+    padding: 19px 16px;
+    border-bottom: 1px solid #EEE7DD;
+    font-size: 13px;
+}
+
+.pk-table thead {
+    background: var(--pk-navy);
+    color: white;
+}
+
+.pk-table thead th {
+    font-weight: 700;
+}
+
+.pk-table th:first-child {
+    width: 40%;
+    text-align: left;
+}
+
+.pk-table tbody th {
+    color: var(--pk-ink);
+    font-weight: 600;
+}
+
+.pk-table tbody td {
+    color: #536171;
+}
+
+/* COLUMNA SIGNATURE */
+
+.pk-table tbody td:nth-child(3) {
+    background: #FFF8EB;
+    color: #644D2E;
+    font-weight: 600;
+}
+
+.pk-table tr:last-child th,
+.pk-table tr:last-child td {
+    border-bottom: none;
+}
+
+.pk-table-note {
+    margin: 12px 0 0;
+    color: var(--pk-gray);
+    font-size: 11px;
+}
+
+/* ==========================================
+   12. PASOS PARA ELEGIR UN PAQUETE
+   ========================================== */
+
+.pk-steps {
+    padding: 95px 0;
+}
+
+.pk-steps > h2 {
+    max-width: 790px;
+    margin: 0 0 45px;
+    color: var(--pk-navy);
+    font-size: clamp(42px, 4.5vw, 65px);
+    line-height: 1.03;
+}
+
+.pk-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 26px;
+}
+
+.pk-steps-grid article {
+    padding-top: 22px;
+    border-top: 1px solid #C5B69F;
+}
+
+.pk-steps-grid span {
+    color: #967143;
+    font-family: var(--pk-serif);
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.pk-steps-grid h3 {
+    margin: 12px 0 8px;
+    color: var(--pk-navy);
+    font-size: 31px;
+}
+
+.pk-steps-grid p {
+    margin: 0;
+    color: var(--pk-gray);
+    font-size: 13px;
+}
+
+/* ==========================================
+   13. PREGUNTAS FRECUENTES
+   ========================================== */
+
+.pk-faq {
+    padding: 90px 0;
+    background: white;
+}
+
+.pk-faq-layout {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 80px;
+}
+
+.pk-faq h2 {
+    margin: 0;
+    color: var(--pk-navy);
+    font-size: clamp(42px, 4.5vw, 65px);
+    line-height: 1.02;
+}
+
+.pk-faq-items details {
+    border-bottom: 1px solid #DED6CA;
+}
+
+.pk-faq-items summary {
+    position: relative;
+    padding: 18px 35px 18px 0;
+    color: var(--pk-navy);
+    font-size: 14px;
+    font-weight: 600;
+    list-style: none;
+    cursor: pointer;
+}
+
+.pk-faq-items summary::-webkit-details-marker {
+    display: none;
+}
+
+.pk-faq-items summary::after {
+    content: "+";
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    color: #94704B;
+    font-size: 27px;
+    font-weight: 400;
+}
+
+.pk-faq-items details[open] summary::after {
+    content: "−";
+}
+
+.pk-faq-items details p {
+    margin: 0 0 18px;
+    color: var(--pk-gray);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* ==========================================
+   14. LLAMADA FINAL
+   ========================================== */
+
+.pk-final {
+    padding: 85px 0;
+    background: var(--pk-navy);
+    color: white;
+    text-align: center;
+}
+
+.pk-final h2 {
+    max-width: 810px;
+    margin: 0 auto 20px;
+    font-size: clamp(50px, 5.4vw, 76px);
+    line-height: 1;
+}
+
+.pk-final h2 em {
+    color: var(--pk-gold);
+}
+
+.pk-final p:not(.pk-eyebrow) {
+    margin: 0 0 28px;
+    color: #D8DEE5;
+}
+
+/* ==========================================
+   15. PIE DE PÁGINA
+   ========================================== */
+
+.pk-footer {
+    padding: 60px 0 25px;
+    background: #080F1A;
+    color: white;
+}
+
+.pk-footer-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px;
+    padding-bottom: 50px;
+}
+
+.pk-footer-brand {
+    font-family: var(--pk-serif);
+    font-size: 43px;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+}
+
+.pk-footer-top p {
+    color: #BFC7D2;
+    font-size: 13px;
+}
+
+.pk-footer-links {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 14px 20px;
+    max-width: 650px;
+}
+
+.pk-footer-links a {
+    color: #E0E3E8;
+    font-size: 12px;
+}
+
+.pk-footer-links a:hover {
+    color: var(--pk-gold);
+}
+
+.pk-footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    color: #BFC7D2;
+    font-size: 11px;
+}
+
+.pk-footer-bottom a:hover {
+    color: var(--pk-gold);
+}
+
+/* ==========================================
+   16. TABLETS Y MENÚ MÓVIL
+   ========================================== */
+
+@media (max-width: 1160px) {
+
+    .pk-header-inner {
+        min-height: 78px;
+    }
+
+    .pk-menu-button {
+        display: block;
+    }
+
+    .pk-nav {
+        display: none;
+        position: fixed;
+        top: 78px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 22px 5% 65px;
+        overflow-y: auto;
+        background: var(--pk-navy);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+    }
+
+    .pk-nav.pk-open {
+        display: flex;
+    }
+
+    .pk-nav > a,
+    .pk-dropdown > summary {
+        padding: 14px 7px;
+        font-size: 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .pk-dropdown-links {
+        position: static;
+        width: auto;
+        background: #152438;
+        border: none;
+        box-shadow: none;
+    }
+
+    .pk-dropdown-links a {
+        padding: 13px;
+        font-size: 14px;
+    }
+
+    .pk-nav .pk-nav-cta {
+        align-self: stretch;
+        margin-top: 17px;
+        text-align: center;
+    }
+
+}
+
+/* ==========================================
+   17. PANTALLAS MEDIANAS
+   ========================================== */
+
+@media (max-width: 950px) {
+
+    .pk-plan-grid {
+        grid-template-columns: 1fr;
+        max-width: 560px;
+        margin: 0 auto;
+        gap: 28px;
+    }
+
+    .pk-plan-featured {
+        transform: none;
+    }
+
+    .pk-section-heading {
+        display: block;
+    }
+
+    .pk-section-heading > p {
+        margin-top: 18px;
+    }
+
+    .pk-faq-layout {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+}
+
+/* ==========================================
+   18. TABLETS PEQUEÑAS
+   ========================================== */
+
+@media (max-width: 800px) {
+
+    .pk-hero {
+        min-height: 530px;
+    }
+
+    .pk-hero-shade {
+        background: linear-gradient(
+            90deg,
+            rgba(11, 19, 32, 0.96),
+            rgba(11, 19, 32, 0.55)
+        );
+    }
+
+    .pk-steps-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .pk-footer-top {
+        display: block;
+    }
+
+    .pk-footer-links {
+        justify-content: flex-start;
+        margin-top: 30px;
+    }
+
+}
+
+/* ==========================================
+   19. CELULARES
+   ========================================== */
+
+@media (max-width: 600px) {
+
+    .pk-brand-row {
+        font-size: 33px;
+    }
+
+    .pk-brand-caption {
+        font-size: 8px;
+    }
+
+    .pk-hero {
+        min-height: 570px;
+    }
+
+    .pk-hero-inner {
+        padding: 70px 0;
+    }
+
+    .pk-hero h1 {
+        font-size: clamp(49px, 11vw, 64px);
+    }
+
+    .pk-hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .pk-hero-actions .pk-button {
+        width: 100%;
+    }
+
+    .pk-intro {
+        padding: 65px 0;
+    }
+
+    .pk-intro h2,
+    .pk-section-heading h2,
+    .pk-steps > h2,
+    .pk-faq h2 {
+        font-size: clamp(39px, 10vw, 50px);
+    }
+
+    .pk-plans {
+        padding-bottom: 70px;
+    }
+
+    .pk-plan-photo {
+        height: 210px;
+    }
+
+    .pk-plan-top {
+        min-height: 0;
+        padding: 27px 23px 23px;
+    }
+
+    .pk-plan-body {
+        padding: 24px 23px 28px;
+    }
+
+    .pk-compare,
+    .pk-steps,
+    .pk-faq {
+        padding: 65px 0;
+    }
+
+    .pk-final {
+        padding: 70px 0;
+    }
+
+    .pk-footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+
+/* ==========================================
+   20. AJUSTE DEL HOVER EN PANTALLAS
+       MÁS PEQUEÑAS
+   ========================================== */
+
+@media (hover: hover) and (pointer: fine) and (max-width: 950px) {
+
+    .pk-plan-featured:hover {
+        transform: translateY(-9px);
+    }
+
+}
+
+/* ==========================================
+   21. ACCESIBILIDAD
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+
+}
+
+/* ==========================================
+   WHATSAPP FLOTANTE - PAQUETES
+   ========================================== */
+
+.pk-wa-bubble {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 9999;
+
+    width: 62px;
+    height: 62px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #25D366;
+    color: white;
+
+    border: 2px solid white;
+    border-radius: 50%;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+
+    text-decoration: none;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+
+    animation: pk-flotarWhatsapp 3s ease-in-out infinite;
+}
+
+/* LOGO DE WHATSAPP */
+
+.pk-wa-bubble svg {
+    width: 35px;
+    height: 35px;
+    display: block;
+}
+
+/* MOVIMIENTO FLOTANTE */
+
+@keyframes pk-flotarWhatsapp {
+
+    0%, 100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -10px;
+    }
+
+}
+
+/* EFECTO AL PASAR EL MOUSE */
+
+.pk-wa-bubble:hover {
+    animation-play-state: paused;
+
+    transform: scale(1.1);
+
+    background: #1DB954;
+
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* ACCESIBILIDAD */
+
+.pk-wa-bubble:focus-visible {
+    outline: 3px solid #D4B483;
+    outline-offset: 5px;
+}
+
+/* CELULARES */
+
+@media (max-width: 600px) {
+
+    .pk-wa-bubble {
+        width: 55px;
+        height: 55px;
+
+        right: 16px;
+        bottom: 16px;
+    }
+
+    .pk-wa-bubble svg {
+        width: 31px;
+        height: 31px;
+    }
+
+}
+
+/* REDUCIR MOVIMIENTOS SI ES NECESARIO */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .pk-wa-bubble {
+        animation: none;
+        transition: none;
+    }
+
+}

@@ -1122,3 +1122,157 @@ summary:focus-visible {
     }
 
 }
+
+/* ==========================================
+   WHATSAPP FLOTANTE - ÉVORA
+   ========================================== */
+
+/* OCULTAR EL BOTÓN ANTIGUO */
+
+#egWhatsapp,
+.wa-float {
+    display: none !important;
+}
+
+/* NUEVA BURBUJA */
+
+.eg-wa-bubble {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 9999;
+
+    width: 62px;
+    height: 62px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #25D366;
+    color: white;
+
+    border: 2px solid white;
+    border-radius: 50%;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+
+    text-decoration: none;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+
+    animation: eg-wa-flotar 4s ease-in-out infinite;
+}
+
+/* LOGO BLANCO */
+
+.eg-wa-bubble svg {
+    width: 35px;
+    height: 35px;
+    display: block;
+}
+
+/* AL PASAR EL MOUSE */
+
+.eg-wa-bubble:hover {
+    background: #1DB954;
+    transform: scale(1.12);
+
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* MOVIMIENTO SUAVE */
+
+@keyframes eg-wa-flotar {
+
+    0%, 100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -5px;
+    }
+
+}
+
+/* EFECTO AL SELECCIONAR CON TECLADO */
+
+.eg-wa-bubble:focus-visible {
+    outline: 3px solid #D4B483;
+    outline-offset: 5px;
+}
+
+/* CELULARES */
+
+@media (max-width: 600px) {
+
+    .eg-wa-bubble {
+        width: 55px;
+        height: 55px;
+        right: 16px;
+        bottom: 16px;
+    }
+
+    .eg-wa-bubble svg {
+        width: 31px;
+        height: 31px;
+    }
+
+}
+
+/* ACCESIBILIDAD */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .eg-wa-bubble {
+        animation: none;
+        transition: none;
+    }
+
+}
+
+/* BURBUJA FLOTANTE DE WHATSAPP */
+
+.eg-wa-bubble {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 9999;
+
+    width: 62px;
+    height: 62px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #25D366;
+    color: white;
+    border-radius: 50%;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+
+    animation: flotarWhatsapp 3s ease-in-out infinite;
+}
+
+/* MOVIMIENTO DE ARRIBA HACIA ABAJO */
+
+@keyframes flotarWhatsapp {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* EFECTO AL PASAR EL MOUSE */
+
+.eg-wa-bubble:hover {
+    animation-play-state: paused;
+    transform: scale(1.1);
+}
