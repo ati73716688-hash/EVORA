@@ -1,5 +1,4 @@
-
-// Coloca aquí tu clave pública de EmailJS
+// Inicializar EmailJS
 emailjs.init({
     publicKey: "TU_CLAVE_PUBLICA"
 });
@@ -8,14 +7,18 @@ emailjs.init({
 const parametros = new URLSearchParams(window.location.search);
 const paqueteSeleccionado = parametros.get("paquete");
 
-document.getElementById("paquete").value =
-    paqueteSeleccionado || "Consulta general";
+const campoPaquete = document.getElementById("paquete");
 
-// Enviar formulario
+if (campoPaquete) {
+    campoPaquete.value = paqueteSeleccionado || "Consulta general";
+}
+
+// Obtener elementos del formulario
 const formulario = document.getElementById("formularioConsulta");
 const boton = document.getElementById("btnEnviar");
 const respuesta = document.getElementById("respuesta");
 
+// Enviar formulario
 formulario.addEventListener("submit", function(event) {
     event.preventDefault();
 
@@ -31,11 +34,12 @@ formulario.addEventListener("submit", function(event) {
     .then(function() {
         respuesta.textContent =
             "¡Tu consulta fue enviada correctamente!";
+
         respuesta.style.color = "green";
 
         formulario.reset();
 
-        document.getElementById("paquete").value =
+        campoPaquete.value =
             paqueteSeleccionado || "Consulta general";
     })
     .catch(function(error) {
@@ -43,6 +47,7 @@ formulario.addEventListener("submit", function(event) {
 
         respuesta.textContent =
             "No se pudo enviar la consulta. Inténtalo nuevamente.";
+
         respuesta.style.color = "red";
     })
     .finally(function() {
