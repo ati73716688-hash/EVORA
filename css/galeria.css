@@ -1,0 +1,1278 @@
+
+/* ==========================================
+   ÉVORA - GALERÍA DE EVENTOS
+   Hoja de estilos independiente
+   ========================================== */
+
+/* COLORES Y TIPOGRAFÍAS */
+
+:root {
+    --eg-navy: #0B1320;
+    --eg-gold: #D4B483;
+    --eg-ivory: #FAF8F4;
+    --eg-ink: #1E293B;
+    --eg-gray: #64748B;
+    --eg-mist: #F1F5F9;
+    --eg-white: #FFFFFF;
+
+    --eg-serif: 'Cormorant Garamond', Georgia, serif;
+    --eg-sans: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+
+/* CONFIGURACIÓN GENERAL */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 95px;
+}
+
+body {
+    margin: 0;
+    background: var(--eg-ivory);
+    color: var(--eg-ink);
+    font-family: var(--eg-sans);
+    font-size: 15px;
+    line-height: 1.65;
+}
+
+body.eg-nav-open {
+    overflow: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+}
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+    outline: 3px solid var(--eg-gold);
+    outline-offset: 4px;
+}
+
+.eg-container {
+    width: min(90%, 1250px);
+    margin: 0 auto;
+}
+
+.eg-skip {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 2000;
+    padding: 12px 18px;
+    background: var(--eg-navy);
+    color: white;
+    transform: translateY(-200%);
+}
+
+.eg-skip:focus {
+    transform: none;
+}
+
+/* ==========================================
+   1. CABECERA Y MENÚ
+   ========================================== */
+
+.eg-header {
+    position: sticky;
+    top: 0;
+    z-index: 700;
+    background: var(--eg-navy);
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.eg-header-inner {
+    min-height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+}
+
+/* LOGOTIPO */
+
+.eg-brand {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    line-height: 1;
+    color: white;
+}
+
+.eg-brand-row {
+    font-family: var(--eg-serif);
+    font-size: 38px;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    white-space: nowrap;
+}
+
+.eg-brand-icon {
+    color: var(--eg-gold);
+    font-size: 26px;
+    margin-right: 7px;
+}
+
+.eg-brand-caption {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    margin: 8px 0 0 45px;
+}
+
+/* NAVEGACIÓN */
+
+.eg-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: clamp(9px, 1.1vw, 18px);
+}
+
+.eg-nav > a,
+.eg-drop > summary {
+    display: block;
+    padding: 10px 0;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.eg-nav > a:hover,
+.eg-drop > summary:hover,
+.eg-nav .eg-current {
+    color: var(--eg-gold);
+}
+
+.eg-nav .eg-current {
+    border-bottom: 2px solid var(--eg-gold);
+}
+
+.eg-nav-cta {
+    background: var(--eg-gold);
+    color: var(--eg-navy) !important;
+    border-radius: 40px;
+    padding: 12px 19px !important;
+    transition: background 300ms ease;
+}
+
+.eg-nav-cta:hover {
+    background: #E5CBA4;
+}
+
+/* MENÚ DESPLEGABLE */
+
+.eg-drop {
+    position: relative;
+}
+
+.eg-drop > summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.eg-drop > summary::-webkit-details-marker {
+    display: none;
+}
+
+.eg-drop > summary span {
+    color: var(--eg-gold);
+}
+
+.eg-drop-links {
+    position: absolute;
+    top: 100%;
+    left: -12px;
+    width: 234px;
+    padding: 12px;
+    background: #152438;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.eg-drop-links a {
+    display: block;
+    padding: 12px;
+    font-size: 12px;
+    color: white;
+    border-radius: 9px;
+}
+
+.eg-drop-links a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--eg-gold);
+}
+
+/* BOTÓN PARA CELULARES */
+
+.eg-menu-toggle {
+    display: none;
+    width: 45px;
+    height: 45px;
+    padding: 11px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+}
+
+.eg-menu-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    margin: 5px auto;
+    background: white;
+}
+
+/* ==========================================
+   2. PORTADA PRINCIPAL
+   ========================================== */
+
+.eg-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 575px;
+    overflow: hidden;
+    background: var(--eg-navy);
+    color: white;
+}
+
+/* IMAGEN DE FONDO */
+
+.eg-hero-image,
+.eg-hero-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.eg-hero-image {
+    object-fit: cover;
+    object-position: center 48%;
+}
+
+/* SOMBRA AZUL NOCHE SOBRE LA FOTO */
+
+.eg-hero-overlay {
+    background: linear-gradient(
+        90deg,
+        rgba(11, 19, 32, 0.98) 0%,
+        rgba(11, 19, 32, 0.92) 31%,
+        rgba(11, 19, 32, 0.55) 58%,
+        rgba(11, 19, 32, 0.05) 100%
+    );
+}
+
+/* CONTENIDO DE LA PORTADA */
+
+.eg-hero-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 95px 0;
+}
+
+.eg-hero-content {
+    max-width: 620px;
+}
+
+.eg-eyebrow {
+    margin: 0 0 14px;
+    color: #6B5C46;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.eg-eyebrow-light {
+    color: var(--eg-gold);
+}
+
+.eg-hero h1 {
+    margin: 0 0 22px;
+    font-family: var(--eg-serif);
+    font-size: clamp(52px, 5vw, 83px);
+    font-weight: 600;
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+}
+
+.eg-hero h1 em {
+    color: var(--eg-gold);
+    font-weight: 500;
+}
+
+.eg-hero-content > p:not(.eg-eyebrow) {
+    max-width: 560px;
+    margin-bottom: 24px;
+    color: #E4E6E8;
+    line-height: 1.75;
+}
+
+.eg-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.eg-hero-number {
+    margin-bottom: 10px;
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    white-space: nowrap;
+}
+
+/* BOTONES */
+
+.eg-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 50px;
+    padding: 13px 24px;
+    font-size: 12px;
+    font-weight: 700;
+    border: 1px solid transparent;
+    border-radius: 100px;
+    transition: background 300ms ease,
+                transform 300ms ease;
+}
+
+.eg-button:hover {
+    transform: translateY(-2px);
+}
+
+.eg-button-gold {
+    background: var(--eg-gold);
+    color: var(--eg-navy);
+}
+
+.eg-button-gold:hover {
+    background: #E6CEA9;
+}
+
+.eg-button-ghost {
+    border-color: var(--eg-gold);
+    color: white;
+}
+
+.eg-button-ghost:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================
+   3. SECCIÓN DE GALERÍA
+   ========================================== */
+
+.eg-gallery-section {
+    padding: 95px 0 105px;
+    background: var(--eg-ivory);
+}
+
+.eg-gallery-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 35px;
+    margin-bottom: 42px;
+}
+
+.eg-gallery-heading > div {
+    max-width: 640px;
+}
+
+.eg-gallery-heading h2 {
+    margin: 0;
+    color: var(--eg-navy);
+    font-family: var(--eg-serif);
+    font-size: clamp(43px, 4.3vw, 67px);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.028em;
+}
+
+.eg-gallery-heading h2 em {
+    color: #9A7543;
+}
+
+.eg-gallery-heading > p {
+    max-width: 370px;
+    margin: 0 0 4px;
+    color: var(--eg-gray);
+    font-size: 13px;
+    line-height: 1.85;
+}
+
+/* ==========================================
+   4. FILTROS DE FOTOGRAFÍAS
+   ========================================== */
+
+.eg-filter-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 17px;
+    border-bottom: 1px solid #CFC8BD;
+}
+
+.eg-filter-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.eg-filter {
+    padding: 11px 18px;
+    background: transparent;
+    color: var(--eg-navy);
+    border: 1px solid #C6BDAF;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 600;
+    transition: background 300ms ease,
+                color 300ms ease,
+                border-color 300ms ease;
+}
+
+/* FILTRO SELECCIONADO */
+
+.eg-filter:hover,
+.eg-filter.is-active {
+    background: var(--eg-navy);
+    color: white;
+    border-color: var(--eg-navy);
+}
+
+.eg-count {
+    margin: 0;
+    color: var(--eg-gray);
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+/* ==========================================
+   5. CUADRÍCULA DE IMÁGENES
+   ========================================== */
+
+.eg-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-flow: dense;
+    align-items: stretch;
+    gap: 18px;
+}
+
+/* TARJETAS */
+
+.eg-card {
+    position: relative;
+    min-width: 0;
+    min-height: 290px;
+    overflow: hidden;
+    background: #DDDDDD;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+/* FOTO DESTACADA MÁS GRANDE */
+
+.eg-card-featured {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+/* OCULTAR FOTOS AL USAR LOS FILTROS */
+
+.eg-card[hidden] {
+    display: none !important;
+}
+
+/* BOTÓN DE CADA FOTOGRAFÍA */
+
+.eg-photo-button {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 290px;
+    padding: 0;
+    overflow: hidden;
+    background: transparent;
+    border: none;
+    color: white;
+    text-align: left;
+}
+
+.eg-card-featured .eg-photo-button {
+    min-height: 598px;
+}
+
+/* IMÁGENES */
+
+.eg-photo-button img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 300ms ease;
+}
+
+.eg-photo-button:hover img {
+    transform: scale(1.035);
+}
+
+/* OSCURECER PARTE INFERIOR DE LAS FOTOS */
+
+.eg-card-shade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        0deg,
+        rgba(11, 19, 32, 0.87) 0%,
+        transparent 65%
+    );
+}
+
+/* TÍTULOS SOBRE LAS FOTOGRAFÍAS */
+
+.eg-card-caption {
+    position: absolute;
+    bottom: 25px;
+    left: 24px;
+    right: 65px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.eg-card-kicker {
+    color: #F0D4A8;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+}
+
+.eg-card-caption strong {
+    font-family: var(--eg-serif);
+    font-size: clamp(25px, 2.3vw, 35px);
+    font-weight: 600;
+    line-height: 1;
+}
+
+/* ÍCONO PARA AMPLIAR FOTO */
+
+.eg-plus {
+    position: absolute;
+    top: 17px;
+    right: 17px;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    background: rgba(11, 19, 32, 0.67);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    font-size: 19px;
+    transition: background 300ms ease;
+}
+
+.eg-photo-button:hover .eg-plus {
+    background: var(--eg-gold);
+    color: var(--eg-navy);
+}
+
+/* AVISO SOBRE LAS IMÁGENES */
+
+.eg-gallery-note {
+    max-width: 740px;
+    margin: 30px 0 0;
+    color: #596879;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+/* ==========================================
+   6. SECCIÓN PARA CONTACTAR
+   ========================================== */
+
+.eg-band {
+    padding: 80px 0;
+    background: var(--eg-navy);
+    color: white;
+}
+
+.eg-band-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    align-items: center;
+    gap: 80px;
+}
+
+.eg-band h2 {
+    margin: 0;
+    font-family: var(--eg-serif);
+    font-size: clamp(44px, 4.6vw, 70px);
+    font-weight: 600;
+    line-height: 1;
+}
+
+.eg-band h2 em {
+    color: var(--eg-gold);
+    font-weight: 500;
+}
+
+.eg-band-aside p {
+    margin: 0 0 25px;
+    color: #D8DEE5;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* ==========================================
+   7. PIE DE PÁGINA
+   ========================================== */
+
+.eg-footer {
+    padding: 60px 0 25px;
+    background: #080F1A;
+    color: white;
+}
+
+.eg-footer-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px;
+    padding-bottom: 55px;
+}
+
+.eg-footer-brand {
+    font-family: var(--eg-serif);
+    font-size: 43px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.07em;
+}
+
+.eg-footer-brand::first-letter {
+    color: var(--eg-gold);
+}
+
+.eg-footer-top p {
+    color: #BFC7D2;
+    font-size: 13px;
+}
+
+.eg-footer-links {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 14px 20px;
+    max-width: 650px;
+}
+
+.eg-footer-links a {
+    color: #E0E3E8;
+    font-size: 12px;
+}
+
+.eg-footer-links a:hover {
+    color: var(--eg-gold);
+}
+
+.eg-footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    color: #BFC7D2;
+    font-size: 11px;
+}
+
+.eg-footer-bottom a:hover {
+    color: var(--eg-gold);
+}
+
+/* ==========================================
+   8. VISOR DE FOTOGRAFÍAS
+   ========================================== */
+
+.eg-lightbox {
+    max-width: min(1000px, 94vw);
+    max-height: 92vh;
+    padding: 0;
+    overflow: auto;
+    background: var(--eg-navy);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 16px;
+    box-shadow: 0 25px 85px rgba(0, 0, 0, 0.6);
+}
+
+/* FONDO OSCURO DETRÁS DEL VISOR */
+
+.eg-lightbox::backdrop {
+    background: rgba(3, 8, 16, 0.9);
+}
+
+/* IMAGEN AMPLIADA */
+
+.eg-lightbox-body > img {
+    width: min(1000px, 92vw);
+    max-height: 70vh;
+    object-fit: contain;
+    background: #101C2B;
+}
+
+/* BOTÓN CERRAR */
+
+.eg-lightbox-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 10;
+    width: 44px;
+    height: 44px;
+    background: rgba(11, 19, 32, 0.86);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+}
+
+/* INFORMACIÓN DE LA FOTO */
+
+.eg-lightbox-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 18px 25px 22px;
+}
+
+.eg-lightbox-footer span {
+    color: var(--eg-gold);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+}
+
+.eg-lightbox-footer h2 {
+    margin: 5px 0 0;
+    font-family: var(--eg-serif);
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+/* BOTONES ANTERIOR Y SIGUIENTE */
+
+.eg-lightbox-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    white-space: nowrap;
+}
+
+.eg-lightbox-controls button {
+    width: 38px;
+    height: 38px;
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+}
+
+.eg-lightbox-controls button:hover {
+    background: var(--eg-gold);
+    color: var(--eg-navy);
+}
+
+/* ==========================================
+   9. BOTÓN FLOTANTE DE WHATSAPP
+   ========================================== */
+
+.eg-whatsapp {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 600;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 13px 18px;
+    background: #1E785D;
+    color: white;
+    border: none;
+    border-radius: 80px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.eg-whatsapp:hover {
+    background: #16583F;
+}
+
+.eg-whatsapp span:first-child {
+    font-size: 21px;
+    line-height: 1;
+}
+
+/* MENSAJE INFORMATIVO */
+
+.eg-toast {
+    position: fixed;
+    right: 20px;
+    bottom: 76px;
+    z-index: 900;
+    max-width: 350px;
+    padding: 14px 17px;
+    background: var(--eg-navy);
+    color: white;
+    border-left: 3px solid var(--eg-gold);
+    border-radius: 10px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    font-size: 12px;
+}
+
+.eg-toast[hidden] {
+    display: none;
+}
+
+/* ==========================================
+   10. DISEÑO PARA TABLETS
+   ========================================== */
+
+@media (max-width: 1160px) {
+
+    .eg-header-inner {
+        min-height: 78px;
+    }
+
+    .eg-menu-toggle {
+        display: block;
+    }
+
+    .eg-nav {
+        display: none;
+        position: fixed;
+        top: 78px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 22px 5% 65px;
+        overflow-y: auto;
+        background: var(--eg-navy);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+    }
+
+    .eg-nav.is-open {
+        display: flex;
+    }
+
+    .eg-nav > a,
+    .eg-drop > summary {
+        padding: 14px 7px;
+        font-size: 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .eg-drop-links {
+        position: static;
+        width: auto;
+        background: #152438;
+        border: none;
+        box-shadow: none;
+    }
+
+    .eg-drop-links a {
+        padding: 13px;
+        font-size: 14px;
+    }
+
+    .eg-nav-cta {
+        align-self: stretch;
+        margin-top: 17px;
+        text-align: center;
+    }
+
+    .eg-gallery-heading {
+        gap: 20px;
+    }
+
+}
+
+/* PANTALLAS MEDIANAS */
+
+@media (max-width: 850px) {
+
+    .eg-hero {
+        min-height: 530px;
+    }
+
+    .eg-hero-inner {
+        padding: 75px 0;
+    }
+
+    .eg-hero-overlay {
+        background: linear-gradient(
+            90deg,
+            rgba(11, 19, 32, 0.97),
+            rgba(11, 19, 32, 0.48)
+        );
+    }
+
+    .eg-gallery-heading {
+        display: block;
+    }
+
+    .eg-gallery-heading > p {
+        margin-top: 20px;
+    }
+
+    .eg-gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .eg-card-featured {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+
+    .eg-card-featured .eg-photo-button {
+        min-height: 365px;
+    }
+
+    .eg-band-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .eg-footer-top {
+        display: block;
+    }
+
+    .eg-footer-links {
+        justify-content: flex-start;
+        margin-top: 30px;
+    }
+
+}
+
+/* ==========================================
+   11. DISEÑO PARA CELULARES
+   ========================================== */
+
+@media (max-width: 600px) {
+
+    .eg-brand-row {
+        font-size: 33px;
+    }
+
+    .eg-brand-caption {
+        font-size: 8px;
+    }
+
+    .eg-hero {
+        min-height: 600px;
+    }
+
+    .eg-hero-inner {
+        display: block;
+        padding: 62px 0 56px;
+    }
+
+    .eg-hero h1 {
+        font-size: clamp(50px, 11vw, 65px);
+    }
+
+    .eg-hero-number {
+        display: block;
+        margin-top: 34px;
+    }
+
+    .eg-hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .eg-hero-actions .eg-button {
+        width: 100%;
+    }
+
+    .eg-gallery-section {
+        padding: 65px 0;
+    }
+
+    .eg-gallery-heading h2 {
+        font-size: 49px;
+    }
+
+    .eg-filter-list {
+        gap: 7px;
+    }
+
+    .eg-filter {
+        padding: 10px 14px;
+        font-size: 11px;
+    }
+
+    .eg-gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .eg-card,
+    .eg-photo-button,
+    .eg-card-featured .eg-photo-button {
+        min-height: 345px;
+    }
+
+    .eg-card-featured {
+        grid-column: span 1;
+    }
+
+    .eg-card-caption strong {
+        font-size: 31px;
+    }
+
+    .eg-band {
+        padding: 65px 0;
+    }
+
+    .eg-footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .eg-lightbox-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .eg-lightbox-body > img {
+        width: 92vw;
+        max-height: 58vh;
+    }
+
+    .eg-whatsapp span:last-child {
+        display: none;
+    }
+
+    .eg-whatsapp {
+        padding: 13px;
+        border-radius: 50%;
+    }
+
+}
+
+/* RESPETAR PREFERENCIAS DE MOVIMIENTO */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+
+}
+
+/* ==========================================
+   WHATSAPP FLOTANTE - ÉVORA
+   ========================================== */
+
+/* OCULTAR EL BOTÓN ANTIGUO */
+
+#egWhatsapp,
+.wa-float {
+    display: none !important;
+}
+
+/* NUEVA BURBUJA */
+
+.eg-wa-bubble {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 9999;
+
+    width: 62px;
+    height: 62px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #25D366;
+    color: white;
+
+    border: 2px solid white;
+    border-radius: 50%;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+
+    text-decoration: none;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+
+    animation: eg-wa-flotar 4s ease-in-out infinite;
+}
+
+/* LOGO BLANCO */
+
+.eg-wa-bubble svg {
+    width: 35px;
+    height: 35px;
+    display: block;
+}
+
+/* AL PASAR EL MOUSE */
+
+.eg-wa-bubble:hover {
+    background: #1DB954;
+    transform: scale(1.12);
+
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* MOVIMIENTO SUAVE */
+
+@keyframes eg-wa-flotar {
+
+    0%, 100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -5px;
+    }
+
+}
+
+/* EFECTO AL SELECCIONAR CON TECLADO */
+
+.eg-wa-bubble:focus-visible {
+    outline: 3px solid #D4B483;
+    outline-offset: 5px;
+}
+
+/* CELULARES */
+
+@media (max-width: 600px) {
+
+    .eg-wa-bubble {
+        width: 55px;
+        height: 55px;
+        right: 16px;
+        bottom: 16px;
+    }
+
+    .eg-wa-bubble svg {
+        width: 31px;
+        height: 31px;
+    }
+
+}
+
+/* ACCESIBILIDAD */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .eg-wa-bubble {
+        animation: none;
+        transition: none;
+    }
+
+}
+
+/* BURBUJA FLOTANTE DE WHATSAPP */
+
+.eg-wa-bubble {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 9999;
+
+    width: 62px;
+    height: 62px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #25D366;
+    color: white;
+    border-radius: 50%;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+
+    animation: flotarWhatsapp 3s ease-in-out infinite;
+}
+
+/* MOVIMIENTO DE ARRIBA HACIA ABAJO */
+
+@keyframes flotarWhatsapp {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* EFECTO AL PASAR EL MOUSE */
+
+.eg-wa-bubble:hover {
+    animation-play-state: paused;
+    transform: scale(1.1);
+}
