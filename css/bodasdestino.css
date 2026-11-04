@@ -11,12 +11,14 @@ html {
 body {
     background: #f8f5f0;
     color: #292421;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 a {
     text-decoration: none;
 }
+
+/* ENCABEZADO */
 
 .destino-header {
     min-height: 85px;
@@ -46,16 +48,12 @@ a {
     transition: .3s;
 }
 
-.destino-header nav a:hover {
+.destino-header nav a:hover,
+.destino-header nav a.activo {
     color: #a87972;
 }
 
-.header-button {
-    padding: 14px 20px;
-    background: #9c716d;
-    color: white;
-    font-size: 10px;
-}
+/* PORTADA */
 
 .destino-hero {
     min-height: 610px;
@@ -115,6 +113,7 @@ a {
     border: 1px solid white;
     color: white;
     font-size: 11px;
+    letter-spacing: 1px;
     transition: .3s;
 }
 
@@ -131,6 +130,8 @@ a {
     font-size: 10px;
     letter-spacing: 3px;
 }
+
+/* INTRODUCCIÓN */
 
 .destination-intro {
     padding: 110px 12%;
@@ -167,6 +168,8 @@ a {
     color: #77706a;
     margin-bottom: 18px;
 }
+
+/* DESTINOS */
 
 .destinations-section {
     background: #eee7df;
@@ -257,6 +260,8 @@ a {
     font-size: 10px;
 }
 
+/* SERVICIOS */
+
 .services-section {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -322,12 +327,15 @@ a {
     background: #292421;
     color: white;
     font-size: 10px;
+    letter-spacing: 1px;
     transition: .3s;
 }
 
 .dark-button:hover {
     background: #9c716d;
 }
+
+/* PROCESO */
 
 .process-section {
     padding: 110px 9%;
@@ -361,6 +369,8 @@ a {
     font-size: 11px;
     line-height: 1.9;
 }
+
+/* GALERÍA */
 
 .inspiration-section {
     padding: 100px 8%;
@@ -408,6 +418,8 @@ a {
     font-size: 10px;
 }
 
+/* VISOR DE IMÁGENES */
+
 .visor-imagen {
     position: fixed;
     inset: 0;
@@ -440,6 +452,8 @@ a {
 .cerrar-visor:hover {
     color: #d9b5a9;
 }
+
+/* CIERRE */
 
 .destination-cta {
     padding: 110px 20px;
@@ -478,6 +492,7 @@ a {
     background: #fffdfa;
     color: #76534f;
     font-size: 11px;
+    letter-spacing: 1px;
     transition: .3s;
 }
 
@@ -485,6 +500,8 @@ a {
     background: #292421;
     color: white;
 }
+
+/* PIE DE PÁGINA */
 
 .destino-footer {
     background: #292421;
@@ -512,6 +529,8 @@ a {
     color: white;
 }
 
+/* ANIMACIONES */
+
 .revelar {
     opacity: 0;
     transform: translateY(30px);
@@ -522,6 +541,8 @@ a {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* RESPONSIVE */
 
 @media (max-width: 900px) {
     .destino-header {
@@ -561,6 +582,10 @@ a {
 
     .destino-header nav {
         gap: 17px;
+    }
+
+    .header-button {
+        padding: 12px;
     }
 
     .destino-hero {
@@ -654,6 +679,8 @@ a {
         right: 15px;
     }
 }
+
+/* RESPETAR PREFERENCIAS DE MOVIMIENTO */
 
 @media (prefers-reduced-motion: reduce) {
     html {

@@ -1,12 +1,14 @@
+
 document.addEventListener("DOMContentLoaded", function () {
 
-    // ANIMACIONES AL DESPLAZARSE
+    // 1. ANIMACIONES AL DESPLAZARSE
     const elementos = document.querySelectorAll(
         ".destination-intro, .destination-card, " +
         ".services-content, .process-card, " +
         ".inspiration-heading, .gallery, .destination-cta"
     );
 
+    // Comprobar si el navegador permite animaciones
     const movimientoReducido = window.matchMedia(
         "(prefers-reduced-motion: reduce)"
     ).matches;
@@ -42,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    // GALERÍA: AMPLIAR FOTOGRAFÍAS
+    // 2. GALERÍA: AMPLIAR FOTOGRAFÍAS
     const imagenes = document.querySelectorAll(".gallery img");
 
     imagenes.forEach(function (imagen) {
@@ -66,22 +68,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
             document.body.appendChild(visor);
 
-            function cerrarVisor() {
+            // Cerrar con el botón
+            cerrar.addEventListener("click", function () {
                 visor.remove();
-                document.removeEventListener("keydown", cerrarConEscape);
-            }
+            });
 
-            cerrar.addEventListener("click", cerrarVisor);
-
+            // Cerrar al hacer clic fuera de la imagen
             visor.addEventListener("click", function (event) {
                 if (event.target === visor) {
-                    cerrarVisor();
+                    visor.remove();
                 }
             });
 
+            // Cerrar con la tecla Escape
             function cerrarConEscape(event) {
                 if (event.key === "Escape") {
-                    cerrarVisor();
+                    visor.remove();
+                    document.removeEventListener(
+                        "keydown",
+                        cerrarConEscape
+                    );
                 }
             }
 
@@ -92,7 +98,27 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    // EFECTO EN LAS TARJETAS
+    // 3. MARCAR EL ENLACE ACTIVO DEL MENÚ
+    const enlaces = document.querySelectorAll(
+        '.destino-header nav a[href^="#"]'
+    );
+
+    enlaces.forEach(function (enlace) {
+
+        enlace.addEventListener("click", function () {
+
+            enlaces.forEach(function (item) {
+                item.classList.remove("activo");
+            });
+
+            enlace.classList.add("activo");
+
+        });
+
+    });
+
+
+    // 4. EFECTO EN LAS TARJETAS
     const tarjetas = document.querySelectorAll(".destination-card");
 
     tarjetas.forEach(function (tarjeta) {
@@ -108,7 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    // AÑO AUTOMÁTICO EN EL PIE DE PÁGINA
+    // 5. ACTUALIZAR EL AÑO DEL PIE DE PÁGINA
     const pie = document.querySelector(".destino-footer span");
 
     if (pie) {
