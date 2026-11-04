@@ -1,0 +1,180 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f8f5f0;
+    color: #292421;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 8%;
+    background: #fffdfa;
+}
+
+.logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    letter-spacing: 5px;
+    color: #292421;
+    text-decoration: none;
+}
+
+.volver {
+    color: #9c716d;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.contenedor {
+    max-width: 850px;
+    margin: 55px auto;
+    padding: 0 20px;
+}
+
+.presentacion {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.presentacion span {
+    color: #b48781;
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+.presentacion h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    margin: 12px 0;
+}
+
+.presentacion p {
+    color: #77706a;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+form {
+    background: #fffdfa;
+    padding: 45px;
+    border-radius: 12px;
+    box-shadow: 0 10px 35px rgba(50, 35, 30, 0.07);
+}
+
+form h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 27px;
+    margin: 10px 0 25px;
+    color: #9c716d;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 22px;
+    flex: 1;
+}
+
+.fila {
+    display: flex;
+    gap: 20px;
+}
+
+label {
+    font-size: 12px;
+    margin-bottom: 9px;
+    font-weight: 600;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #e5ddd6;
+    border-radius: 5px;
+    background: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    outline: none;
+}
+
+input:focus, textarea:focus {
+    border-color: #c79d98;
+}
+
+input[readonly] {
+    background: #f8f1ed;
+    color: #9c716d;
+    font-weight: 600;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.nota {
+    font-size: 11px;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+button {
+    width: 100%;
+    padding: 17px;
+    background: #9c716d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #76534f;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+#respuesta {
+    margin-top: 18px;
+    text-align: center;
+    font-size: 13px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #888;
+    font-size: 11px;
+}
+
+@media (max-width: 600px) {
+    .fila {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    form {
+        padding: 25px 20px;
+    }
+
+    .presentacion h1 {
+        font-size: 38px;
+    }
+
+    .encabezado {
+        padding: 20px;
+    }
+}
